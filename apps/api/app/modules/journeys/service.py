@@ -2,6 +2,7 @@
 
 from typing import Any
 
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session as DbSession
 
 from app.core.errors import AppError, context_stale, not_found, validation_error
@@ -13,6 +14,7 @@ from app.db.models import JourneyStep as StepRow
 from app.knowledge.repository import Knowledge
 from app.modules.discovery.schemas import AgentStep
 from app.modules.journeys import schemas
+from app.modules.journeys.personalization import not_needed, step_tailoring
 from app.modules.journeys.planner import (
     PlanResult,
     generate_plan,
@@ -22,6 +24,7 @@ from app.modules.journeys.planner import (
 )
 from app.modules.services import registry
 from app.modules.sessions.service import new_id, profile_of
+from app.opendata import navigation
 
 
 def get_owned_journey(db: DbSession, session: GuestSession, journey_id: str) -> JourneyRow:
@@ -148,8 +151,29 @@ def create_journey(
     db.add(journey)
     for position, planned in enumerate(result.steps):
         journey.steps.append(_new_row(result, planned, position))
+    first_search = db.scalar(
+        select(func.min(Discovery.created_at)).where(Discovery.session_id == session.id)
+    )
+    navigation.record(
+        db,
+        kind="plan",
+        status="planned",
+        topic=discovery.life_event_id,
+        locale=session.locale,
+        results=len(result.steps),
+        seconds=_seconds_since(first_search, now),
+    )
     db.commit()
     return journey
+
+
+def _seconds_since(start: Any, end: Any) -> int | None:
+    """Time from the session's first search to this plan (the challenge's discovery-time KPI)."""
+    if start is None:
+        return None
+    if start.tzinfo is None and end.tzinfo is not None:
+        start = start.replace(tzinfo=end.tzinfo)
+    return max(0, int((end - start).total_seconds()))
 
 
 def render_journey(
@@ -175,6 +199,7 @@ def render_journey(
             )
         )
 
+    profile = journey.profile_snapshot or {}
     steps: list[schemas.JourneyStep] = []
     for row in journey.steps:
         record = registry.resolve(db, kb, session.id, row.service_id)
@@ -213,6 +238,7 @@ def render_journey(
             notes.append(t(locale, "step_note_review_needed"))
         if card.relevance == "criterion_mismatch":
             notes.append(t(locale, "step_note_mismatch"))
+        tailored_by, tailored_note = step_tailoring(kb, row.service_id, profile, locale)
         steps.append(
             schemas.JourneyStep(
                 id=row.id,
@@ -241,11 +267,13 @@ def render_journey(
                 availability=availability,  # type: ignore[arg-type]
                 blocker_step_ids=blockers,
                 notes=notes,
+                tailored_by=tailored_by,  # type: ignore[arg-type]
+                tailored_note=tailored_note,
             )
         )
 
     stale = is_stale(journey, session)
-    notices = [t(locale, "journey_progress_user_reported"), t(locale, "notice_ai_plan")]
+    notices = [t(locale, "journey_progress_user_reported")]
     if stale:
         notices.insert(0, t(locale, "journey_stale"))
     for notice in plan.get("notices", []):
@@ -269,6 +297,19 @@ def render_journey(
         ],
         steps=steps,
         dependencies=dependencies,
+        personalization=[
+            schemas.PersonalizationEffect(
+                field=field,  # type: ignore[arg-type]
+                value=str(value).lower() if isinstance(value, bool) else str(value),
+                step_ids=[st.id for st in steps if field in st.tailored_by],
+            )
+            for field, value in profile.items()
+            if value is not None
+        ],
+        skipped=[
+            schemas.SkippedService(**item)
+            for item in not_needed(kb, {row.service_id for row in journey.steps}, profile, locale)
+        ],
         notices=notices,
         agent_steps=[AgentStep(**s) for s in plan.get("agent_steps", [])],
         created_at=journey.created_at,

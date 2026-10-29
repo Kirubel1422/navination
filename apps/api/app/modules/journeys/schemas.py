@@ -5,6 +5,7 @@ from pydantic import Field, StringConstraints, model_validator
 from app.core.schemas import RequestModel, ResponseModel, UtcDateTime
 from app.modules.discovery.schemas import AgentStep
 from app.modules.services.schemas import ServiceCard
+from app.modules.sessions.schemas import ProfileField
 
 IdText = Annotated[str, StringConstraints(min_length=1, max_length=80)]
 Progress = Literal["not_started", "in_progress", "completed"]
@@ -52,6 +53,27 @@ class JourneyStep(ResponseModel):
     availability: Literal["ready", "blocked", "review_needed"]
     blocker_step_ids: list[str]
     notes: list[str]
+    tailored_by: list[ProfileField] = Field(
+        description="Profile answers that shaped this step (from the reviewed catalog)"
+    )
+    tailored_note: str | None = Field(description="Catalog guidance for the person's answer")
+
+
+class PersonalizationEffect(ResponseModel):
+    """One profile answer and the steps it shaped."""
+
+    field: ProfileField
+    value: str = Field(description="The answer as stored, e.g. 'umm_al_quwain', 'resident', 'true'")
+    step_ids: list[str]
+
+
+class SkippedService(ResponseModel):
+    """A service of this life event that the person's answers rule out."""
+
+    service_id: str
+    title: str
+    reason: str
+    field: ProfileField
 
 
 class Journey(ResponseModel):
@@ -63,6 +85,8 @@ class Journey(ResponseModel):
     stages: list[Stage]
     steps: list[JourneyStep]
     dependencies: list[Dependency]
+    personalization: list[PersonalizationEffect]
+    skipped: list[SkippedService]
     notices: list[str]
     agent_steps: list[AgentStep]
     created_at: UtcDateTime
