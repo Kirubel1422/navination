@@ -1,0 +1,16 @@
+{
+  "status": 409,
+  "body": {
+    "error": {
+      "code": "PREREQUISITES_INCOMPLETE",
+      "message": "Complete the required earlier steps before marking this one completed.",
+      "details": [
+        {
+          "field": "progress",
+          "message": "Blocked by step stp_vAuj5t3gAL-u7bW0"
+        }
+      ],
+      "request_id": "req_4176427998f8c843"
+    }
+  }
+}

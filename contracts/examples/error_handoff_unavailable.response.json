@@ -1,0 +1,11 @@
+{
+  "status": 409,
+  "body": {
+    "error": {
+      "code": "HANDOFF_UNAVAILABLE",
+      "message": "We don't have a verified destination for this step. Contact the responsible entity directly.",
+      "details": [],
+      "request_id": "req_25a1028b895374e0"
+    }
+  }
+}

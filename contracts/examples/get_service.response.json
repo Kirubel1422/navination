@@ -1,0 +1,70 @@
+{
+  "status": 200,
+  "body": {
+    "service": {
+      "id": "mohesr-degree-recognition",
+      "life_event_ids": [
+        "education_qualification"
+      ],
+      "title": "Get a university qualification from abroad recognised",
+      "summary": "MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government services.",
+      "entity": "Ministry of Higher Education and Scientific Research (MoHESR)",
+      "jurisdiction": "Federal (all emirates)",
+      "eligibility_criteria": [
+        {
+          "id": "mohesr-degree-recognition.c1",
+          "text": "The qualification is from an accredited institution outside the UAE.",
+          "source_ids": [
+            "src-uae-higher-ed-recognition"
+          ]
+        },
+        {
+          "id": "mohesr-degree-recognition.c2",
+          "text": "Qualifications from licensed institutions inside the UAE use a separate MoHESR service.",
+          "source_ids": [
+            "src-uae-higher-ed-recognition"
+          ]
+        }
+      ],
+      "documents": [],
+      "fee_text": null,
+      "processing_time_text": null,
+      "official_url": "https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx",
+      "support_url": "https://u.ae/en/information-and-services/education/higher-education/student-admission-and-qualification-recognition",
+      "sources": [
+        {
+          "id": "src-uae-higher-ed-recognition",
+          "title": "Student admission and qualification recognition",
+          "url": "https://u.ae/en/information-and-services/education/higher-education/student-admission-and-qualification-recognition",
+          "publisher": "The UAE Government portal (u.ae)",
+          "checked_at": "2026-10-28T19:38:00Z",
+          "source_updated_at": "2026-10-22",
+          "verification_status": "verified"
+        },
+        {
+          "id": "src-mohesr-recognition-card",
+          "title": "Recognition of university certificates issued from outside the UAE",
+          "url": "https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx",
+          "publisher": "Ministry of Higher Education and Scientific Research",
+          "checked_at": "2026-10-28T19:40:00Z",
+          "source_updated_at": null,
+          "verification_status": "verified"
+        }
+      ],
+      "verification_status": "verified",
+      "origin": "catalog"
+    },
+    "relevance": "potentially_relevant",
+    "reasons": [
+      {
+        "text": "Your profile matches: The qualification is from an accredited institution outside the UAE.",
+        "source_ids": [
+          "src-uae-higher-ed-recognition"
+        ]
+      }
+    ],
+    "missing_profile_fields": [],
+    "readiness": "ready",
+    "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "discovery_id": "dis_yNjLKNNF4XykRSjz",
+  "service_ids": [
+    "mohesr-degree-recognition",
+    "mofa-attestation-abroad",
+    "degree-verification-partner"
+  ]
+}

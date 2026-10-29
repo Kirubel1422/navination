@@ -1,0 +1,438 @@
+{
+  "status": 200,
+  "body": {
+    "id": "jrn_TkXIinbMQZq7Qdmt",
+    "title": "Plan: Get an overseas university degree recognised",
+    "life_event_id": "education_qualification",
+    "context_revision": 1,
+    "is_stale": false,
+    "stages": [
+      {
+        "order_group": 0,
+        "title": "Get ready",
+        "description": "Set up what later steps need."
+      },
+      {
+        "order_group": 1,
+        "title": "Main applications",
+        "description": "Apply once the earlier steps are done."
+      },
+      {
+        "order_group": 2,
+        "title": "Then",
+        "description": "Steps that must wait for earlier ones under a verified rule."
+      }
+    ],
+    "steps": [
+      {
+        "id": "stp_mYp7d0rPKY1kNLng",
+        "title": "Verify your degree through an authorised verification partner",
+        "instructions": "Prepare and apply: News reporting says MoHESR appointed authorised partners to verify foreign degrees before you apply for recognition. We have not confirmed this on an official MoHESR page, so treat it as something to check.",
+        "checklist": [],
+        "service_card": {
+          "service": {
+            "id": "degree-verification-partner",
+            "life_event_ids": [
+              "education_qualification"
+            ],
+            "title": "Verify your degree through an authorised verification partner",
+            "summary": "News reporting says MoHESR appointed authorised partners to verify foreign degrees before you apply for recognition. We have not confirmed this on an official MoHESR page, so treat it as something to check.",
+            "entity": "MoHESR-authorised verification partners (reported: Dataflow, QuadraBay)",
+            "jurisdiction": "Federal (all emirates)",
+            "eligibility_criteria": [
+              {
+                "id": "degree-verification-partner.c1",
+                "text": "Reported to apply to qualifications issued outside the UAE that need MoHESR recognition.",
+                "source_ids": [
+                  "src-gulfnews-degree-policy"
+                ]
+              }
+            ],
+            "documents": [],
+            "fee_text": null,
+            "processing_time_text": null,
+            "official_url": null,
+            "support_url": null,
+            "sources": [
+              {
+                "id": "src-gulfnews-degree-policy",
+                "title": "UAE issues new policy on recognition of foreign university degrees (news report)",
+                "url": "https://gulfnews.com/uae/education/uae-issues-new-policy-on-recognition-of-foreign-university-degrees-1.500055926",
+                "publisher": "Gulf News (not an official source)",
+                "checked_at": null,
+                "source_updated_at": null,
+                "verification_status": "needs_review"
+              }
+            ],
+            "verification_status": "needs_review",
+            "origin": "catalog"
+          },
+          "relevance": "potentially_relevant",
+          "reasons": [
+            {
+              "text": "Your profile matches: Reported to apply to qualifications issued outside the UAE that need MoHESR recognition.",
+              "source_ids": [
+                "src-gulfnews-degree-policy"
+              ]
+            },
+            {
+              "text": "This record is not confirmed on an official page yet. Check with the entity before relying on it.",
+              "source_ids": [
+                "src-gulfnews-degree-policy"
+              ]
+            }
+          ],
+          "missing_profile_fields": [],
+          "readiness": "ready",
+          "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+        },
+        "order_group": 0,
+        "prerequisite_step_ids": [],
+        "document_progress": [],
+        "progress": "not_started",
+        "availability": "review_needed",
+        "blocker_step_ids": [],
+        "notes": [
+          "This step is not confirmed on an official page. Check it with an adviser or the entity."
+        ]
+      },
+      {
+        "id": "stp_vAuj5t3gAL-u7bW0",
+        "title": "Set up UAE PASS to sign in to online services",
+        "instructions": "UAE PASS is the sign-in used by federal online services. MoFA's online attestation application and ICP's smart services both state that you sign in with UAE PASS.",
+        "checklist": [],
+        "service_card": {
+          "service": {
+            "id": "uae-pass-account",
+            "life_event_ids": [
+              "education_qualification"
+            ],
+            "title": "Set up UAE PASS to sign in to online services",
+            "summary": "UAE PASS is the sign-in used by federal online services. MoFA's online attestation application and ICP's smart services both state that you sign in with UAE PASS.",
+            "entity": "UAE PASS (national digital identity)",
+            "jurisdiction": "Federal (all emirates)",
+            "eligibility_criteria": [
+              {
+                "id": "uae-pass-account.c1",
+                "text": "MoFA's online attestation for documents issued outside the UAE requires signing in with UAE PASS.",
+                "source_ids": [
+                  "src-mofa-attestation"
+                ]
+              }
+            ],
+            "documents": [],
+            "fee_text": null,
+            "processing_time_text": null,
+            "official_url": "https://uaepass.ae/",
+            "support_url": null,
+            "sources": [
+              {
+                "id": "src-mofa-attestation",
+                "title": "Attestation of documents and certificates",
+                "url": "https://www.mofa.gov.ae/en/services/attestation",
+                "publisher": "UAE Ministry of Foreign Affairs",
+                "checked_at": "2026-10-28T19:41:00Z",
+                "source_updated_at": null,
+                "verification_status": "verified"
+              },
+              {
+                "id": "src-icp-residency-permit",
+                "title": "Issuing Residency Permit",
+                "url": "https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+                "publisher": "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP)",
+                "checked_at": "2026-10-28T19:46:00Z",
+                "source_updated_at": null,
+                "verification_status": "verified"
+              }
+            ],
+            "verification_status": "verified",
+            "origin": "catalog"
+          },
+          "relevance": "potentially_relevant",
+          "reasons": [
+            {
+              "text": "MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies.",
+              "source_ids": [
+                "src-mofa-attestation"
+              ]
+            }
+          ],
+          "missing_profile_fields": [],
+          "readiness": "ready",
+          "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision."
+        },
+        "order_group": 0,
+        "prerequisite_step_ids": [],
+        "document_progress": [],
+        "progress": "completed",
+        "availability": "ready",
+        "blocker_step_ids": [],
+        "notes": []
+      },
+      {
+        "id": "stp_pR29TZ-IH_E4Lh-S",
+        "title": "Attest a document issued outside the UAE",
+        "instructions": "Prepare and apply: The Ministry of Foreign Affairs attests documents issued abroad through UAE missions in the country of issue. You apply online with UAE PASS where the mission offers it, or visit the mission in person.",
+        "checklist": [
+          {
+            "id": "mofa-attestation-abroad.c1",
+            "text": "The original document (for example, your degree certificate). Mission courier services collect the original.",
+            "source_ids": [
+              "src-mofa-rabat-attestation"
+            ],
+            "ai_generated": true
+          },
+          {
+            "id": "mofa-attestation-abroad.c2",
+            "text": "Proof that the issuing country's foreign office attested the document, where your mission requires it.",
+            "source_ids": [
+              "src-mofa-rabat-attestation"
+            ],
+            "ai_generated": true
+          }
+        ],
+        "service_card": {
+          "service": {
+            "id": "mofa-attestation-abroad",
+            "life_event_ids": [
+              "education_qualification"
+            ],
+            "title": "Attest a document issued outside the UAE",
+            "summary": "The Ministry of Foreign Affairs attests documents issued abroad through UAE missions in the country of issue. You apply online with UAE PASS where the mission offers it, or visit the mission in person.",
+            "entity": "Ministry of Foreign Affairs (MoFA) and UAE missions abroad",
+            "jurisdiction": "Federal (all emirates)",
+            "eligibility_criteria": [
+              {
+                "id": "mofa-attestation-abroad.c1",
+                "text": "The document was issued outside the UAE.",
+                "source_ids": [
+                  "src-mofa-attestation"
+                ]
+              },
+              {
+                "id": "mofa-attestation-abroad.c2",
+                "text": "Apply through 'Attestation through UAE Missions Abroad'. The service is available through selected missions; if it is not offered online, visit the UAE mission in person.",
+                "source_ids": [
+                  "src-mofa-attestation"
+                ]
+              },
+              {
+                "id": "mofa-attestation-abroad.c3",
+                "text": "Example from one mission: documents are first attested by the issuing country's foreign office, and documents must be attested by the UAE embassy or consulate in the country where they were issued. Check the mission for your country.",
+                "source_ids": [
+                  "src-mofa-rabat-attestation"
+                ]
+              }
+            ],
+            "documents": [
+              {
+                "id": "mofa-attestation-abroad.d1",
+                "text": "The original document (for example, your degree certificate). Mission courier services collect the original.",
+                "source_ids": [
+                  "src-mofa-rabat-attestation"
+                ]
+              },
+              {
+                "id": "mofa-attestation-abroad.d2",
+                "text": "Proof that the issuing country's foreign office attested the document, where your mission requires it.",
+                "source_ids": [
+                  "src-mofa-rabat-attestation"
+                ]
+              }
+            ],
+            "fee_text": null,
+            "processing_time_text": null,
+            "official_url": "https://www.mofa.gov.ae/en/services/attestation",
+            "support_url": "https://www.mofa.gov.ae/en/contact-us",
+            "sources": [
+              {
+                "id": "src-mofa-attestation",
+                "title": "Attestation of documents and certificates",
+                "url": "https://www.mofa.gov.ae/en/services/attestation",
+                "publisher": "UAE Ministry of Foreign Affairs",
+                "checked_at": "2026-10-28T19:41:00Z",
+                "source_updated_at": null,
+                "verification_status": "verified"
+              },
+              {
+                "id": "src-mofa-rabat-attestation",
+                "title": "UAE Embassy in Rabat: attestation information",
+                "url": "https://www.mofa.gov.ae/en/missions/rabat/services/services-for-individuals/attestation-information",
+                "publisher": "UAE Ministry of Foreign Affairs (mission page)",
+                "checked_at": "2026-10-28T19:46:00Z",
+                "source_updated_at": null,
+                "verification_status": "verified"
+              }
+            ],
+            "verification_status": "verified",
+            "origin": "catalog"
+          },
+          "relevance": "potentially_relevant",
+          "reasons": [
+            {
+              "text": "Your profile matches: The document was issued outside the UAE.",
+              "source_ids": [
+                "src-mofa-attestation"
+              ]
+            }
+          ],
+          "missing_profile_fields": [],
+          "readiness": "prerequisites_needed",
+          "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision."
+        },
+        "order_group": 1,
+        "prerequisite_step_ids": [
+          "stp_vAuj5t3gAL-u7bW0"
+        ],
+        "document_progress": [
+          {
+            "document_id": "mofa-attestation-abroad.c1",
+            "status": "have"
+          },
+          {
+            "document_id": "mofa-attestation-abroad.c2",
+            "status": "missing"
+          }
+        ],
+        "progress": "not_started",
+        "availability": "ready",
+        "blocker_step_ids": [],
+        "notes": [
+          "Requires \"Set up UAE PASS to sign in to online services\" first: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
+        ]
+      },
+      {
+        "id": "stp_fUF1BEHOpFPMV348",
+        "title": "Get a university qualification from abroad recognised",
+        "instructions": "Prepare and apply: MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government services.",
+        "checklist": [],
+        "service_card": {
+          "service": {
+            "id": "mohesr-degree-recognition",
+            "life_event_ids": [
+              "education_qualification"
+            ],
+            "title": "Get a university qualification from abroad recognised",
+            "summary": "MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government services.",
+            "entity": "Ministry of Higher Education and Scientific Research (MoHESR)",
+            "jurisdiction": "Federal (all emirates)",
+            "eligibility_criteria": [
+              {
+                "id": "mohesr-degree-recognition.c1",
+                "text": "The qualification is from an accredited institution outside the UAE.",
+                "source_ids": [
+                  "src-uae-higher-ed-recognition"
+                ]
+              },
+              {
+                "id": "mohesr-degree-recognition.c2",
+                "text": "Qualifications from licensed institutions inside the UAE use a separate MoHESR service.",
+                "source_ids": [
+                  "src-uae-higher-ed-recognition"
+                ]
+              }
+            ],
+            "documents": [],
+            "fee_text": null,
+            "processing_time_text": null,
+            "official_url": "https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx",
+            "support_url": "https://u.ae/en/information-and-services/education/higher-education/student-admission-and-qualification-recognition",
+            "sources": [
+              {
+                "id": "src-uae-higher-ed-recognition",
+                "title": "Student admission and qualification recognition",
+                "url": "https://u.ae/en/information-and-services/education/higher-education/student-admission-and-qualification-recognition",
+                "publisher": "The UAE Government portal (u.ae)",
+                "checked_at": "2026-10-28T19:38:00Z",
+                "source_updated_at": "2026-10-22",
+                "verification_status": "verified"
+              },
+              {
+                "id": "src-mohesr-recognition-card",
+                "title": "Recognition of university certificates issued from outside the UAE",
+                "url": "https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx",
+                "publisher": "Ministry of Higher Education and Scientific Research",
+                "checked_at": "2026-10-28T19:40:00Z",
+                "source_updated_at": null,
+                "verification_status": "verified"
+              }
+            ],
+            "verification_status": "verified",
+            "origin": "catalog"
+          },
+          "relevance": "potentially_relevant",
+          "reasons": [
+            {
+              "text": "Your profile matches: The qualification is from an accredited institution outside the UAE.",
+              "source_ids": [
+                "src-uae-higher-ed-recognition"
+              ]
+            }
+          ],
+          "missing_profile_fields": [],
+          "readiness": "ready",
+          "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+        },
+        "order_group": 2,
+        "prerequisite_step_ids": [
+          "stp_mYp7d0rPKY1kNLng",
+          "stp_pR29TZ-IH_E4Lh-S"
+        ],
+        "document_progress": [],
+        "progress": "not_started",
+        "availability": "ready",
+        "blocker_step_ids": [],
+        "notes": [
+          "Suggested after \"Verify your degree through an authorised verification partner\" (advice only): Do the earlier step first.",
+          "Suggested after \"Attest a document issued outside the UAE\" (advice only): Do the earlier step first."
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "from_step_id": "stp_vAuj5t3gAL-u7bW0",
+        "to_step_id": "stp_pR29TZ-IH_E4Lh-S",
+        "kind": "required",
+        "explanation": "MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies.",
+        "source_ids": [
+          "src-mofa-attestation"
+        ]
+      },
+      {
+        "from_step_id": "stp_mYp7d0rPKY1kNLng",
+        "to_step_id": "stp_fUF1BEHOpFPMV348",
+        "kind": "recommended",
+        "explanation": "Do the earlier step first.",
+        "source_ids": []
+      },
+      {
+        "from_step_id": "stp_pR29TZ-IH_E4Lh-S",
+        "to_step_id": "stp_fUF1BEHOpFPMV348",
+        "kind": "recommended",
+        "explanation": "Do the earlier step first.",
+        "source_ids": []
+      }
+    ],
+    "notices": [
+      "Progress and document checklists are reported by you. They are not proof that an application was submitted or approved.",
+      "This plan was generated by NaviNation's AI agent for your request and profile. Only officially verified rules can block a step.",
+      "Added \"Set up UAE PASS to sign in to online services\" before \"Attest a document issued outside the UAE\" because a verified rule requires it: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
+    ],
+    "agent_steps": [
+      {
+        "tool": "get_catalog_service",
+        "detail": "mohesr-degree-recognition"
+      },
+      {
+        "tool": "get_catalog_service",
+        "detail": "mofa-attestation-abroad"
+      },
+      {
+        "tool": "get_catalog_service",
+        "detail": "degree-verification-partner"
+      }
+    ],
+    "created_at": "2026-10-28T21:51:18.602000Z",
+    "updated_at": "2026-10-28T21:51:18.623000Z"
+  }
+}

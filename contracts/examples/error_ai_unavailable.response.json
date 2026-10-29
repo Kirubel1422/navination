@@ -1,0 +1,16 @@
+{
+  "status": 503,
+  "body": {
+    "error": {
+      "code": "SERVICE_UNAVAILABLE",
+      "message": "The AI assistant is unavailable right now. Nothing was changed; please try again shortly.",
+      "details": [
+        {
+          "field": null,
+          "message": "No AI model is configured on the server (AI_MODEL / AI_API_KEY)."
+        }
+      ],
+      "request_id": "req_95e19fcbe5b34031"
+    }
+  }
+}

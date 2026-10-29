@@ -1,0 +1,11 @@
+{
+  "status": 409,
+  "body": {
+    "error": {
+      "code": "CONTEXT_STALE",
+      "message": "Your profile changed after this plan was made. Update the plan before continuing.",
+      "details": [],
+      "request_id": "req_dfb083ded2defc34"
+    }
+  }
+}

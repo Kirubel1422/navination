@@ -1,0 +1,11 @@
+{
+  "status": 401,
+  "body": {
+    "error": {
+      "code": "UNAUTHORIZED",
+      "message": "A valid guest session is required.",
+      "details": [],
+      "request_id": "req_3fc5859516a98699"
+    }
+  }
+}

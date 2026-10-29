@@ -1,0 +1,50 @@
+{
+  "status": 200,
+  "body": {
+    "user_message": {
+      "id": "msg_Tx8Kd4Szax6e11SY",
+      "role": "user",
+      "content": "What documents do I need for this step?",
+      "step_id": "stp_pR29TZ-IH_E4Lh-S",
+      "citations": [],
+      "created_at": "2026-10-28T21:51:18.640000Z"
+    },
+    "assistant_message": {
+      "id": "msg_AH5Tv5ZAZ8Cd3cnV",
+      "role": "assistant",
+      "content": "Preparation checklist:\n- The original document (for example, your degree certificate). Mission courier services collect the original. (have)\n- Proof that the issuing country's foreign office attested the document, where your mission requires it. (missing)",
+      "step_id": "stp_pR29TZ-IH_E4Lh-S",
+      "citations": [
+        {
+          "id": "src-mofa-attestation",
+          "title": "Attestation of documents and certificates",
+          "url": "https://www.mofa.gov.ae/en/services/attestation",
+          "publisher": "UAE Ministry of Foreign Affairs",
+          "checked_at": "2026-10-28T19:41:00Z",
+          "source_updated_at": null,
+          "verification_status": "verified"
+        },
+        {
+          "id": "src-mofa-rabat-attestation",
+          "title": "UAE Embassy in Rabat: attestation information",
+          "url": "https://www.mofa.gov.ae/en/missions/rabat/services/services-for-individuals/attestation-information",
+          "publisher": "UAE Ministry of Foreign Affairs (mission page)",
+          "checked_at": "2026-10-28T19:46:00Z",
+          "source_updated_at": null,
+          "verification_status": "verified"
+        }
+      ],
+      "created_at": "2026-10-28T21:51:18.640000Z"
+    },
+    "mode": "ai",
+    "grounding_status": "grounded",
+    "suggested_actions": [],
+    "notices": [],
+    "agent_steps": [
+      {
+        "tool": "get_step",
+        "detail": "stp_pR29TZ-IH_E4Lh-S"
+      }
+    ]
+  }
+}

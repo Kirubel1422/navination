@@ -1,0 +1,12 @@
+{
+  "document_progress": [
+    {
+      "document_id": "mofa-attestation-abroad.c1",
+      "status": "have"
+    },
+    {
+      "document_id": "mofa-attestation-abroad.c2",
+      "status": "missing"
+    }
+  ]
+}

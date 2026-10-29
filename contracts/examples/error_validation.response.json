@@ -1,0 +1,20 @@
+{
+  "status": 422,
+  "body": {
+    "error": {
+      "code": "VALIDATION_ERROR",
+      "message": "The request was not valid.",
+      "details": [
+        {
+          "field": null,
+          "message": "String should have at least 1 character"
+        },
+        {
+          "field": "clarification_answer",
+          "message": "Field required"
+        }
+      ],
+      "request_id": "req_ce192ac8bb06e2d0"
+    }
+  }
+}

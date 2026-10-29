@@ -1,0 +1,18 @@
+{
+  "status": 201,
+  "body": {
+    "session": {
+      "id": "ses_9u0dKaVhqPB_VSfQ",
+      "locale": "en",
+      "expires_at": "2026-10-29T21:51:18.532000Z",
+      "context_revision": 0,
+      "profile": {
+        "emirate": null,
+        "residency_status": null,
+        "life_stage": null,
+        "degree_issued_outside_uae": null
+      }
+    },
+    "access_token": "example-token-not-real"
+  }
+}

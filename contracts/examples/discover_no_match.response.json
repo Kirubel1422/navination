@@ -1,0 +1,24 @@
+{
+  "status": 200,
+  "body": {
+    "id": "dis_sD9Fe7CISO37Snvh",
+    "context_revision": 0,
+    "query": "I want to renew my driving licence",
+    "interpreted_need": "A request NaviNation cannot match to evidence yet",
+    "life_event_id": null,
+    "status": "no_match",
+    "clarification": null,
+    "results": [],
+    "mode": "ai",
+    "notices": [
+      "We could not match this request to the services NaviNation currently covers. We will not guess a service.",
+      "I can help with using an education qualification from abroad or registering a new baby."
+    ],
+    "agent_steps": [
+      {
+        "tool": "list_catalog_services",
+        "detail": "10 reviewed services"
+      }
+    ]
+  }
+}

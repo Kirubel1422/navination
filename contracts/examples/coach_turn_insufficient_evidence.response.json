@@ -1,0 +1,31 @@
+{
+  "status": 200,
+  "body": {
+    "user_message": {
+      "id": "msg_YpetjCOtI33mZ1GF",
+      "role": "user",
+      "content": "Can you recommend a good typing centre near me?",
+      "step_id": "stp_fUF1BEHOpFPMV348",
+      "citations": [],
+      "created_at": "2026-10-28T21:51:18.651000Z"
+    },
+    "assistant_message": {
+      "id": "msg_fBX2rGGdYgInDgzA",
+      "role": "assistant",
+      "content": "I couldn't find that in the available sources, so I won't guess. Please contact the responsible entity.",
+      "step_id": "stp_fUF1BEHOpFPMV348",
+      "citations": [],
+      "created_at": "2026-10-28T21:51:18.651000Z"
+    },
+    "mode": "ai",
+    "grounding_status": "insufficient_evidence",
+    "suggested_actions": [],
+    "notices": [],
+    "agent_steps": [
+      {
+        "tool": "get_step",
+        "detail": "stp_fUF1BEHOpFPMV348"
+      }
+    ]
+  }
+}
