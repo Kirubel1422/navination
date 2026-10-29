@@ -1,0 +1,306 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-readex), "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --font-heading: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  /* NaviNation palette: Gulf water, dune sand, saffron sun. */
+  --color-ink: var(--ink);
+  --color-gulf: var(--gulf);
+  --color-saffron: var(--saffron);
+  --color-saffron-ink: var(--saffron-ink);
+  --color-ghaf: var(--ghaf);
+  --color-mangrove: var(--mangrove);
+  --color-lagoon: var(--lagoon);
+  --color-dusk: var(--dusk);
+  --color-salt: var(--salt);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --salt: #f2f4f3;
+  --ink: #10252d;
+  --gulf: #0e6170;
+  --saffron: #e9a23b;
+  --saffron-ink: #7a4d0c;
+  --ghaf: #9db8b4;
+  --mangrove: #2d7a57;
+  --lagoon: #2a6fb0;
+  --dusk: #6b4fa0;
+
+  --background: var(--salt);
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--gulf);
+  --primary-foreground: #ffffff;
+  --secondary: #e3ecea;
+  --secondary-foreground: var(--ink);
+  --muted: #e9eeec;
+  --muted-foreground: #4b6265;
+  --accent: #fcefd9;
+  --accent-foreground: var(--saffron-ink);
+  --destructive: #b3261e;
+  --border: #d7e1de;
+  --input: #bccdc9;
+  --ring: var(--gulf);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    font-feature-settings: "ss01";
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]) { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--gulf); outline-offset: 3px; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { background: #fbe3b8; color: var(--ink); }
+}
+
+/* Never allow horizontal page scroll on narrow screens. */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* ---------- Type scale (major third, 16px base) ----------
+   Headlines use Readex Pro's width axis expanded; body stays at normal width. */
+.t-display {
+  font-size: clamp(2.35rem, 1.4rem + 4.2vw, 3.8rem);
+  line-height: 1.04;
+  font-weight: 580;
+  font-variation-settings: "HEXP" 38;
+  letter-spacing: -0.025em;
+}
+.t-title {
+  font-size: clamp(1.6rem, 1.25rem + 1.4vw, 2.1rem);
+  line-height: 1.15;
+  font-weight: 560;
+  font-variation-settings: "HEXP" 26;
+  letter-spacing: -0.015em;
+}
+.t-head {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  font-weight: 560;
+  font-variation-settings: "HEXP" 12;
+}
+.t-label {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+/* Arabic letters join: never track them, and give the script a little more height. */
+html[dir="rtl"] :is(.t-display, .t-title, .t-head) { letter-spacing: 0; line-height: 1.3; }
+html[dir="rtl"] body { line-height: 1.75; }
+
+/* ---------- Raster art ---------- */
+.pixel { image-rendering: pixelated; image-rendering: crisp-edges; }
+.sadu-band {
+  height: 16px;
+  background: url("/art/sadu.png") repeat-x 0 0 / 64px 16px;
+  image-rendering: pixelated;
+}
+html[dir="rtl"] .art-flip { transform: scaleX(-1); }
+
+/* ---------- Surfaces ---------- */
+.surface {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+}
+
+/* ---------- Route bar (header workflow) ---------- */
+.route-bar li + li::before {
+  content: "";
+  flex: 1;
+  min-width: 0.75rem;
+  height: 2px;
+  margin-inline: 0.6rem;
+  background: repeating-linear-gradient(to right, var(--ghaf) 0 5px, transparent 5px 9px);
+}
+html[dir="rtl"] .route-bar li + li::before { background: repeating-linear-gradient(to left, var(--ghaf) 0 5px, transparent 5px 9px); }
+.route-bar li[data-state="done"] + li::before,
+.route-bar li[data-state="done"] + li[data-state="current"]::before { background: var(--gulf); }
+
+/* ---------- Discovery results as stops on a route ---------- */
+.stop-list { position: relative; }
+.stop-list > li { position: relative; padding-inline-start: 2.75rem; padding-bottom: 1rem; }
+.stop-list > li:last-child { padding-bottom: 0; }
+.stop-list > li::before {
+  /* the line between stops */
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(0.875rem - 1px);
+  top: 0;
+  bottom: 0;
+  border-inline-start: 2px dashed var(--ghaf);
+}
+.stop-list > li:first-child::before { top: 1.75rem; }
+.stop-list > li:last-child::before { bottom: calc(100% - 1.75rem); }
+.stop-list > li[data-selected="true"]::before { border-inline-start-style: solid; border-color: var(--gulf); }
+.stop-dot {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 1.1rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  background: var(--card);
+  border: 2px solid var(--ghaf);
+  display: grid;
+  place-items: center;
+  z-index: 1;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+[data-selected="true"] > .stop-dot { background: var(--gulf); border-color: var(--gulf); color: #fff; }
+
+.service-result { transition: border-color 160ms ease, box-shadow 160ms ease; }
+.service-result[data-selected="true"] { border-color: var(--gulf); box-shadow: 0 0 0 1px var(--gulf); }
+
+/* ---------- Journey: stages on a transit line ---------- */
+.stage-line { position: relative; }
+.stage-line > li { position: relative; padding-inline-start: 3.25rem; padding-bottom: 2.75rem; }
+.stage-line > li:last-child { padding-bottom: 0; }
+@media (max-width: 639px) {
+  .stage-line > li { padding-inline-start: 2.75rem; }
+  .stage-marker { width: 2rem; height: 2rem; }
+  .stage-line > li::before { inset-inline-start: calc(1rem - 1.5px); }
+}
+.stage-line > li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(1.125rem - 1.5px);
+  top: 2.5rem;
+  bottom: 0.25rem;
+  border-inline-start: 3px dotted var(--ghaf);
+}
+.stage-line > li:last-child::before { display: none; }
+.stage-line > li[data-state="done"]::before { border-inline-start-style: solid; border-color: var(--mangrove); }
+.stage-line > li[data-state="current"]::before {
+  border-inline-start-style: solid;
+  border-image: linear-gradient(to bottom, var(--saffron), var(--ghaf)) 1;
+}
+.stage-marker {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: var(--card);
+  border: 2px solid var(--ghaf);
+  color: var(--muted-foreground);
+  z-index: 1;
+}
+[data-state="done"] > .stage-marker { background: var(--mangrove); border-color: var(--mangrove); color: #fff; }
+[data-state="current"] > .stage-marker {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: var(--ink);
+  box-shadow: 0 0 0 6px #fbe3b8;
+}
+[data-state="upcoming"] .stage-body { opacity: 0.86; }
+
+/* Segmented progress: one tile per step. */
+.progress-tiles { display: flex; gap: 4px; }
+.progress-tiles > span { height: 8px; flex: 1; border-radius: 2px; background: var(--secondary); }
+.progress-tiles > span[data-state="done"] { background: var(--mangrove); }
+.progress-tiles > span[data-state="current"] { background: var(--saffron); }
+
+/* Document status as a segmented control (real radios inside each pill). */
+.segmented { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; border-radius: 999px; background: var(--muted); }
+.segmented > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem 0.3rem 0.55rem;
+  font-size: 0.8125rem;
+  transition: background 150ms ease;
+}
+.segmented > div:has([data-state="checked"]) { background: var(--card); box-shadow: 0 1px 2px rgb(16 37 45 / 0.14); }
+.segmented > div:has([data-state="checked"]) label { font-weight: 600; }
+
+/* ---------- Agent loader ---------- */
+@keyframes sadu-weave { to { background-position: 64px 0; } }
+@keyframes station-pulse {
+  0%, 100% { r: 7; opacity: 1; }
+  50% { r: 11; opacity: 0.35; }
+}
+@keyframes phase-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes sun-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+.loader-weave { animation: sadu-weave 1.6s linear infinite; }
+html[dir="rtl"] .loader-weave { animation-direction: reverse; }
+.loader-pulse { animation: station-pulse 1.4s ease-in-out infinite; }
+.loader-phase { animation: phase-in 420ms cubic-bezier(.2,.7,.2,1) both; }
+.loader-sun { transform-origin: center; transform-box: fill-box; animation: sun-breathe 3s ease-in-out infinite; }
+.loader-route { transition: stroke-dashoffset 1.4s cubic-bezier(.45,.05,.2,1); }
+
+/* Coach typing indicator: three stops lighting in turn. */
+@keyframes stop-blink { 0%, 80%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+.typing-stops > span { width: 7px; height: 7px; border-radius: 999px; background: var(--gulf); animation: stop-blink 1.2s infinite; }
+.typing-stops > span:nth-child(2) { animation-delay: 0.2s; }
+.typing-stops > span:nth-child(3) { animation-delay: 0.4s; background: var(--saffron); }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
