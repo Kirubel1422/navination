@@ -55,7 +55,9 @@ test("full demonstration journey against the real API", async ({ page, request }
   const reply = page.getByTestId("coach-message-assistant").last();
   await expect(reply).toContainText("original document");
   await expect(reply.getByTestId("coach-citations")).toBeVisible();
-  await expect(reply.getByTestId("coach-mode")).toContainText("AI agent answer");
+  // Navi answers like a person: no "AI mode" badge on the reply.
+  await expect(reply).toContainText("Navi");
+  await expect(reply.getByTestId("coach-mode")).toHaveCount(0);
   expect(bodies).toHaveLength(2);
   expect(JSON.parse(bodies[0]).client_message_id).toBe(JSON.parse(bodies[1]).client_message_id);
   await page.unroute(`${API}/journeys/*/coach`);
@@ -84,8 +86,7 @@ test("full demonstration journey against the real API", async ({ page, request }
 
   // Profile change makes the plan stale; replanning is explicit and keeps valid progress.
   await page.getByTestId("profile-open").click();
-  await page.getByRole("combobox", { name: "Emirate where you live" }).click();
-  await page.getByRole("option", { name: "Dubai" }).click();
+  await page.getByRole("radio", { name: "Dubai", exact: true }).check();
   await page.getByTestId("profile-save").click();
   await expect(page.getByTestId("stale-banner")).toBeVisible();
   await expect(page.getByTestId("progress-uae-pass-account")).toBeDisabled();

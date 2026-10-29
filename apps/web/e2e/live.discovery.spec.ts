@@ -27,9 +27,9 @@ test("AI unavailable is reported honestly, without fallback results", async ({ p
 test("guest search shows source-backed cards with the deciding authority", async ({ page }) => {
   await search(page, DEGREE_QUERY);
   await expect(page.getByTestId("interpreted-need")).toContainText("degree recognised");
-  await expect(page.getByText("Interpreted by the AI agent")).toBeVisible();
-  await page.getByRole("button", { name: /How the AI agent worked/ }).click();
-  await expect(page.getByTestId("agent-activity")).toContainText("Read NaviNation's reviewed catalog");
+  // The guide answers directly; there is no "how the AI worked" panel to read through.
+  await expect(page.getByText("Interpreted by the AI agent")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /How the AI agent worked/ })).toHaveCount(0);
   const card = page.getByTestId("service-card-mohesr-degree-recognition");
   await expect(card).toContainText("Ministry of Higher Education and Scientific Research");
   await expect(card).toContainText("Who decides");
@@ -97,6 +97,11 @@ test("keyboard-only search on a phone-sized screen", async ({ page }) => {
   await page.keyboard.press("Tab");
   await expect(page.getByLabel("Describe your need")).toBeFocused();
   await page.keyboard.type(DEGREE_QUERY);
+  // Then the optional helpers, in reading order: share location, speak, search.
+  await page.keyboard.press("Tab");
+  await expect(page.getByTestId("location-use")).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByTestId("voice-search")).toBeFocused();
   await page.keyboard.press("Tab");
   await expect(page.getByTestId("search-submit")).toBeFocused();
   await page.keyboard.press("Enter");
