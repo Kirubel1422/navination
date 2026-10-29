@@ -1,0 +1,21 @@
+name: api
+on:
+  push:
+    paths: ["apps/api/**", "contracts/**", ".github/workflows/api.yml"]
+  pull_request:
+    paths: ["apps/api/**", "contracts/**", ".github/workflows/api.yml"]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run python -m app.cli validate
+      - run: uv run python -m app.cli export-openapi --check
+      - run: uv run pytest

@@ -1,0 +1,13 @@
+**/node_modules
+**/.next
+**/.next-*
+**/.env
+**/.env.local
+**/.env.*.local
+**/test-results
+**/playwright-report
+**/*.tsbuildinfo
+.git
+.github
+apps/api
+docs

@@ -1,0 +1,58 @@
+# One-command start:  docker compose up
+# Then open http://localhost:3000 (API: http://localhost:8000/api/v1/docs).
+# Configure the AI model (required), ports and web search in a root .env file
+# (see .env.docker.example), e.g.  NAVINATION_API_PORT=8010 docker compose up
+name: navination
+
+services:
+  api:
+    # Always (re)build from source on `docker compose up`; unchanged layers are cached.
+    pull_policy: build
+    build:
+      context: ./apps/api
+    environment:
+      APP_ENV: production
+      DATABASE_URL: sqlite:////app/data/navination.db
+      CORS_ORIGINS: http://localhost:${NAVINATION_WEB_PORT:-3000},http://127.0.0.1:${NAVINATION_WEB_PORT:-3000}
+      SESSION_TTL_HOURS: ${SESSION_TTL_HOURS:-24}
+      # The AI agent is required (no rule-based fallback). Any OpenAI-compatible endpoint works.
+      AI_PROVIDER: ${AI_PROVIDER:-openai_compatible}
+      AI_MODEL: ${AI_MODEL:-}
+      AI_API_KEY: ${AI_API_KEY:-}
+      AI_PROVIDER_BASE_URL: ${AI_PROVIDER_BASE_URL:-}
+      AI_TIMEOUT_SECONDS: ${AI_TIMEOUT_SECONDS:-60}
+      AGENT_MAX_STEPS: ${AGENT_MAX_STEPS:-10}
+      AGENT_DEADLINE_SECONDS: ${AGENT_DEADLINE_SECONDS:-150}
+      OFFICIAL_DOMAINS: ${OFFICIAL_DOMAINS:-u.ae,gov.ae,tamm.abudhabi,uaepass.ae,bayanat.ae,ajman.ae}
+      BAYANAT_ENABLED: ${BAYANAT_ENABLED:-true}
+      AJMAN_DATA_ENABLED: ${AJMAN_DATA_ENABLED:-true}
+      PLACES_ENABLED: ${PLACES_ENABLED:-true}
+      WEB_FETCH_ENABLED: ${WEB_FETCH_ENABLED:-true}
+      WEB_SEARCH_PROVIDER: ${WEB_SEARCH_PROVIDER:-none}
+      WEB_SEARCH_API_KEY: ${WEB_SEARCH_API_KEY:-}
+    ports:
+      - "${NAVINATION_API_PORT:-8000}:8000"
+    volumes:
+      - navination-data:/app/data
+    # Lets the API reach a model server running on your machine (Ollama, LM Studio, ...).
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  web:
+    pull_policy: build
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: http://localhost:${NAVINATION_API_PORT:-8000}/api/v1
+        NEXT_PUBLIC_API_MODE: live
+    ports:
+      - "${NAVINATION_WEB_PORT:-3000}:3000"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  navination-data:
