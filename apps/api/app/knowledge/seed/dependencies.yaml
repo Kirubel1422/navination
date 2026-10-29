@@ -1,0 +1,69 @@
+# Reviewed relationships between services. from = prerequisite / earlier step, to = dependent step.
+# kind: required -> may create a hard blocker, and must cite at least one verified source.
+#       recommended -> ordering advice only; never blocks.
+# condition (optional): the edge applies only when the profile matches. If the profile field is
+# unknown the edge is shown as a review note instead of a blocker.
+- id: dep-uaepass-mofa
+  from: uae-pass-account
+  to: mofa-attestation-abroad
+  kind: required
+  explanation:
+    en: "MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
+    ar: "يتطلب طلب التصديق الإلكتروني لدى وزارة الخارجية تسجيل الدخول عبر UAE PASS. إذا كانت بعثة الدولة لا تستقبل إلا الطلبات الحضورية فاستفسر منها عن انطباق هذه الخطوة."
+  source_ids: [src-mofa-attestation]
+
+- id: dep-mofa-mohesr
+  from: mofa-attestation-abroad
+  to: mohesr-degree-recognition
+  kind: recommended
+  explanation:
+    en: "News reporting describes attesting or verifying the degree before applying for recognition, but the official recognition pages we reviewed do not list it. Confirm with MoHESR before relying on this order."
+    ar: "تصف تقارير إخبارية تصديق الشهادة أو التحقق منها قبل التقديم على الاعتراف، لكن الصفحات الرسمية التي راجعناها لا تذكر ذلك. تأكد من الوزارة قبل الاعتماد على هذا الترتيب."
+  source_ids: [src-gulfnews-degree-policy]
+
+- id: dep-partner-mohesr
+  from: degree-verification-partner
+  to: mohesr-degree-recognition
+  kind: recommended
+  explanation:
+    en: "Reported: verify the degree through an authorised partner, then apply to MoHESR for recognition. Not confirmed on an official page."
+    ar: "بحسب التقارير: يتم التحقق من الشهادة عبر شريك معتمد ثم التقديم على الاعتراف لدى الوزارة. لم يتأكد ذلك في صفحة رسمية."
+  source_ids: [src-gulfnews-degree-policy]
+
+- id: dep-birthreg-attestation
+  from: birth-registration
+  to: birth-certificate-attestation
+  kind: required
+  explanation:
+    en: "The attestation is done on the birth certificate, so the birth must be registered and the certificate issued first."
+    ar: "يتم التصديق على شهادة الميلاد، لذا يجب تسجيل الولادة واستخراج الشهادة أولاً."
+  source_ids: [src-uae-having-a-baby]
+
+- id: dep-birthreg-passport
+  from: birth-registration
+  to: newborn-passport-embassy
+  kind: recommended
+  explanation:
+    en: "Embassies are reported to need the birth certificate to issue the baby's passport. Check with your embassy."
+    ar: "يُذكر أن السفارات تحتاج إلى شهادة الميلاد لإصدار جواز سفر المولود. تحقق من سفارتك."
+  source_ids: [src-gulfnews-newborn]
+
+- id: dep-passport-permit
+  from: newborn-passport-embassy
+  to: newborn-residence-permit
+  kind: required
+  condition: {field: residency_status, in: [resident]}
+  explanation:
+    en: "ICP lists a passport valid for at least 6 months as a condition for issuing a residence permit, so the baby needs a passport first."
+    ar: "تشترط الهيئة الاتحادية جواز سفر صالحاً لمدة لا تقل عن 6 أشهر لإصدار تصريح الإقامة، لذا يحتاج المولود إلى جواز سفر أولاً."
+  source_ids: [src-icp-residency-permit]
+
+- id: dep-attestation-permit
+  from: birth-certificate-attestation
+  to: newborn-residence-permit
+  kind: recommended
+  condition: {field: residency_status, in: [resident]}
+  explanation:
+    en: "ICP asks for birth certificates when sponsoring children, and u.ae says expatriates must have them attested. The official pages do not state the order, so attest first unless ICP tells you otherwise."
+    ar: "تطلب الهيئة شهادات الميلاد عند كفالة الأبناء، وتذكر بوابة u.ae أن على الوافدين تصديقها. لا تحدد الصفحات الرسمية الترتيب، لذا يُنصح بالتصديق أولاً ما لم تُفِد الهيئة بغير ذلك."
+  source_ids: [src-icp-residency-permit, src-uae-having-a-baby]

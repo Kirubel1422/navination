@@ -1,0 +1,122 @@
+# Source registry. checked_at is the time our team actually opened the page while preparing
+# this seed (UTC). source_updated_at is only filled when the page itself shows a
+# "last updated" date. Sources we did not open directly have checked_at: null.
+- id: src-mofa-attestation
+  title: {en: "Attestation of documents and certificates", ar: "تصديق المستندات والشهادات"}
+  url: https://www.mofa.gov.ae/en/services/attestation
+  publisher: {en: "UAE Ministry of Foreign Affairs", ar: "وزارة الخارجية الإماراتية"}
+  checked_at: "2026-10-28T19:41:00Z"
+  source_updated_at: null
+  verification_status: verified
+  review_note: >-
+    States the online steps for documents issued outside the UAE (sign in with UAE PASS,
+    choose Attestation through UAE Missions Abroad, pay, receive a reference number) and that
+    the service is available through selected missions. Fees are in a separate Attestation Guide
+    that we did not review.
+
+- id: src-mofa-rabat-attestation
+  title: {en: "UAE Embassy in Rabat: attestation information", ar: "سفارة الدولة في الرباط: معلومات التصديق"}
+  url: https://www.mofa.gov.ae/en/missions/rabat/services/services-for-individuals/attestation-information
+  publisher: {en: "UAE Ministry of Foreign Affairs (mission page)", ar: "وزارة الخارجية الإماراتية (صفحة بعثة)"}
+  checked_at: "2026-10-28T19:46:00Z"
+  source_updated_at: null
+  verification_status: verified
+  review_note: >-
+    One mission's page, used only as an example. It says documents are first attested by the
+    issuing country's foreign office, and that documents not issued in Morocco must be attested
+    by the UAE embassy or consulate in their country of issuance.
+
+- id: src-uae-higher-ed-recognition
+  title: {en: "Student admission and qualification recognition", ar: "قبول الطلبة والاعتراف بالمؤهلات"}
+  url: https://u.ae/en/information-and-services/education/higher-education/student-admission-and-qualification-recognition
+  publisher: {en: "The UAE Government portal (u.ae)", ar: "البوابة الرسمية لحكومة دولة الإمارات (u.ae)"}
+  checked_at: "2026-10-28T19:38:00Z"
+  source_updated_at: "2026-10-22"
+  verification_status: verified
+  review_note: >-
+    Names MoHESR's University Qualifications Recognition service for qualifications from
+    accredited institutions outside the UAE and the uses of the recognition report. Does not
+    list documents, fees or processing time.
+
+- id: src-mohesr-recognition-card
+  title: {en: "Recognition of university certificates issued from outside the UAE", ar: "الاعتراف بالشهادات الجامعية الصادرة من خارج الدولة"}
+  url: https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx
+  publisher: {en: "Ministry of Higher Education and Scientific Research", ar: "وزارة التعليم العالي والبحث العلمي"}
+  checked_at: "2026-10-28T19:40:00Z"
+  source_updated_at: null
+  verification_status: verified
+  review_note: >-
+    Official service card linked from u.ae. Only the page title rendered in our check, so it is
+    cited for the service name and destination only, not for requirements.
+
+- id: src-gulfnews-degree-policy
+  title: {en: "UAE issues new policy on recognition of foreign university degrees (news report)", ar: "الإمارات تصدر سياسة جديدة للاعتراف بالشهادات الجامعية الأجنبية (تقرير إخباري)"}
+  url: https://gulfnews.com/uae/education/uae-issues-new-policy-on-recognition-of-foreign-university-degrees-1.500055926
+  publisher: {en: "Gulf News (not an official source)", ar: "جلف نيوز (ليست جهة رسمية)"}
+  checked_at: null
+  source_updated_at: null
+  verification_status: needs_review
+  review_note: >-
+    Found through search results only; not opened directly. Reports that MoHESR appointed
+    authorised partners (Dataflow and QuadraBay) to verify degrees before recognition. Needs
+    confirmation on an official MoHESR page.
+
+- id: src-uae-school-equivalency
+  title: {en: "Equalising high school certificates", ar: "معادلة شهادات الثانوية العامة"}
+  url: https://u.ae/en/information-and-services/education/school-education-k-12/equalising-high-school-certificates
+  publisher: {en: "The UAE Government portal (u.ae)", ar: "البوابة الرسمية لحكومة دولة الإمارات (u.ae)"}
+  checked_at: "2026-10-28T19:36:00Z"
+  source_updated_at: "2026-10-21"
+  verification_status: verified
+  review_note: >-
+    Names the Ministry of Education as the authority, lists identity documents, original
+    certificates (mainly grades 10-12), attestation and translation conditions, and the
+    "General Education from Abroad" request. No fees or processing time.
+
+- id: src-uae-having-a-baby
+  title: {en: "Having a baby", ar: "إنجاب مولود"}
+  url: https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby
+  publisher: {en: "The UAE Government portal (u.ae)", ar: "البوابة الرسمية لحكومة دولة الإمارات (u.ae)"}
+  checked_at: "2026-10-28T19:43:00Z"
+  source_updated_at: "2026-09-30"
+  verification_status: verified
+  review_note: >-
+    Covers birth registration within 30 days for residents, registration documents, MOHAP and
+    MoFA attestation for expatriates (DoH and DHA stamps equivalent to MOHAP), the 120-day limit
+    for passport, Emirates ID and visa with AED 100 per day afterwards, and the Mabrouk Ma Yak
+    bundle for UAE nationals. It does not state the exact order of the resident steps.
+
+- id: src-gulfnews-newborn
+  title: {en: "UAE: How to apply for your baby's birth certificate, passport and visa (news report)", ar: "كيفية استخراج شهادة الميلاد وجواز السفر والتأشيرة للمولود (تقرير إخباري)"}
+  url: https://gulfnews.com/living-in-uae/visa-immigration/uae-how-to-apply-for-your-babys-birth-certificate-passport-and-visa-1.1608131310159
+  publisher: {en: "Gulf News (not an official source)", ar: "جلف نيوز (ليست جهة رسمية)"}
+  checked_at: null
+  source_updated_at: null
+  verification_status: needs_review
+  review_note: >-
+    Found through search results only; not opened directly. States that expatriate residents
+    apply to their own embassy or consulate in the UAE for the baby's passport.
+
+- id: src-uae-family-residence
+  title: {en: "Residence visa for families of employees", ar: "تأشيرة الإقامة لأسر الموظفين"}
+  url: https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members
+  publisher: {en: "The UAE Government portal (u.ae)", ar: "البوابة الرسمية لحكومة دولة الإمارات (u.ae)"}
+  checked_at: "2026-10-28T19:45:00Z"
+  source_updated_at: "2026-09-28"
+  verification_status: verified
+  review_note: >-
+    Sponsor income thresholds (AED 4,000, or AED 3,000 plus accommodation), names ICP and GDRFA
+    as responsible entities and advises checking with them. Does not mention newborns.
+
+- id: src-icp-residency-permit
+  title: {en: "Issuing Residency Permit", ar: "إصدار تصريح إقامة"}
+  url: https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64
+  publisher: {en: "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP)", ar: "الهيئة الاتحادية للهوية والجنسية والجمارك وأمن المنافذ"}
+  checked_at: "2026-10-28T19:46:00Z"
+  source_updated_at: null
+  verification_status: verified
+  review_note: >-
+    Family category: sponsor with valid UAE residence, income AED 3,000 with housing or AED 4,000
+    without; passport valid at least 6 months; photo; health insurance; birth certificates for
+    children. Lists fees and a 2-day completion duration. UAE PASS needed for online channels.
+    Does not mention newborns specifically.

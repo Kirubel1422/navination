@@ -1,0 +1,63 @@
+# Plain-language terminology used by the step coach. Each definition cites its source.
+- id: attestation
+  terms:
+    en: [attestation, attest, attested, legalisation, legalization]
+    ar: [تصديق, التصديق, مصدق]
+  definition:
+    en: "Attestation is an official stamp confirming a document so it can be used in the UAE. For documents issued abroad, MoFA attests them through the UAE mission in the country of issue."
+    ar: "التصديق ختم رسمي يؤكد صحة المستند لاستخدامه في الدولة. وتصدّق وزارة الخارجية المستندات الصادرة في الخارج عبر بعثة الدولة في بلد الإصدار."
+  source_ids: [src-mofa-attestation]
+
+- id: recognition
+  terms:
+    en: [recognition, recognise, recognize, equivalency, equivalence]
+    ar: [اعتراف, الاعتراف, معادله]
+  definition:
+    en: "Recognition (formerly called equivalency for university degrees) is MoHESR's review of a qualification from an institution outside the UAE. It results in a recognition report you can use for jobs, study, visas and government services."
+    ar: "الاعتراف (المعروف سابقاً بالمعادلة للشهادات الجامعية) هو مراجعة وزارة التعليم العالي لمؤهل صادر من مؤسسة خارج الدولة، وينتج عنه تقرير اعتراف يُستخدم للعمل والدراسة والتأشيرات والخدمات الحكومية."
+  source_ids: [src-uae-higher-ed-recognition]
+
+- id: equalisation
+  terms:
+    en: [equalise, equalize, equalisation, equalization]
+    ar: [معادله الشهاده, معادله]
+  definition:
+    en: "Equalisation is the Ministry of Education's process for confirming a school (grade 12) certificate, including one issued abroad."
+    ar: "المعادلة إجراء وزارة التربية والتعليم لاعتماد شهادة مدرسية (الصف الثاني عشر)، بما فيها الصادرة من الخارج."
+  source_ids: [src-uae-school-equivalency]
+
+- id: uae-pass
+  terms:
+    en: ["uae pass", uaepass]
+    ar: ["uae pass", الهويه الرقميه]
+  definition:
+    en: "UAE PASS is the digital identity used to sign in to federal online services, including MoFA attestation and ICP smart services."
+    ar: "UAE PASS هي الهوية الرقمية المستخدمة لتسجيل الدخول إلى الخدمات الاتحادية الإلكترونية، ومنها التصديق لدى وزارة الخارجية والخدمات الذكية للهيئة الاتحادية."
+  source_ids: [src-mofa-attestation, src-icp-residency-permit]
+
+- id: sponsor
+  terms:
+    en: [sponsor, sponsoring, sponsorship]
+    ar: [كفيل, الكفيل, كفاله]
+  definition:
+    en: "The sponsor is the resident family member whose residence the dependant's permit is linked to. ICP requires a valid UAE residence and a minimum income."
+    ar: "الكفيل هو فرد الأسرة المقيم الذي ترتبط به إقامة المكفول. وتشترط الهيئة إقامة سارية وحداً أدنى للدخل."
+  source_ids: [src-icp-residency-permit]
+
+- id: birth-notification
+  terms:
+    en: ["birth notification", notification]
+    ar: [اشعار الولاده]
+  definition:
+    en: "The birth notification is the stamped, signed record the hospital issues after the birth. It is used to apply for the birth certificate."
+    ar: "إشعار الولادة مستند مختوم وموقّع يصدره المستشفى بعد الولادة، ويُستخدم لطلب شهادة الميلاد."
+  source_ids: [src-uae-having-a-baby]
+
+- id: mission
+  terms:
+    en: [mission, embassy, consulate]
+    ar: [بعثه, سفاره, قنصليه]
+  definition:
+    en: "A UAE mission is a UAE embassy or consulate abroad. MoFA's attestation of documents issued abroad goes through the mission in the country of issue."
+    ar: "بعثة الدولة هي سفارة الإمارات أو قنصليتها في الخارج، ويتم تصديق المستندات الصادرة في الخارج عبر البعثة في بلد الإصدار."
+  source_ids: [src-mofa-attestation, src-mofa-rabat-attestation]

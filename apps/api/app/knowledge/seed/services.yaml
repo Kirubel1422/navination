@@ -1,0 +1,485 @@
+# Reviewed service records. Every requirement cites sources; a source supports only the claim
+# it is attached to. null fee/processing/url values mean "not confirmed in our sources".
+# rule: three-valued screening against the optional profile:
+#   {field: <profile field>, in: [allowed values]} -> match | mismatch | unknown (field is null)
+# profile_hints: guidance that changes with a profile value but never affects relevance.
+
+# ------------------------------------------------------------ education_qualification
+- id: uae-pass-account
+  life_event_ids: [education_qualification]
+  facets: [university]
+  title: {en: "Set up UAE PASS to sign in to online services", ar: "تفعيل الهوية الرقمية (UAE PASS) لتسجيل الدخول إلى الخدمات الإلكترونية"}
+  summary:
+    en: "UAE PASS is the sign-in used by federal online services. MoFA's online attestation application and ICP's smart services both state that you sign in with UAE PASS."
+    ar: "الهوية الرقمية (UAE PASS) هي وسيلة الدخول إلى الخدمات الاتحادية الإلكترونية. وتذكر خدمة التصديق الإلكتروني في وزارة الخارجية والخدمات الذكية للهيئة الاتحادية للهوية والجنسية أن الدخول يتم عبر UAE PASS."
+  entity: {en: "UAE PASS (national digital identity)", ar: "الهوية الرقمية الإماراتية (UAE PASS)"}
+  jurisdiction: {en: "Federal (all emirates)", ar: "اتحادي (جميع الإمارات)"}
+  authority: {en: "UAE PASS", ar: "UAE PASS"}
+  fee_text: null
+  processing_time_text: null
+  official_url: https://uaepass.ae/
+  support_url: null
+  verification_status: verified
+  source_ids: [src-mofa-attestation, src-icp-residency-permit]
+  keywords:
+    en: ["uae pass", login, "sign in", account, "digital identity"]
+    ar: ["uae pass", الهويه الرقميه, تسجيل الدخول, حساب]
+  requirements:
+    - id: uae-pass-account.c1
+      kind: criterion
+      text:
+        en: "MoFA's online attestation for documents issued outside the UAE requires signing in with UAE PASS."
+        ar: "يتطلب التصديق الإلكتروني لدى وزارة الخارجية للمستندات الصادرة خارج الدولة تسجيل الدخول عبر UAE PASS."
+      source_ids: [src-mofa-attestation]
+  profile_hints: []
+
+- id: mofa-attestation-abroad
+  life_event_ids: [education_qualification]
+  facets: [university]
+  title: {en: "Attest a document issued outside the UAE", ar: "تصديق مستند صادر من خارج الدولة"}
+  summary:
+    en: "The Ministry of Foreign Affairs attests documents issued abroad through UAE missions in the country of issue. You apply online with UAE PASS where the mission offers it, or visit the mission in person."
+    ar: "تصدّق وزارة الخارجية المستندات الصادرة في الخارج عبر بعثات الدولة في بلد الإصدار. يمكنك التقديم إلكترونياً عبر UAE PASS إذا كانت البعثة توفر الخدمة، أو زيارة البعثة شخصياً."
+  entity: {en: "Ministry of Foreign Affairs (MoFA) and UAE missions abroad", ar: "وزارة الخارجية وبعثات الدولة في الخارج"}
+  jurisdiction: {en: "Federal (all emirates)", ar: "اتحادي (جميع الإمارات)"}
+  authority: {en: "the Ministry of Foreign Affairs and the UAE mission in the issuing country", ar: "وزارة الخارجية وبعثة الدولة في بلد الإصدار"}
+  fee_text: null
+  processing_time_text: null
+  official_url: https://www.mofa.gov.ae/en/services/attestation
+  support_url: https://www.mofa.gov.ae/en/contact-us
+  verification_status: verified
+  source_ids: [src-mofa-attestation, src-mofa-rabat-attestation]
+  keywords:
+    en: [attest, attestation, attested, embassy, consulate, mission, legalise, legalize, mofa, "foreign affairs", stamp]
+    ar: [تصديق, توثيق, السفاره, سفاره, القنصليه, وزاره الخارجيه, ختم]
+  requirements:
+    - id: mofa-attestation-abroad.c1
+      kind: criterion
+      text:
+        en: "The document was issued outside the UAE."
+        ar: "أن يكون المستند صادراً من خارج الدولة."
+      source_ids: [src-mofa-attestation]
+      rule: {field: degree_issued_outside_uae, in: [true]}
+    - id: mofa-attestation-abroad.c2
+      kind: criterion
+      text:
+        en: "Apply through 'Attestation through UAE Missions Abroad'. The service is available through selected missions; if it is not offered online, visit the UAE mission in person."
+        ar: "يُقدَّم الطلب عبر خدمة «التصديق عبر بعثات الدولة في الخارج». تتوفر الخدمة لدى بعثات مختارة، وإن لم تتوفر إلكترونياً فيجب زيارة البعثة شخصياً."
+      source_ids: [src-mofa-attestation]
+    - id: mofa-attestation-abroad.c3
+      kind: criterion
+      text:
+        en: "Example from one mission: documents are first attested by the issuing country's foreign office, and documents must be attested by the UAE embassy or consulate in the country where they were issued. Check the mission for your country."
+        ar: "مثال من إحدى البعثات: تُصدَّق المستندات أولاً من وزارة خارجية بلد الإصدار، ويجب تصديقها لدى سفارة الدولة أو قنصليتها في البلد الذي صدرت فيه. تحقق من متطلبات البعثة في بلدك."
+      source_ids: [src-mofa-rabat-attestation]
+    - id: mofa-attestation-abroad.d1
+      kind: document
+      text:
+        en: "The original document (for example, your degree certificate). Mission courier services collect the original."
+        ar: "المستند الأصلي (مثل شهادتك الجامعية). تستلم خدمة التوصيل التابعة للبعثة النسخة الأصلية."
+      source_ids: [src-mofa-rabat-attestation]
+    - id: mofa-attestation-abroad.d2
+      kind: document
+      text:
+        en: "Proof that the issuing country's foreign office attested the document, where your mission requires it."
+        ar: "ما يثبت تصديق وزارة خارجية بلد الإصدار على المستند، إذا اشترطته البعثة."
+      source_ids: [src-mofa-rabat-attestation]
+  profile_hints: []
+
+- id: degree-verification-partner
+  life_event_ids: [education_qualification]
+  facets: [university]
+  title: {en: "Verify your degree through an authorised verification partner", ar: "التحقق من شهادتك عبر شريك تحقق معتمد"}
+  summary:
+    en: "News reporting says MoHESR appointed authorised partners to verify foreign degrees before you apply for recognition. We have not confirmed this on an official MoHESR page, so treat it as something to check."
+    ar: "تفيد تقارير إخبارية بأن وزارة التعليم العالي عيّنت شركاء معتمدين للتحقق من الشهادات الأجنبية قبل التقديم على الاعتراف. لم نتأكد من ذلك في صفحة رسمية للوزارة، لذا تحقق منه قبل الاعتماد عليه."
+  entity: {en: "MoHESR-authorised verification partners (reported: Dataflow, QuadraBay)", ar: "شركاء التحقق المعتمدون من وزارة التعليم العالي (بحسب التقارير: داتافلو وكوادرا باي)"}
+  jurisdiction: {en: "Federal (all emirates)", ar: "اتحادي (جميع الإمارات)"}
+  authority: {en: "the Ministry of Higher Education and Scientific Research", ar: "وزارة التعليم العالي والبحث العلمي"}
+  fee_text: null
+  processing_time_text: null
+  official_url: null
+  support_url: null
+  verification_status: needs_review
+  review_note: "Only supported by a news report. Confirm with MoHESR before relying on it."
+  source_ids: [src-gulfnews-degree-policy]
+  keywords:
+    en: [verify, verification, dataflow, quadrabay, "primary source"]
+    ar: [تحقق, التحقق, داتافلو]
+  requirements:
+    - id: degree-verification-partner.c1
+      kind: criterion
+      text:
+        en: "Reported to apply to qualifications issued outside the UAE that need MoHESR recognition."
+        ar: "يُذكر أنه ينطبق على المؤهلات الصادرة خارج الدولة التي تحتاج إلى اعتراف وزارة التعليم العالي."
+      source_ids: [src-gulfnews-degree-policy]
+      rule: {field: degree_issued_outside_uae, in: [true]}
+  profile_hints: []
+
+- id: mohesr-degree-recognition
+  life_event_ids: [education_qualification]
+  facets: [university]
+  title: {en: "Get a university qualification from abroad recognised", ar: "الاعتراف بمؤهل جامعي صادر من خارج الدولة"}
+  summary:
+    en: "MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government services."
+    ar: "تراجع خدمة الاعتراف بالمؤهلات الجامعية لدى وزارة التعليم العالي المؤهلات الصادرة من مؤسسات معتمدة خارج الدولة. ويمكن استخدام تقرير الاعتراف للعمل ومواصلة الدراسة والتأشيرات والخدمات الحكومية في الدولة."
+  entity: {en: "Ministry of Higher Education and Scientific Research (MoHESR)", ar: "وزارة التعليم العالي والبحث العلمي"}
+  jurisdiction: {en: "Federal (all emirates)", ar: "اتحادي (جميع الإمارات)"}
+  authority: {en: "the Ministry of Higher Education and Scientific Research", ar: "وزارة التعليم العالي والبحث العلمي"}
+  fee_text: null
+  processing_time_text: null
+  official_url: https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx
+  support_url: https://u.ae/en/information-and-services/education/higher-education/student-admission-and-qualification-recognition
+  verification_status: verified
+  source_ids: [src-uae-higher-ed-recognition, src-mohesr-recognition-card]
+  keywords:
+    en: [recognition, recognise, recognize, recognised, recognized, equivalency, equivalence, degree, university, mohesr, "higher education"]
+    ar: [اعتراف, الاعتراف, معادله, جامعيه, وزاره التعليم العالي]
+  requirements:
+    - id: mohesr-degree-recognition.c1
+      kind: criterion
+      text:
+        en: "The qualification is from an accredited institution outside the UAE."
+        ar: "أن يكون المؤهل صادراً من مؤسسة معتمدة خارج الدولة."
+      source_ids: [src-uae-higher-ed-recognition]
+      rule: {field: degree_issued_outside_uae, in: [true]}
+    - id: mohesr-degree-recognition.c2
+      kind: criterion
+      text:
+        en: "Qualifications from licensed institutions inside the UAE use a separate MoHESR service."
+        ar: "للمؤهلات الصادرة من مؤسسات مرخصة داخل الدولة خدمة منفصلة لدى الوزارة."
+      source_ids: [src-uae-higher-ed-recognition]
+  profile_hints: []
+
+- id: moe-school-equivalency
+  life_event_ids: [education_qualification]
+  facets: [school]
+  title: {en: "Equalise a school certificate issued abroad", ar: "معادلة شهادة مدرسية صادرة من الخارج"}
+  summary:
+    en: "The Ministry of Education is the authority that equalises high school certificates in the UAE. For certificates issued abroad, use the 'General Education from Abroad' (grade 12) request online or at a Ministry office in Dubai or Abu Dhabi."
+    ar: "وزارة التربية والتعليم هي الجهة المخولة بمعادلة شهادات الثانوية العامة في الدولة. للشهادات الصادرة من الخارج استخدم طلب «التعليم العام من الخارج» (الصف الثاني عشر) إلكترونياً أو في مكاتب الوزارة في دبي أو أبوظبي."
+  entity: {en: "Ministry of Education (MoE)", ar: "وزارة التربية والتعليم"}
+  jurisdiction: {en: "Federal (all emirates)", ar: "اتحادي (جميع الإمارات)"}
+  authority: {en: "the Ministry of Education", ar: "وزارة التربية والتعليم"}
+  fee_text: null
+  processing_time_text: null
+  official_url: https://www.moe.gov.ae/en/eservices/servicecard/pages/certequivalent-out.aspx
+  support_url: https://u.ae/en/information-and-services/education/school-education-k-12/equalising-high-school-certificates
+  verification_status: verified
+  source_ids: [src-uae-school-equivalency]
+  keywords:
+    en: [school, "high school", secondary, "grade 12", equalise, equalize, equivalency, moe]
+    ar: [الثانويه, مدرسيه, معادله, وزاره التربيه]
+  requirements:
+    - id: moe-school-equivalency.c1
+      kind: criterion
+      text:
+        en: "Applicants must be UAE residents."
+        ar: "يجب أن يكون مقدم الطلب مقيماً في الدولة."
+      source_ids: [src-uae-school-equivalency]
+      rule: {field: residency_status, in: [citizen, resident]}
+    - id: moe-school-equivalency.c2
+      kind: criterion
+      text:
+        en: "The certificate was issued outside the UAE (the 'General Education from Abroad' request)."
+        ar: "أن تكون الشهادة صادرة من خارج الدولة (طلب «التعليم العام من الخارج»)."
+      source_ids: [src-uae-school-equivalency]
+      rule: {field: degree_issued_outside_uae, in: [true]}
+    - id: moe-school-equivalency.c3
+      kind: criterion
+      text:
+        en: "Certificates must be attested by the Ministry of Education in the UAE and/or by the education authority in the issuing country."
+        ar: "يجب تصديق الشهادات من وزارة التربية والتعليم في الدولة و/أو من الجهة التعليمية في بلد الإصدار."
+      source_ids: [src-uae-school-equivalency]
+    - id: moe-school-equivalency.d1
+      kind: document
+      text:
+        en: "A copy of your Emirates ID and passport."
+        ar: "نسخة من بطاقة الهوية الإماراتية وجواز السفر."
+      source_ids: [src-uae-school-equivalency]
+    - id: moe-school-equivalency.d2
+      kind: document
+      text:
+        en: "Original certificates, mainly grades 10, 11 and 12 (returned after verification)."
+        ar: "الشهادات الأصلية، وأهمها شهادات الصفوف العاشر والحادي عشر والثاني عشر (تُعاد بعد التحقق)."
+      source_ids: [src-uae-school-equivalency]
+    - id: moe-school-equivalency.d3
+      kind: document
+      text:
+        en: "A legal translation, duly attested, for certificates not in Arabic or English."
+        ar: "ترجمة قانونية مصدقة للشهادات المحررة بغير العربية أو الإنجليزية."
+      source_ids: [src-uae-school-equivalency]
+    - id: moe-school-equivalency.d4
+      kind: document
+      text:
+        en: "Any further documents for your curriculum, as listed on the curriculum-specific request form."
+        ar: "أي مستندات إضافية خاصة بمنهجك الدراسي كما يرد في نموذج الطلب الخاص بالمنهج."
+      source_ids: [src-uae-school-equivalency]
+  profile_hints:
+    - field: emirate
+      values:
+        dubai:
+          en: "In Dubai, KHDA also publishes high school equivalency requirements. They are linked from the u.ae page."
+          ar: "في دبي، تنشر هيئة المعرفة والتنمية البشرية أيضاً متطلبات معادلة الثانوية العامة، وهي مرتبطة من صفحة u.ae."
+        abu_dhabi:
+          en: "In Abu Dhabi, the u.ae page links ADEK document services on TAMM."
+          ar: "في أبوظبي، تربط صفحة u.ae بخدمات مستندات دائرة التعليم والمعرفة عبر منصة تم."
+      source_ids: [src-uae-school-equivalency]
+
+# ------------------------------------------------------------ new_baby
+- id: birth-registration
+  life_event_ids: [new_baby]
+  facets: []
+  title: {en: "Register the birth and get the birth certificate", ar: "تسجيل الولادة واستخراج شهادة الميلاد"}
+  summary:
+    en: "The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification."
+    ar: "يصدر المستشفى إشعار الولادة. ثم تصدر المستشفيات الحكومية شهادة الميلاد، أما في حال الولادة في مستشفى خاص فيتقدم الوالدان إلى وزارة الصحة ووقاية المجتمع أو الجهة الصحية في الإمارة مع إشعار الولادة."
+  entity: {en: "The hospital, MOHAP or the emirate health authority", ar: "المستشفى أو وزارة الصحة ووقاية المجتمع أو الجهة الصحية في الإمارة"}
+  jurisdiction: {en: "Federal and emirate health authorities", ar: "الجهات الصحية الاتحادية والمحلية"}
+  authority: {en: "the issuing health authority", ar: "الجهة الصحية المُصدِرة"}
+  fee_text: null
+  processing_time_text: null
+  official_url: null
+  support_url: https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby
+  verification_status: verified
+  source_ids: [src-uae-having-a-baby]
+  keywords:
+    en: ["birth certificate", register, registration, notification, hospital]
+    ar: ["شهاده ميلاد", "شهاده الميلاد", تسجيل, اشعار الولاده, مستشفي]
+  requirements:
+    - id: birth-registration.c1
+      kind: criterion
+      text:
+        en: "Residents have up to 30 days to register the birth."
+        ar: "أمام المقيمين مهلة أقصاها 30 يوماً لتسجيل الولادة."
+      source_ids: [src-uae-having-a-baby]
+    - id: birth-registration.c2
+      kind: criterion
+      text:
+        en: "If the parents have different nationalities, the child takes the father's nationality."
+        ar: "إذا اختلفت جنسية الوالدين يحمل الطفل جنسية الأب."
+      source_ids: [src-uae-having-a-baby]
+    - id: birth-registration.d1
+      kind: document
+      text:
+        en: "Attested marriage certificate, with an Arabic translation if it is not in Arabic (listed for residents)."
+        ar: "عقد الزواج مصدقاً، مع ترجمة عربية إن لم يكن باللغة العربية (مدرج للمقيمين)."
+      source_ids: [src-uae-having-a-baby]
+    - id: birth-registration.d2
+      kind: document
+      text:
+        en: "Originals and copies of both parents' passports (listed for residents)."
+        ar: "أصول جوازات سفر الوالدين ونسخ منها (مدرج للمقيمين)."
+      source_ids: [src-uae-having-a-baby]
+    - id: birth-registration.d3
+      kind: document
+      text:
+        en: "The hospital birth notification."
+        ar: "إشعار الولادة الصادر من المستشفى."
+      source_ids: [src-uae-having-a-baby]
+    - id: birth-registration.d4
+      kind: document
+      text:
+        en: "The hospital discharge summary (listed for residents)."
+        ar: "ملخص الخروج من المستشفى (مدرج للمقيمين)."
+      source_ids: [src-uae-having-a-baby]
+  profile_hints:
+    - field: emirate
+      values:
+        abu_dhabi:
+          en: "In Abu Dhabi, the emirate health authority is the Department of Health (DoH)."
+          ar: "في أبوظبي، الجهة الصحية في الإمارة هي دائرة الصحة."
+        dubai:
+          en: "In Dubai, the emirate health authority is the Dubai Health Authority (DHA)."
+          ar: "في دبي، الجهة الصحية في الإمارة هي هيئة الصحة بدبي."
+      source_ids: [src-uae-having-a-baby]
+
+- id: birth-certificate-attestation
+  life_event_ids: [new_baby]
+  facets: []
+  title: {en: "Attest the baby's birth certificate", ar: "تصديق شهادة ميلاد المولود"}
+  summary:
+    en: "Expatriates must have the birth certificate attested by MOHAP and the Ministry of Foreign Affairs. Certificates stamped by DoH Abu Dhabi or DHA are treated as equivalent to the MOHAP seal."
+    ar: "يجب على الوافدين تصديق شهادة الميلاد من وزارة الصحة ووقاية المجتمع ووزارة الخارجية. وتُعامل الشهادات المختومة من دائرة الصحة في أبوظبي أو هيئة الصحة بدبي معاملة ختم وزارة الصحة."
+  entity: {en: "MOHAP (or DoH / DHA) and the Ministry of Foreign Affairs", ar: "وزارة الصحة ووقاية المجتمع (أو دائرة الصحة / هيئة الصحة بدبي) ووزارة الخارجية"}
+  jurisdiction: {en: "Federal (all emirates)", ar: "اتحادي (جميع الإمارات)"}
+  authority: {en: "MOHAP and the Ministry of Foreign Affairs", ar: "وزارة الصحة ووقاية المجتمع ووزارة الخارجية"}
+  fee_text: null
+  processing_time_text: null
+  official_url: https://www.mofa.gov.ae/en/services/attestation
+  support_url: https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby
+  verification_status: verified
+  source_ids: [src-uae-having-a-baby, src-mofa-attestation]
+  keywords:
+    en: [attest, attestation, "birth certificate", stamp, mofa, mohap]
+    ar: [تصديق, "شهاده الميلاد", ختم]
+  requirements:
+    - id: birth-certificate-attestation.c1
+      kind: criterion
+      text:
+        en: "Applies to expatriates: birth certificates must be attested by MOHAP and the Ministry of Foreign Affairs."
+        ar: "ينطبق على الوافدين: يجب تصديق شهادات الميلاد من وزارة الصحة ووقاية المجتمع ووزارة الخارجية."
+      source_ids: [src-uae-having-a-baby]
+      rule: {field: residency_status, in: [resident]}
+    - id: birth-certificate-attestation.c2
+      kind: criterion
+      text:
+        en: "A DoH (Abu Dhabi) or DHA (Dubai) stamp is treated as equivalent to the MOHAP seal."
+        ar: "يُعامل ختم دائرة الصحة (أبوظبي) أو هيئة الصحة بدبي معاملة ختم وزارة الصحة ووقاية المجتمع."
+      source_ids: [src-uae-having-a-baby]
+    - id: birth-certificate-attestation.d1
+      kind: document
+      text:
+        en: "The baby's birth certificate."
+        ar: "شهادة ميلاد المولود."
+      source_ids: [src-uae-having-a-baby]
+  profile_hints:
+    - field: emirate
+      values:
+        abu_dhabi:
+          en: "Born in Abu Dhabi: a DoH stamp counts as the MOHAP seal."
+          ar: "للمواليد في أبوظبي: يُعتد بختم دائرة الصحة بدلاً من ختم وزارة الصحة."
+        dubai:
+          en: "Born in Dubai: a DHA stamp counts as the MOHAP seal."
+          ar: "للمواليد في دبي: يُعتد بختم هيئة الصحة بدبي بدلاً من ختم وزارة الصحة."
+      source_ids: [src-uae-having-a-baby]
+
+- id: newborn-passport-embassy
+  life_event_ids: [new_baby]
+  facets: []
+  title: {en: "Get the baby's passport from your embassy or consulate", ar: "استخراج جواز سفر المولود من سفارة بلدك أو قنصليته"}
+  summary:
+    en: "u.ae lists the passport among the documents residents must arrange within 120 days of birth. A news report says expatriate residents apply to their own embassy or consulate in the UAE; we have not confirmed that on an official page."
+    ar: "تذكر بوابة u.ae جواز السفر ضمن الوثائق التي يجب على المقيمين استخراجها خلال 120 يوماً من الولادة. ويفيد تقرير إخباري بأن المقيمين الوافدين يتقدمون إلى سفارة بلدهم أو قنصليته في الدولة، ولم نتأكد من ذلك في صفحة رسمية."
+  entity: {en: "The embassy or consulate of the baby's nationality", ar: "سفارة أو قنصلية بلد جنسية المولود"}
+  jurisdiction: {en: "Foreign government (not a UAE entity)", ar: "حكومة أجنبية (ليست جهة إماراتية)"}
+  authority: {en: "the embassy or consulate of the baby's nationality", ar: "سفارة أو قنصلية بلد جنسية المولود"}
+  fee_text: null
+  processing_time_text: null
+  official_url: null
+  support_url: null
+  verification_status: needs_review
+  review_note: "Embassy procedures differ by country and are outside UAE government sources."
+  source_ids: [src-uae-having-a-baby, src-gulfnews-newborn]
+  keywords:
+    en: [passport, embassy, consulate]
+    ar: [جواز, جواز السفر, سفاره, قنصليه]
+  requirements:
+    - id: newborn-passport-embassy.c1
+      kind: criterion
+      text:
+        en: "Residents must arrange the baby's passport, Emirates ID and visa within 120 days of birth."
+        ar: "على المقيمين استخراج جواز سفر المولود وبطاقة الهوية والتأشيرة خلال 120 يوماً من الولادة."
+      source_ids: [src-uae-having-a-baby]
+      rule: {field: residency_status, in: [resident]}
+    - id: newborn-passport-embassy.c2
+      kind: criterion
+      text:
+        en: "Reported: expatriate residents apply to their own embassy or consulate in the UAE."
+        ar: "بحسب التقارير: يتقدم المقيمون الوافدون إلى سفارة بلدهم أو قنصليته في الدولة."
+      source_ids: [src-gulfnews-newborn]
+  profile_hints: []
+
+- id: newborn-residence-permit
+  life_event_ids: [new_baby]
+  facets: []
+  title: {en: "Issue the baby's residence permit and Emirates ID", ar: "إصدار إقامة المولود وبطاقة الهوية الإماراتية"}
+  summary:
+    en: "ICP's Issuing Residency Permit service issues a new residence permit linked to an Emirates ID application. For family members, the sponsor must hold a valid UAE residence and meet the income condition."
+    ar: "تصدر خدمة «إصدار تصريح إقامة» لدى الهيئة الاتحادية للهوية والجنسية تصريح إقامة جديداً مرتبطاً بطلب بطاقة الهوية. ولأفراد الأسرة يجب أن يحمل الكفيل إقامة سارية في الدولة وأن يستوفي شرط الدخل."
+  entity: {en: "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP); GDRFA in Dubai", ar: "الهيئة الاتحادية للهوية والجنسية والجمارك وأمن المنافذ؛ والإدارة العامة للإقامة وشؤون الأجانب في دبي"}
+  jurisdiction: {en: "Federal (ICP), with GDRFA Dubai for Dubai", ar: "اتحادي (الهيئة الاتحادية)، والإدارة العامة للإقامة في دبي لإمارة دبي"}
+  authority: {en: "ICP (or GDRFA Dubai)", ar: "الهيئة الاتحادية للهوية والجنسية (أو الإدارة العامة للإقامة وشؤون الأجانب بدبي)"}
+  fee_text:
+    en: "ICP lists AED 100 application, AED 100 issuance per year, AED 100 smart service and AED 20 financial security deposit fees. Your total may differ."
+    ar: "تذكر الهيئة رسوم طلب 100 درهم، وإصدار 100 درهم لكل سنة، وخدمات ذكية 100 درهم، وتأمين مالي 20 درهماً. قد يختلف المجموع في حالتك."
+  processing_time_text:
+    en: "ICP lists a service completion duration of 2 days."
+    ar: "تذكر الهيئة أن مدة إنجاز الخدمة يومان."
+  official_url: https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64
+  support_url: https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members
+  verification_status: verified
+  source_ids: [src-icp-residency-permit, src-uae-having-a-baby, src-uae-family-residence]
+  keywords:
+    en: [visa, residence, residency, "emirates id", sponsor, permit]
+    ar: [اقامه, الاقامه, تاشيره, "الهويه الاماراتيه", كفيل]
+  requirements:
+    - id: newborn-residence-permit.c1
+      kind: criterion
+      text:
+        en: "The sponsoring parent holds a valid UAE residence."
+        ar: "أن يحمل الوالد الكفيل إقامة سارية في الدولة."
+      source_ids: [src-icp-residency-permit]
+      rule: {field: residency_status, in: [resident]}
+    - id: newborn-residence-permit.c2
+      kind: criterion
+      text:
+        en: "Sponsor's minimum monthly income: AED 4,000, or AED 3,000 with housing provided."
+        ar: "الحد الأدنى لدخل الكفيل الشهري: 4,000 درهم، أو 3,000 درهم مع توفير السكن."
+      source_ids: [src-icp-residency-permit, src-uae-family-residence]
+    - id: newborn-residence-permit.c3
+      kind: criterion
+      text:
+        en: "Residents must complete the baby's documents, including the visa, within 120 days of birth. After that AED 100 per day applies, and the baby cannot leave the country until the residence visa is finalised."
+        ar: "على المقيمين إنجاز وثائق المولود بما فيها التأشيرة خلال 120 يوماً من الولادة، وبعدها تُفرض 100 درهم عن كل يوم، ولا يمكن للمولود مغادرة الدولة قبل إنجاز الإقامة."
+      source_ids: [src-uae-having-a-baby]
+    - id: newborn-residence-permit.d1
+      kind: document
+      text:
+        en: "The baby's passport, valid for at least 6 months."
+        ar: "جواز سفر المولود ساري المفعول لمدة لا تقل عن 6 أشهر."
+      source_ids: [src-icp-residency-permit]
+    - id: newborn-residence-permit.d2
+      kind: document
+      text:
+        en: "A personal photo."
+        ar: "صورة شخصية."
+      source_ids: [src-icp-residency-permit]
+    - id: newborn-residence-permit.d3
+      kind: document
+      text:
+        en: "Valid health insurance."
+        ar: "تأمين صحي ساري المفعول."
+      source_ids: [src-icp-residency-permit]
+    - id: newborn-residence-permit.d4
+      kind: document
+      text:
+        en: "The birth certificate (to prove the child's age)."
+        ar: "شهادة الميلاد (لإثبات عمر الطفل)."
+      source_ids: [src-icp-residency-permit]
+  profile_hints:
+    - field: emirate
+      values:
+        dubai:
+          en: "u.ae names both ICP and GDRFA for family residence. For a Dubai-issued residence, check with GDRFA Dubai."
+          ar: "تذكر بوابة u.ae الهيئة الاتحادية والإدارة العامة للإقامة لإقامة الأسرة. إذا كانت إقامتك صادرة من دبي فتحقق مع الإدارة العامة للإقامة وشؤون الأجانب بدبي."
+      source_ids: [src-uae-family-residence]
+
+- id: mabrouk-ma-yak
+  life_event_ids: [new_baby]
+  facets: []
+  title: {en: "Mabrouk Ma Yak newborn bundle (UAE nationals)", ar: "باقة «مبروك ما ياك» للمواليد (للمواطنين)"}
+  summary:
+    en: "For UAE nationals, the Mabrouk Ma Yak bundle combines the birth certificate, adding the baby to family data, passport, Emirates ID, Thiqa insurance and an optional health card."
+    ar: "للمواطنين، تجمع باقة «مبروك ما ياك» شهادة الميلاد وإضافة المولود إلى بيانات الأسرة وجواز السفر وبطاقة الهوية وتأمين ثقة وبطاقة صحية اختيارية."
+  entity: {en: "UAE federal government (Mabrouk Ma Yak bundle on Usrati)", ar: "الحكومة الاتحادية (باقة مبروك ما ياك عبر منصة أسرتي)"}
+  jurisdiction: {en: "Federal (UAE nationals)", ar: "اتحادي (للمواطنين)"}
+  authority: {en: "the participating federal and local entities", ar: "الجهات الاتحادية والمحلية المشاركة"}
+  fee_text: null
+  processing_time_text: null
+  official_url: https://usrati.gov.ae/family/#/
+  support_url: https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby
+  verification_status: verified
+  source_ids: [src-uae-having-a-baby]
+  keywords:
+    en: [emirati, national, citizen, bundle, "mabrouk ma yak", "family book"]
+    ar: [مواطن, اماراتي, مبروك ما ياك, باقه, خلاصه القيد]
+  requirements:
+    - id: mabrouk-ma-yak.c1
+      kind: criterion
+      text:
+        en: "For babies of UAE nationals."
+        ar: "لمواليد المواطنين."
+      source_ids: [src-uae-having-a-baby]
+      rule: {field: residency_status, in: [citizen]}
+  profile_hints: []

@@ -1,0 +1,144 @@
+# Reviewed life-event taxonomy. The AI agent sees the ids and labels (and may reuse an id as
+# the topic of a search). keywords and facets are kept as reviewed bilingual vocabulary and
+# examples; they are no longer used for rule-based matching.
+- id: education_qualification
+  label:
+    en: "Use an overseas education qualification in the UAE"
+    ar: "استخدام مؤهل دراسي صادر من خارج الدولة في الإمارات"
+  keywords:
+    en:
+      degree: 3
+      degrees: 3
+      bachelor: 3
+      bachelors: 3
+      master: 3
+      masters: 3
+      phd: 3
+      doctorate: 3
+      diploma: 2
+      university: 2
+      college: 1
+      qualification: 3
+      qualifications: 3
+      certificate: 2
+      certificates: 2
+      recognition: 3
+      recognise: 3
+      recognize: 3
+      recognised: 3
+      recognized: 3
+      equivalency: 3
+      equivalence: 3
+      equalise: 3
+      equalize: 3
+      equalised: 3
+      equalized: 3
+      attest: 3
+      attestation: 3
+      attested: 3
+      transcript: 2
+      transcripts: 2
+      graduated: 2
+      studied: 1
+      education: 2
+      abroad: 1
+      overseas: 1
+      foreign: 1
+      school: 1
+      "high school": 3
+      "secondary school": 3
+      "grade 12": 3
+    ar:
+      شهاده: 2
+      شهادتي: 2
+      الشهاده: 2
+      شهادات: 2
+      مؤهل: 3
+      مؤهلي: 3
+      المؤهل: 3
+      معادله: 3
+      تعديل: 1
+      تصديق: 3
+      توثيق: 2
+      اعتراف: 3
+      الاعتراف: 3
+      جامعه: 2
+      الجامعه: 2
+      جامعيه: 3
+      الجامعيه: 3
+      بكالوريوس: 3
+      ماجستير: 3
+      دكتوراه: 3
+      دبلوم: 2
+      تعليم: 1
+      الخارج: 1
+      اجنبيه: 1
+      دراستي: 1
+      الثانويه: 3
+      ثانويه: 3
+      مدرسه: 1
+      المدرسه: 1
+  facets:
+    - id: university
+      label: {en: "A university degree or other higher education qualification", ar: "شهادة جامعية أو مؤهل تعليم عالٍ"}
+      keywords:
+        en: [degree, degrees, bachelor, bachelors, master, masters, phd, doctorate, university, college, diploma, graduated, "higher education"]
+        ar: [جامعه, الجامعه, جامعيه, الجامعيه, بكالوريوس, ماجستير, دكتوراه, دبلوم]
+    - id: school
+      label: {en: "A school (secondary / grade 12) certificate", ar: "شهادة مدرسية (الثانوية العامة / الصف الثاني عشر)"}
+      keywords:
+        en: [school, "high school", "secondary school", "grade 12", secondary, grade]
+        ar: [الثانويه, ثانويه, مدرسه, المدرسه, مدرسيه]
+  clarification:
+    prompt:
+      en: "Which qualification do you want to use in the UAE?"
+      ar: "ما المؤهل الذي تريد استخدامه في الإمارات؟"
+  examples:
+    en:
+      - "I recently arrived and need my overseas degree recognized"
+      - "How do I get my foreign high school certificate equalised?"
+    ar:
+      - "وصلت حديثاً وأحتاج إلى الاعتراف بشهادتي الجامعية من الخارج"
+
+- id: new_baby
+  label:
+    en: "Register a new baby and arrange the baby's documents"
+    ar: "تسجيل مولود جديد واستخراج وثائقه"
+  keywords:
+    en:
+      baby: 3
+      babies: 3
+      newborn: 3
+      "new born": 3
+      born: 2
+      birth: 3
+      "birth certificate": 5
+      "had a baby": 5
+      "gave birth": 5
+      infant: 3
+      pregnant: 1
+      son: 1
+      daughter: 1
+      child: 1
+    ar:
+      مولود: 3
+      مولودي: 3
+      المولود: 3
+      مولوده: 3
+      رضيع: 3
+      طفل: 2
+      طفلي: 2
+      ولاده: 3
+      الولاده: 3
+      "شهاده ميلاد": 5
+      "شهاده الميلاد": 5
+      ميلاد: 3
+      انجاب: 3
+      رزقنا: 3
+  facets: []
+  clarification: null
+  examples:
+    en:
+      - "We just had a baby. What do we need to register?"
+    ar:
+      - "رزقنا بمولود جديد، ما الخطوات المطلوبة؟"
