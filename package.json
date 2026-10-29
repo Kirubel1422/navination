@@ -1,0 +1,21 @@
+{
+  "name": "navination",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NaviNation: plain-language navigation to reviewed UAE government services (TDRA Challenge 17 prototype).",
+  "packageManager": "pnpm@11.10.0",
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c cyan,green \"pnpm dev:api\" \"pnpm dev:web\"",
+    "dev:web": "pnpm --filter @navination/web dev",
+    "dev:api": "node scripts/run-api.mjs dev",
+    "setup:api": "node scripts/run-api.mjs setup",
+    "test:api": "node scripts/run-api.mjs test",
+    "lint:api": "node scripts/run-api.mjs lint",
+    "build": "pnpm --filter @navination/web build",
+    "test": "pnpm test:api && pnpm --filter @navination/web test",
+    "contract:check": "node scripts/run-api.mjs contract-check && pnpm --filter @navination/web api:types:check"
+  },
+  "devDependencies": {
+    "concurrently": "9.2.1"
+  }
+}

@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.venv/
+
+# Environment files (examples are committed)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Builds and caches
+.next/
+.next-*/
+out/
+*.tsbuildinfo
+next-env.d.ts
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Local data
+apps/api/data/*.db
+apps/api/data/*.db-*
+
+# Test artifacts
+apps/web/test-results/
+apps/web/playwright-report/
+apps/web/blob-report/
+coverage/
+.playwright-mcp/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
