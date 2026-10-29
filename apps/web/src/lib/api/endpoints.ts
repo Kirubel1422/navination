@@ -12,6 +12,8 @@ import type {
   Journey,
   Locale,
   MessageList,
+  Nearby,
+  NearbyRequest,
   ProfileRequest,
   ServiceCard,
   Session,
@@ -37,6 +39,14 @@ export const api = {
     apiRequest<Discovery>("/discover", { method: "POST", token, body, signal, timeoutMs: AGENT_TIMEOUT_MS }),
   getService: ({ token, signal }: Auth, serviceId: string) =>
     apiRequest<ServiceCard>(`/services/${seg(serviceId)}`, { token, signal, timeoutMs: AGENT_TIMEOUT_MS }),
+  nearby: ({ token, signal }: Auth, serviceId: string, body: NearbyRequest) =>
+    apiRequest<Nearby>(`/services/${seg(serviceId)}/nearby`, {
+      method: "POST",
+      token,
+      body,
+      signal,
+      timeoutMs: AGENT_TIMEOUT_MS,
+    }),
   createJourney: ({ token }: Auth, body: CreateJourneyRequest) =>
     apiRequest<Journey>("/journeys", { method: "POST", token, body, timeoutMs: AGENT_TIMEOUT_MS }),
   getJourney: ({ token, signal }: Auth, journeyId: string) =>

@@ -4,17 +4,21 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { BookOpen, CircleAlert, Loader2, MessageSquare, RotateCcw, SendHorizontal } from "lucide-react";
 import { useState } from "react";
 
-import { AgentActivity } from "@/components/layout/agent-activity";
+import { Mark } from "@/components/layout/mark";
+import { VoiceButton, VoiceStatus } from "@/components/layout/voice-button";
 import { useAnnounce } from "@/components/layout/announcer";
 import { ErrorState, errorMessageKey } from "@/components/layout/states";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { AiChip, StatusChip } from "@/features/services/badges";
+import { ReachDetails } from "@/features/reach/nearby-dialog";
+import { StatusChip } from "@/features/services/badges";
 import { api } from "@/lib/api/endpoints";
 import { queryKeys } from "@/lib/api/query-keys";
 import type { CoachMessage, CoachTurn, Journey, MessageList, SuggestedAction } from "@/lib/api/types";
 import { useLocale } from "@/lib/i18n/locale";
+import { sharedPoint } from "@/lib/location";
 import { useReadySession } from "@/lib/session/session-provider";
+import { useVoiceInput } from "@/lib/voice";
 
 interface PendingMessage {
   clientMessageId: string;
@@ -39,7 +43,7 @@ export function CoachPanel({
   onViewStep: (stepId: string) => void;
   onHandoff: (stepId: string, kind: "official" | "support") => void;
 }) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const announce = useAnnounce();
   const { token, session } = useReadySession();
   const queryClient = useQueryClient();
@@ -60,6 +64,8 @@ export function CoachPanel({
         client_message_id: pending.clientMessageId,
         message: pending.message,
         step_id: pending.stepId,
+        // A shared location lets the coach point to the nearest centre.
+        location: sharedPoint() ?? null,
       }),
     onSuccess: (turn) => {
       queryClient.setQueryData<MessageList>(key, (current) => {
@@ -81,6 +87,7 @@ export function CoachPanel({
     if (!message || message.length > 4000) return;
     send.mutate({ clientMessageId: newMessageId(), message, stepId });
   };
+  const voice = useVoiceInput({ locale, onText: setDraft, onFinal: (text) => submit(text) });
 
   const act = (action: SuggestedAction) => {
     if (!action.step_id) return;
@@ -186,7 +193,11 @@ export function CoachPanel({
                 disabled={send.isPending}
                 className="block w-full resize-none bg-transparent px-3.5 pt-3 text-sm leading-6 outline-none focus-visible:outline-none"
               />
-              <div className="flex justify-end p-2">
+              <div className="flex items-center justify-between gap-2 p-2">
+                <div className="flex items-center gap-2 ps-1">
+                  <VoiceButton voice={voice} size="sm" testId="voice-coach" />
+                  <VoiceStatus voice={voice} />
+                </div>
                 <Button type="submit" size="sm" className="h-9 rounded-full px-4" disabled={send.isPending || !draft.trim()} data-testid="coach-send">
                   {send.isPending ? <Loader2 aria-hidden="true" className="animate-spin motion-reduce:animate-none" /> : <SendHorizontal aria-hidden="true" className="rtl:-scale-x-100" />}
                   {send.isPending ? t("coachSending") : t("coachSend")}
@@ -216,22 +227,25 @@ function MessageItem({
   const isUser = message.role === "user";
   return (
     <li
-      className={isUser ? "ms-8 rounded-2xl rounded-se-sm bg-gulf p-3 text-white" : "me-4 rounded-2xl rounded-ss-sm bg-muted p-3"}
+      className={isUser ? "ms-8 rounded-2xl rounded-se-sm bg-gulf p-3 text-white" : "flex items-start gap-2"}
       data-testid={`coach-message-${message.role}`}
     >
-      <p className={isUser ? "sr-only" : "mb-1 text-xs font-semibold text-muted-foreground"}>{isUser ? t("coachYou") : t("coachAssistant")}</p>
+      {!isUser && <Mark className="mt-0.5 size-7" />}
+      <div className={isUser ? undefined : "min-w-0 flex-1 rounded-2xl rounded-ss-sm bg-muted p-3"}>
+      <p className={isUser ? "sr-only" : "mb-1 text-xs font-semibold text-muted-foreground"}>{isUser ? t("coachYou") : t("guideName")}</p>
       <p className="whitespace-pre-line text-sm">{message.content}</p>
-      {meta && (
+      {meta?.grounding_status === "insufficient_evidence" && (
         <div className="mt-2 flex flex-wrap gap-1">
-          <AiChip data-testid="coach-mode">{t("coachModeAi")}</AiChip>
-          {meta.grounding_status === "insufficient_evidence" && (
-            <StatusChip tone="saffron" icon={CircleAlert}>
-              {t("coachInsufficient")}
-            </StatusChip>
-          )}
+          <StatusChip tone="saffron" icon={CircleAlert}>
+            {t("coachInsufficient")}
+          </StatusChip>
         </div>
       )}
-      {meta && <AgentActivity steps={meta.agent_steps} />}
+      {message.reach && (
+        <div className="mt-3">
+          <ReachDetails reach={message.reach} />
+        </div>
+      )}
       {meta && meta.notices.length > 0 && (
         <ul className="mt-1 text-xs text-muted-foreground">
           {meta.notices.map((n) => (
@@ -277,6 +291,7 @@ function MessageItem({
           ))}
         </div>
       )}
+      </div>
     </li>
   );
 }

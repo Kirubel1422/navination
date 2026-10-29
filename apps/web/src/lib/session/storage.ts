@@ -13,6 +13,7 @@ const KEYS = {
   discovery: "navination.discovery",
   previousDiscovery: "navination.previousDiscovery",
   activeJourney: "navination.activeJourney",
+  location: "navination.location",
 } as const;
 
 type Key = keyof typeof KEYS;

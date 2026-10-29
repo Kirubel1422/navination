@@ -7,6 +7,7 @@ import { delay } from "msw";
 import { HttpResponse, http } from "msw/http";
 
 import type {
+  NearbyRequest,
   CoachRequest,
   CoachTurn,
   DiscoverRequest,
@@ -145,6 +146,38 @@ export const handlers = [
       id: id("dis"),
       query: body.query,
       context_revision: s.session.context_revision,
+      answer:
+        fixture.answer ??
+        (fixture.status === "ready"
+          ? "Demo data: start with the services below, in this order. Each card shows what to prepare and who decides."
+          : null),
+    });
+  }),
+
+  http.post(url("/services/:serviceId/nearby"), async ({ request, params }) => {
+    const s = requireAuth(request);
+    if (isResponse(s)) return s;
+    await delay(1200);
+    const body = (await request.json()) as NearbyRequest;
+    const near = body.location ?? { lat: 25.2048, lng: 55.2708 };
+    return HttpResponse.json({
+      service_id: String(params.serviceId),
+      message: "Demo data: these centres and links are examples, not a live search.",
+      reach: {
+        contacts: [],
+        centers: [
+          {
+            id: "demo-centre-1",
+            name: "Demo service centre",
+            address: "Example address",
+            lat: near.lat + 0.01,
+            lng: near.lng + 0.01,
+            note: "Demo data",
+            source: "openstreetmap",
+          },
+        ],
+        map_query: "Tasheel centre",
+      },
     });
   }),
 

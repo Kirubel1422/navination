@@ -5,13 +5,12 @@ import { Check, ListChecks, RefreshCw, Route } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-import { AgentActivity } from "@/components/layout/agent-activity";
 import { AgentLoader } from "@/components/layout/agent-loader";
 import { useAnnounce } from "@/components/layout/announcer";
 import { ErrorState } from "@/components/layout/states";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
-import { AiChip } from "@/features/services/badges";
+import { GuideBubble } from "@/features/reach/guide-bubble";
 import { ServiceResultCard } from "@/features/services/service-card";
 import { api } from "@/lib/api/endpoints";
 import type { Discovery } from "@/lib/api/types";
@@ -113,15 +112,16 @@ export function DiscoverView() {
   return (
     <div className="grid grid-cols-1 items-start gap-x-10 gap-y-8 lg:grid-cols-[minmax(0,21rem)_minmax(0,1fr)]">
       <aside className="min-w-0 space-y-5 lg:sticky lg:top-28" aria-labelledby="interpreted">
-        <section className="space-y-3">
+        <section className="space-y-4">
           <h2 id="interpreted" className="t-label">
             {t("interpretedNeed")}
           </h2>
           <p className="t-title" data-testid="interpreted-need">
             {discovery.interpreted_need}
           </p>
-          <AiChip>{t("aiInterpretation")}</AiChip>
-          <AgentActivity steps={discovery.agent_steps} />
+          {discovery.answer && (
+            <GuideBubble text={discovery.answer} sources={discovery.answer_sources} testId="guide-answer" />
+          )}
         </section>
         <DiscoveryForm
           key={discovery.id}

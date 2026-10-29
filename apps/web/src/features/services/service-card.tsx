@@ -12,6 +12,7 @@ import type { ServiceCard as ServiceCardData } from "@/lib/api/types";
 import { useLocale } from "@/lib/i18n/locale";
 import { cn } from "@/lib/utils";
 import { OriginBadge, RelevanceBadge, VerificationBadge } from "./badges";
+import { ReachSummary } from "@/features/reach/reach-summary";
 import { SourcesList } from "./sources-list";
 
 export function ReasonList({ card }: { card: ServiceCardData }) {
@@ -109,6 +110,9 @@ export function ServiceResultCard({
         <ReasonList card={card} />
         <AuthorityNote notice={card.authority_notice} />
       </section>
+      <div className="mt-4">
+        <ReachSummary reach={card.reach} serviceId={service.id} serviceTitle={service.title} />
+      </div>
       <Accordion type="single" collapsible className="mt-1">
         <AccordionItem value="sources" className="border-b-0">
           <AccordionTrigger className="py-2.5 text-sm">

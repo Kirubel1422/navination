@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
-import { AgentActivity } from "@/components/layout/agent-activity";
 import { AgentLoader } from "@/components/layout/agent-loader";
 import { useAnnounce } from "@/components/layout/announcer";
 import { ErrorState, LoadingState, errorMessageKey } from "@/components/layout/states";
@@ -151,9 +150,6 @@ export function JourneyView() {
             ))}
           </div>
           <p className="text-xs text-muted-foreground">{t("progressNote")}</p>
-        </div>
-        <div className="lg:col-span-2">
-          <AgentActivity steps={data.agent_steps} />
         </div>
       </header>
 

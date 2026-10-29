@@ -6,10 +6,13 @@ import { useId } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { LocationChip } from "@/components/layout/location-chip";
+import { VoiceButton, VoiceStatus } from "@/components/layout/voice-button";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useLocale } from "@/lib/i18n/locale";
 import { cn } from "@/lib/utils";
+import { useVoiceInput } from "@/lib/voice";
 
 const schema = z.object({
   query: z.string().trim().min(1, "queryRequired").max(2000, "queryTooLong"),
@@ -27,12 +30,21 @@ export function DiscoveryForm({
   onSubmit: (query: string) => void;
   compact?: boolean;
 }) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   // Unique per instance: hidden (preserved) pages keep their own copy of this form in the DOM.
   const id = useId();
   const form = useForm<Values>({ resolver: zodResolver(schema), defaultValues: { query: defaultQuery } });
   const error = form.formState.errors.query?.message;
   const submit = form.handleSubmit((values) => onSubmit(values.query.trim()));
+  // Speak instead of typing: words appear as they are heard, then the search runs.
+  const voice = useVoiceInput({
+    locale,
+    onText: (text) => form.setValue("query", text, { shouldValidate: false }),
+    onFinal: (text) => {
+      form.setValue("query", text);
+      if (!pending) void submit();
+    },
+  });
   return (
     <form onSubmit={submit} noValidate data-testid="discovery-form">
       <div
@@ -61,21 +73,30 @@ export function DiscoveryForm({
           )}
           {...form.register("query")}
         />
-        <div className={cn("flex flex-wrap items-center justify-between gap-3", compact ? "px-3 pb-3" : "px-4 pb-4 sm:px-5")}>
-          <p id={`${id}-hint`} className="flex items-center gap-1.5 ps-1 text-xs text-muted-foreground">
-            <LockKeyhole aria-hidden="true" className="size-3.5 shrink-0" />
-            {t("queryHint")}
-          </p>
-          <Button
+        <div className={cn("flex flex-wrap items-center justify-between gap-x-3 gap-y-2", compact ? "px-3 pb-3" : "px-4 pb-4 sm:px-5")}>
+          <div className="flex min-w-0 flex-col gap-1.5 ps-1">
+            <VoiceStatus voice={voice} />
+            {!voice.listening && !voice.error && (
+              <p id={`${id}-hint`} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <LockKeyhole aria-hidden="true" className="size-3.5 shrink-0" />
+                {t("queryHint")}
+              </p>
+            )}
+            <LocationChip />
+          </div>
+          <div className="ms-auto flex items-center gap-2">
+            <VoiceButton voice={voice} size={compact ? "sm" : "md"} testId="voice-search" />
+            <Button
             type="submit"
             size="lg"
-            className={cn("ms-auto rounded-full", compact ? "h-10 px-4" : "h-12 px-6 text-[0.95rem]")}
+            className={cn("rounded-full", compact ? "h-9 px-4" : "h-12 px-6 text-[0.95rem]")}
             disabled={pending}
             data-testid="search-submit"
           >
             {pending ? <Loader2 aria-hidden="true" className="animate-spin motion-reduce:animate-none" /> : <Search aria-hidden="true" />}
             {pending ? t("searching") : t("search")}
           </Button>
+          </div>
         </div>
       </div>
       {error && (

@@ -7,6 +7,7 @@ import { useId } from "react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ReachSummary } from "@/features/reach/reach-summary";
 import { AvailabilityBadge, OriginBadge, VerificationBadge } from "@/features/services/badges";
 import { AuthorityNote } from "@/features/services/service-card";
 import type { Dependency, DocumentStatus, Journey, JourneyStep, Progress } from "@/lib/api/types";
@@ -186,8 +187,9 @@ export function StepCard({
         </ul>
       )}
 
-      <div className="sm:ps-9">
+      <div className="space-y-3 sm:ps-9">
         <AuthorityNote notice={step.service_card.authority_notice} />
+        <ReachSummary reach={step.service_card.reach} serviceId={service.id} serviceTitle={step.title} />
       </div>
 
       <footer className="flex flex-wrap items-start justify-between gap-3 border-t pt-4">

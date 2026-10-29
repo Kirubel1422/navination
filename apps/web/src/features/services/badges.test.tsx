@@ -37,6 +37,6 @@ describe("origin badge", () => {
       </>,
     );
     expect(screen.getAllByTestId("origin-ai-web")).toHaveLength(1);
-    expect(screen.getByText(/Found by AI on an official website/)).toBeInTheDocument();
+    expect(screen.getByText(/From an official website, not reviewed yet/)).toBeInTheDocument();
   });
 });

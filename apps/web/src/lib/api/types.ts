@@ -28,6 +28,12 @@ export type CoachTurn = Schemas["CoachTurn"];
 export type SuggestedAction = Schemas["SuggestedAction"];
 export type MessageList = Schemas["MessageList"];
 export type Handoff = Schemas["Handoff"];
+export type Contact = Schemas["Contact"];
+export type Center = Schemas["Center"];
+export type Reach = Schemas["Reach"];
+export type GeoPoint = Schemas["Location"];
+export type NearbyRequest = Schemas["NearbyRequest"];
+export type Nearby = Schemas["Nearby"];
 export type HandoffRequest = Schemas["HandoffRequest"];
 export type ErrorEnvelope = Schemas["ErrorEnvelope"];
 

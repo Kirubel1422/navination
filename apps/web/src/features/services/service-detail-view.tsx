@@ -11,6 +11,8 @@ import { ApiError } from "@/lib/api/client";
 import { api } from "@/lib/api/endpoints";
 import { queryKeys } from "@/lib/api/query-keys";
 import { useLocale } from "@/lib/i18n/locale";
+import { ContactList } from "@/features/reach/contact-list";
+import { NearbyDialog } from "@/features/reach/nearby-dialog";
 import { useReadySession } from "@/lib/session/session-provider";
 import { OriginBadge, RelevanceBadge, UnconfirmedValue, VerificationBadge } from "./badges";
 import { RequirementList } from "./requirement-list";
@@ -105,6 +107,20 @@ export function ServiceDetailView() {
           <p className="text-sm">{card.authority_notice}</p>
         </section>
       </div>
+
+      <section aria-labelledby="reach-heading" className="surface space-y-4 p-5 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="reach-heading" className="t-head">
+            {t("contactsHeading")}
+          </h2>
+          <NearbyDialog serviceId={service.id} serviceTitle={service.title} seed={card.reach} />
+        </div>
+        {card.reach && card.reach.contacts.length > 0 ? (
+          <ContactList contacts={card.reach.contacts} />
+        ) : (
+          <p className="text-sm text-muted-foreground">{t("nearbyIntro")}</p>
+        )}
+      </section>
 
       <section aria-labelledby="continue-heading" className="overflow-hidden rounded-[1.5rem] bg-ink text-white">
         <div className="sadu-band" aria-hidden="true" />
