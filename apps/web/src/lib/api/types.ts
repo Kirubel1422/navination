@@ -34,6 +34,11 @@ export type Reach = Schemas["Reach"];
 export type GeoPoint = Schemas["Location"];
 export type NearbyRequest = Schemas["NearbyRequest"];
 export type Nearby = Schemas["Nearby"];
+export type Insight = Schemas["Insight"];
+export type DataSource = Schemas["DataSource"];
+export type RelatedDataset = Schemas["RelatedDataset"];
+export type OpenDataSummary = Schemas["OpenDataSummary"];
+export type NavigationGaps = Schemas["NavigationGaps"];
 export type HandoffRequest = Schemas["HandoffRequest"];
 export type ErrorEnvelope = Schemas["ErrorEnvelope"];
 

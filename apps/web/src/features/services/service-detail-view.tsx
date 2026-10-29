@@ -13,6 +13,7 @@ import { queryKeys } from "@/lib/api/query-keys";
 import { useLocale } from "@/lib/i18n/locale";
 import { ContactList } from "@/features/reach/contact-list";
 import { NearbyDialog } from "@/features/reach/nearby-dialog";
+import { InsightTile, RelatedData } from "@/features/opendata/insight-tile";
 import { useReadySession } from "@/lib/session/session-provider";
 import { OriginBadge, RelevanceBadge, UnconfirmedValue, VerificationBadge } from "./badges";
 import { RequirementList } from "./requirement-list";
@@ -79,6 +80,22 @@ export function ServiceDetailView() {
           </div>
         ))}
       </dl>
+
+      {(card.insights.length > 0 || card.related_data.length > 0) && (
+        <section aria-labelledby="numbers-heading" className="space-y-4" data-testid="in-numbers">
+          <h2 id="numbers-heading" className="t-head">
+            {t("inNumbers")}
+          </h2>
+          {card.insights.length > 0 && (
+            <div className="grid gap-3 md:grid-cols-2">
+              {card.insights.map((insight) => (
+                <InsightTile key={insight.id} insight={insight} />
+              ))}
+            </div>
+          )}
+          <RelatedData datasets={card.related_data} />
+        </section>
+      )}
 
       <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
         <section aria-labelledby="why-heading" className="space-y-3">

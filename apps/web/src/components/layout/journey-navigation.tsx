@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 export function JourneyNavigation() {
   const pathname = usePathname();
   const { t } = useLocale();
+  if (pathname.startsWith("/data")) return null; // the open-data page is not part of the route
   const current = pathname.startsWith("/journeys/") ? 2 : pathname === "/" ? 0 : 1;
   const steps = [t("workflowDiscover"), t("workflowChoose"), t("workflowPlan")];
   return (

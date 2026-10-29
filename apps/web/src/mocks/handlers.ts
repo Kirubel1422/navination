@@ -79,6 +79,28 @@ const url = (path: string) => `${API_BASE_URL}${path}`;
 const AGENT_LATENCY_MS = 2600;
 
 export const handlers = [
+  http.get(url("/open-data"), () => HttpResponse.json(clone(f.openData))),
+  http.get(url("/open-data/navigation-gaps"), () => HttpResponse.json(clone(f.navigationGaps))),
+  http.get(url("/open-data/navigation-gaps.csv"), () => {
+    const fields = ["week", "topic", "searches", "ready", "needs_clarification", "no_match", "plans", "median_seconds_to_plan"] as const;
+    const lines = f.navigationGaps.rows.map((r) => fields.map((k) => r[k] ?? "").join(","));
+    return new HttpResponse([fields.join(","), ...lines].join("\n"), { headers: { "Content-Type": "text/csv" } });
+  }),
+  http.get(url("/open-data/search"), ({ request }) => {
+    const q = (new URL(request.url).searchParams.get("q") ?? "").toLowerCase();
+    // Demo search over the datasets the fixtures know (the live API searches the whole mirror).
+    const curated = f.openData.curated.map((c) => ({
+      title: c.source.title,
+      publisher: c.source.publisher,
+      portal: c.source.portal,
+      theme: null,
+      url: c.source.url,
+      last_updated: c.source.source_updated,
+    }));
+    const known = [...curated, ...[...f.discoverReady.results, f.serviceCard].flatMap((c) => c.related_data)];
+    const words = q.split(/\s+/).filter((w) => w.length > 2).map((w) => w.replace(/s$/, ""));
+    return HttpResponse.json(known.filter((d) => words.some((w) => d.title.toLowerCase().includes(w))));
+  }),
   http.get(url("/health"), () =>
     HttpResponse.json({ status: "ok", contract_version: "1.0.0", knowledge_status: "demo", ai_available: false }),
   ),
@@ -138,6 +160,7 @@ export const handlers = [
     let fixture: Discovery;
     if (body.clarification_answer) fixture = clone(f.discoverClarificationAnswer);
     else if (/licen[cs]e|visa for|car|traffic/.test(query)) fixture = clone(f.discoverNoMatch);
+    else if (/baby|born|newborn|birth|مولود|ولادة/.test(query)) fixture = clone(f.discoverPersona);
     else if (query.includes("certificate") && !/degree|university|bachelor|birth/.test(query))
       fixture = clone(f.discoverClarification);
     else fixture = clone(f.discoverReady);
@@ -192,7 +215,10 @@ export const handlers = [
     const s = requireAuth(request);
     if (isResponse(s)) return s;
     await delay(AGENT_LATENCY_MS);
-    const journey = { ...clone(f.journey), id: id("jrn"), created_at: now(), updated_at: now() };
+    const body = (await request.clone().json()) as { service_ids: string[] };
+    // The demo persona's plan (newborn in Umm Al Quwain) or the degree plan.
+    const base = body.service_ids.includes("birth-registration") ? f.journeyPersona : f.journey;
+    const journey = { ...clone(base), id: id("jrn"), created_at: now(), updated_at: now() } as typeof f.journey;
     journey.context_revision = s.session.context_revision;
     s.journeys.set(journey.id, { ...journey, revision: s.session.context_revision });
     return HttpResponse.json(journeyView(s, s.journeys.get(journey.id)!), { status: 201 });

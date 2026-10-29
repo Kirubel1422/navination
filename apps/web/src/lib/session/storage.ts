@@ -14,6 +14,8 @@ const KEYS = {
   previousDiscovery: "navination.previousDiscovery",
   activeJourney: "navination.activeJourney",
   location: "navination.location",
+  personalizePrompted: "navination.personalizePrompted",
+  planView: "navination.planView",
 } as const;
 
 type Key = keyof typeof KEYS;

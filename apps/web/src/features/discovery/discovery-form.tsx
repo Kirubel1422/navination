@@ -109,13 +109,14 @@ export function DiscoveryForm({
 }
 
 export const SUPPORTED_EXAMPLES = {
+  // The demo persona first: expat parents of a newborn in Umm Al Quwain.
   en: [
+    "We just had a baby in Umm Al Quwain. What do we need to do?",
     "I recently arrived and need my overseas degree recognized",
     "How do I get my foreign high school certificate equalised?",
-    "We just had a baby. What do we need to register?",
   ],
   ar: [
+    "رزقنا بمولود جديد في أم القيوين، ما الخطوات المطلوبة؟",
     "وصلت حديثاً وأحتاج إلى الاعتراف بشهادتي الجامعية من الخارج",
-    "رزقنا بمولود جديد، ما الخطوات المطلوبة؟",
   ],
 } as const;

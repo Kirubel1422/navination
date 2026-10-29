@@ -10,6 +10,7 @@ import { useAnnounce } from "@/components/layout/announcer";
 import { ErrorState } from "@/components/layout/states";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+import { usePersonalizeBeforeSearch } from "@/features/profile/personalize-dialog";
 import { GuideBubble } from "@/features/reach/guide-bubble";
 import { ServiceResultCard } from "@/features/services/service-card";
 import { api } from "@/lib/api/endpoints";
@@ -69,7 +70,9 @@ export function DiscoverView() {
     },
   });
 
-  const run = (query: string, optionId?: string) => {
+  const { guard, dialog } = usePersonalizeBeforeSearch();
+  const run = (query: string, optionId?: string) => guard(() => runNow(query, optionId));
+  const runNow = (query: string, optionId?: string) => {
     const current = stored?.discovery;
     discover.mutate(
       {
@@ -262,6 +265,7 @@ export function DiscoverView() {
         )}
       </div>
 
+      {dialog}
       <AgentLoader open={discover.isPending} runId={discover.submittedAt} task="search" />
       <AgentLoader open={createJourney.isPending} runId={createJourney.submittedAt} task="plan" />
     </div>

@@ -1,18 +1,20 @@
 "use client";
 
-import { Building2, Check, CircleDashed, ClipboardCheck, MessageCircleQuestion } from "lucide-react";
+import { Building2, Check, CircleDashed, ClipboardCheck, MessageCircleQuestion, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useId } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { InsightTile } from "@/features/opendata/insight-tile";
 import { ReachSummary } from "@/features/reach/reach-summary";
 import { AvailabilityBadge, OriginBadge, VerificationBadge } from "@/features/services/badges";
 import { AuthorityNote } from "@/features/services/service-card";
 import type { Dependency, DocumentStatus, Journey, JourneyStep, Progress } from "@/lib/api/types";
 import { useLocale } from "@/lib/i18n/locale";
 import { cn } from "@/lib/utils";
+import { answerLabel } from "./answer-label";
 import { DocumentChecklist } from "./document-checklist";
 import { HandoffPanel, type HandoffState } from "./handoff-panel";
 
@@ -96,9 +98,27 @@ export function StepCard({
           <AvailabilityBadge availability={step.availability} />
         </div>
         <div className="flex flex-wrap gap-2 sm:ps-9">
+          {step.tailored_by.length > 0 && (
+            <span
+              className="inline-flex min-h-6 items-center gap-1.5 rounded-full bg-[#efeaf7] py-0.5 ps-1 pe-2.5 text-[0.78rem] font-semibold text-[#4b357c] ring-1 ring-[#6b4fa0]/25 ring-inset"
+              data-testid="step-tailored"
+            >
+              <span aria-hidden="true" className="grid size-5 place-items-center rounded-full bg-white/80">
+                <Sparkles className="size-3.5 text-dusk" />
+              </span>
+              {t("tailoredBecause", {
+                answers: step.tailored_by
+                  .map((field) => answerLabel(t, field, String(journey.personalization.find((p) => p.field === field)?.value ?? "")))
+                  .join(", "),
+              })}
+            </span>
+          )}
           <VerificationBadge status={service.verification_status} />
           <OriginBadge origin={service.origin} />
         </div>
+        {step.tailored_note && (
+          <p className="ms-0 rounded-xl bg-[#f5f1fb] px-3 py-2 text-sm text-[#3d2a66] sm:ms-9">{step.tailored_note}</p>
+        )}
       </header>
 
       <div className="space-y-1 sm:ps-9">
@@ -107,6 +127,12 @@ export function StepCard({
         </p>
         {step.title !== service.title && <p className="text-xs text-muted-foreground">{service.title}</p>}
       </div>
+
+      {step.service_card.insights[0] && (
+        <div className="sm:ps-9">
+          <InsightTile insight={step.service_card.insights[0]} compact />
+        </div>
+      )}
 
       {incoming.length > 0 && (
         <section aria-label={t("prerequisites")} className="sm:ms-9 space-y-2 rounded-2xl bg-muted/70 p-3">

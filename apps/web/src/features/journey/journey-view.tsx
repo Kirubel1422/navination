@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertTriangle, Check, ListTree, RefreshCw } from "lucide-react";
+import { AlertTriangle, Check, List, ListTree, RefreshCw, Waypoints } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -14,9 +14,12 @@ import { CoachPanel } from "@/features/coach/coach-panel";
 import { ApiError } from "@/lib/api/client";
 import type { DocumentStatus, JourneyStep, Progress } from "@/lib/api/types";
 import { useLocale } from "@/lib/i18n/locale";
-import { writeStored } from "@/lib/session/storage";
+import { useStored, writeStored } from "@/lib/session/storage";
+import { cn } from "@/lib/utils";
 import type { HandoffState } from "./handoff-panel";
+import { PlanMap } from "./plan-map";
 import { StepCard } from "./step-card";
+import { TailoredPanel } from "./tailored-panel";
 import { useJourney } from "./use-journey";
 
 type Handoffs = Record<string, { official?: HandoffState; support?: HandoffState }>;
@@ -29,6 +32,9 @@ export function JourneyView() {
   const { journey, updateStep, replan, handoff } = useJourney(journeyId);
   const [coachStepId, setCoachStepId] = useState<string | null>(null);
   const [focusedStep, setFocusedStep] = useState<string | null>(null);
+  const [selectedStep, setSelectedStep] = useState<string | null>(null);
+  const [highlightField, setHighlightField] = useState<string | null>(null);
+  const view = useStored<"map" | "list">("planView") ?? "map";
   const [stepErrors, setStepErrors] = useState<Record<string, string>>({});
   const [handoffs, setHandoffs] = useState<Handoffs>({});
   const [rediscover, setRediscover] = useState(false);
@@ -67,10 +73,15 @@ export function JourneyView() {
 
   const viewStep = (stepId: string) => {
     setFocusedStep(stepId);
-    const element = document.getElementById(`step-${stepId}`);
-    element?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-    element?.focus({ preventScroll: true });
+    setSelectedStep(stepId);
+    // In the map view the step's details render after this update; scroll once they exist.
+    window.requestAnimationFrame(() => {
+      const element = document.getElementById(`step-${stepId}`);
+      element?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      element?.focus({ preventScroll: true });
+    });
   };
+  const shownStep = data.steps.find((s) => s.id === selectedStep) ?? data.steps.find((s) => s.id === defaultStep) ?? data.steps[0];
 
   const mutateStep = (stepId: string, body: { progress?: Progress; document_progress?: { document_id: string; status: DocumentStatus }[] }) => {
     setStepErrors((current) => Object.fromEntries(Object.entries(current).filter(([id]) => id !== stepId)));
@@ -118,6 +129,25 @@ export function JourneyView() {
         if (error instanceof ApiError && error.code === "CONTEXT_STALE") setRediscover(true);
       },
     });
+
+  const renderStep = (step: JourneyStep) => (
+    <StepCard
+      journey={data}
+      step={step}
+      locked={data.is_stale}
+      pending={updateStep.isPending && updateStep.variables?.stepId === step.id}
+      error={stepErrors[step.id] ?? null}
+      focused={focusedStep === step.id}
+      handoffs={handoffs[step.id] ?? {}}
+      onProgress={(progress) => mutateStep(step.id, { progress })}
+      onDocument={(documentId, status) => mutateStep(step.id, { document_progress: [{ document_id: documentId, status }] })}
+      onAskCoach={() => {
+        setCoachStepId(step.id);
+        document.getElementById(`coach-input-${data.id}`)?.focus();
+      }}
+      onHandoff={(kind) => requestHandoff(step.id, kind)}
+    />
+  );
 
   const stageState = (steps: JourneyStep[], index: number): "done" | "current" | "upcoming" => {
     if (steps.every((st) => st.progress === "completed")) return "done";
@@ -190,7 +220,49 @@ export function JourneyView() {
         </section>
       )}
 
+      <TailoredPanel journey={data} onHighlight={setHighlightField} highlightField={highlightField} />
+
+      <div className="space-y-4">
+        <div role="tablist" aria-label={t("planViewLabel")} className="inline-flex rounded-full bg-muted p-1">
+          {(["map", "list"] as const).map((mode) => (
+            <button
+              key={mode}
+              type="button"
+              role="tab"
+              aria-selected={view === mode}
+              onClick={() => writeStored("planView", mode)}
+              className={cn(
+                "inline-flex h-9 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors",
+                view === mode ? "bg-card text-foreground shadow-[0_1px_2px_rgb(16_37_45/0.14)]" : "text-muted-foreground hover:text-foreground",
+              )}
+              data-testid={`view-${mode}`}
+            >
+              {mode === "map" ? <Waypoints aria-hidden="true" className="size-4" /> : <List aria-hidden="true" className="size-4" />}
+              {mode === "map" ? t("planMapView") : t("listView")}
+            </button>
+          ))}
+        </div>
+        {view === "map" && (
+          <>
+            <PlanMap
+              journey={data}
+              currentId={defaultStep}
+              selectedId={shownStep?.id ?? null}
+              onSelect={(stepId) => setSelectedStep(stepId)}
+              highlightField={highlightField}
+            />
+            <p className="text-sm text-muted-foreground">{t("mapSelectHint")}</p>
+          </>
+        )}
+      </div>
+
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
+        <div className="min-w-0 space-y-5">
+        {view === "map" ? (
+          <>
+            {shownStep && <div key={shownStep.id} className="step-reveal">{renderStep(shownStep)}</div>}
+          </>
+        ) : (
         <ol className="stage-line min-w-0" aria-label={data.title}>
           {stages.map(([group, steps], index) => {
             const stage = data.stages.find((s) => s.order_group === group);
@@ -221,24 +293,7 @@ export function JourneyView() {
                   <ul className="space-y-4">
                     {steps.map((step) => (
                       <li key={step.id}>
-                        <StepCard
-                          journey={data}
-                          step={step}
-                          locked={data.is_stale}
-                          pending={updateStep.isPending && updateStep.variables?.stepId === step.id}
-                          error={stepErrors[step.id] ?? null}
-                          focused={focusedStep === step.id}
-                          handoffs={handoffs[step.id] ?? {}}
-                          onProgress={(progress) => mutateStep(step.id, { progress })}
-                          onDocument={(documentId, status) =>
-                            mutateStep(step.id, { document_progress: [{ document_id: documentId, status }] })
-                          }
-                          onAskCoach={() => {
-                            setCoachStepId(step.id);
-                            document.getElementById(`coach-input-${data.id}`)?.focus();
-                          }}
-                          onHandoff={(kind) => requestHandoff(step.id, kind)}
-                        />
+                        {renderStep(step)}
                       </li>
                     ))}
                   </ul>
@@ -247,6 +302,8 @@ export function JourneyView() {
             );
           })}
         </ol>
+        )}
+        </div>
         <aside aria-label={t("coachHeading")} className="lg:sticky lg:top-28">
           <CoachPanel journey={data} stepId={activeCoachStep} onViewStep={viewStep} onHandoff={requestHandoff} />
         </aside>

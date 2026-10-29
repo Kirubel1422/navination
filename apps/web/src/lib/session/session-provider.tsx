@@ -1,6 +1,6 @@
 "use client";
 
-import { useQueryClient } from "@tanstack/react-query";
+import { type QueryClient, useQueryClient } from "@tanstack/react-query";
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import { ApiError, onUnauthorized } from "@/lib/api/client";
@@ -56,6 +56,13 @@ interface SessionContextValue {
 
 const SessionContext = createContext<SessionContextValue | null>(null);
 
+/** Public open data (never tied to a session) stays cached when the guest session ends. */
+const PUBLIC_QUERY_ROOTS = new Set(["open-data", "open-data-search", "navigation-gaps"]);
+
+function clearPrivateQueries(queryClient: QueryClient): void {
+  queryClient.removeQueries({ predicate: (query) => !PUBLIC_QUERY_ROOTS.has(String(query.queryKey[0])) });
+}
+
 export function SessionProvider({ children }: { children: React.ReactNode }) {
   const { locale } = useLocale();
   const queryClient = useQueryClient();
@@ -69,7 +76,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
   const expire = useCallback(() => {
     bootstrapPromise = null;
     clearPrivateState();
-    queryClient.clear();
+    clearPrivateQueries(queryClient);
     setState((current) => (current.status === "cleared" ? current : { status: "expired" }));
   }, [queryClient]);
 
@@ -116,7 +123,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
   const startNewSession = useCallback(async () => {
     bootstrapPromise = null;
     clearPrivateState();
-    queryClient.clear();
+    clearPrivateQueries(queryClient);
     setState({ status: "loading" });
     setAttempt((n) => n + 1);
   }, [queryClient]);
@@ -126,7 +133,7 @@ export function SessionProvider({ children }: { children: React.ReactNode }) {
     await api.deleteSession({ token: state.token });
     bootstrapPromise = null;
     clearPrivateState();
-    queryClient.clear();
+    clearPrivateQueries(queryClient);
     setState({ status: "cleared" });
   }, [state, queryClient]);
 

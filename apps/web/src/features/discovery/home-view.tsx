@@ -8,6 +8,7 @@ import { AgentLoader } from "@/components/layout/agent-loader";
 import { ErrorState } from "@/components/layout/states";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/lib/i18n/locale";
+import { usePersonalizeBeforeSearch } from "@/features/profile/personalize-dialog";
 import { useStored } from "@/lib/session/storage";
 import { DiscoveryForm, SUPPORTED_EXAMPLES } from "./discovery-form";
 import { useDiscover } from "./use-discover";
@@ -17,10 +18,12 @@ export function HomeView() {
   const router = useRouter();
   const discover = useDiscover();
   const activeJourney = useStored<string>("activeJourney");
-  const run = (query: string) => discover.mutate({ query, clarification_answer: null }, { onSuccess: () => router.push("/discover") });
+  const { guard, dialog } = usePersonalizeBeforeSearch();
+  const run = (query: string) =>
+    guard(() => discover.mutate({ query, clarification_answer: null }, { onSuccess: () => router.push("/discover") }));
   const examples = locale === "ar"
-    ? [{ icon: GraduationCap, title: t("exampleDegree") }, { icon: Baby, title: t("exampleBaby") }]
-    : [{ icon: GraduationCap, title: t("exampleDegree") }, { icon: BookOpen, title: t("exampleSchool") }, { icon: Baby, title: t("exampleBaby") }];
+    ? [{ icon: Baby, title: t("exampleBaby") }, { icon: GraduationCap, title: t("exampleDegree") }]
+    : [{ icon: Baby, title: t("exampleBaby") }, { icon: GraduationCap, title: t("exampleDegree") }, { icon: BookOpen, title: t("exampleSchool") }];
 
   return (
     <div className="space-y-10">
@@ -82,9 +85,10 @@ export function HomeView() {
 
       <ul className="flex max-w-2xl flex-wrap gap-x-6 gap-y-2 border-t pt-5 text-sm text-muted-foreground">
         <li className="flex items-center gap-2"><LockKeyhole aria-hidden="true" className="size-4 text-gulf" />{t("guestNote")}</li>
-        <li className="flex items-center gap-2"><Database aria-hidden="true" className="size-4 text-gulf" />{t("trustSources")}</li>
+        <li><Link href="/data" className="flex items-center gap-2 underline decoration-ghaf underline-offset-4 hover:text-foreground"><Database aria-hidden="true" className="size-4 text-gulf" />{t("trustSources")}</Link></li>
       </ul>
 
+      {dialog}
       <AgentLoader open={discover.isPending} runId={discover.submittedAt} task="search" />
     </div>
   );

@@ -12,6 +12,7 @@ import type { ServiceCard as ServiceCardData } from "@/lib/api/types";
 import { useLocale } from "@/lib/i18n/locale";
 import { cn } from "@/lib/utils";
 import { OriginBadge, RelevanceBadge, VerificationBadge } from "./badges";
+import { InsightTile } from "@/features/opendata/insight-tile";
 import { ReachSummary } from "@/features/reach/reach-summary";
 import { SourcesList } from "./sources-list";
 
@@ -96,6 +97,11 @@ export function ServiceResultCard({
         </span>
       </p>
       <p className="mt-3 line-clamp-3 max-w-[70ch] text-[0.95rem]">{service.summary}</p>
+      {card.insights[0] && (
+        <div className="mt-4">
+          <InsightTile insight={card.insights[0]} compact />
+        </div>
+      )}
       <div className="mt-3 flex flex-wrap gap-2">
         <VerificationBadge status={service.verification_status} />
         <OriginBadge origin={service.origin} />

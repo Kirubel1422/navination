@@ -2,7 +2,7 @@
 
 import { FlaskConical, Languages, Trash2 } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Suspense, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -30,6 +30,10 @@ function SessionGate({ children }: { children: React.ReactNode }) {
   const { state, startNewSession, retryBootstrap } = useSession();
   const { t } = useLocale();
   const router = useRouter();
+  const pathname = usePathname();
+
+  // Open data is public: it never needs a guest session.
+  if (pathname.startsWith("/data")) return <>{children}</>;
 
   if (state.status === "loading") return <LoadingState label={t("sessionStarting")} />;
   if (state.status === "error") return <ErrorState error={state.error} onRetry={retryBootstrap} />;
@@ -187,13 +191,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </Suspense>
       </div>
       <main id="main" tabIndex={-1} className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 focus:outline-none sm:px-6 sm:py-10">
-        <SessionGate>{children}</SessionGate>
+        {/* The gate reads the path (public /data skips it), which needs a Suspense boundary. */}
+        <Suspense fallback={<LoadingState label={t("loading")} />}>
+          <SessionGate>{children}</SessionGate>
+        </Suspense>
       </main>
       <footer className="mt-10">
         <div className="sadu-band opacity-90" aria-hidden="true" />
         <div className="bg-card">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
             <p className="max-w-2xl text-xs leading-5 text-muted-foreground">{t("footerDisclaimer")}</p>
+            <Link href="/data" className="text-xs font-medium text-gulf underline decoration-ghaf underline-offset-2" data-testid="footer-open-data">
+              {t("footerData")}
+            </Link>
           </div>
         </div>
       </footer>

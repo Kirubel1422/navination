@@ -13,6 +13,9 @@ import type {
   Locale,
   MessageList,
   Nearby,
+  NavigationGaps,
+  OpenDataSummary,
+  RelatedDataset,
   NearbyRequest,
   ProfileRequest,
   ServiceCard,
@@ -27,6 +30,12 @@ const seg = encodeURIComponent;
 
 export const api = {
   health: (signal?: AbortSignal) => apiRequest<Health>("/health", { signal }),
+  // Open data is public: no session token needed.
+  openData: (locale: Locale, signal?: AbortSignal) =>
+    apiRequest<OpenDataSummary>(`/open-data?locale=${locale}`, { signal }),
+  searchOpenData: (query: string, signal?: AbortSignal) =>
+    apiRequest<RelatedDataset[]>(`/open-data/search?q=${encodeURIComponent(query)}`, { signal }),
+  navigationGaps: (signal?: AbortSignal) => apiRequest<NavigationGaps>("/open-data/navigation-gaps", { signal }),
   createSession: (locale: Locale) =>
     apiRequest<CreateSessionResponse>("/sessions", { method: "POST", body: { locale } }),
   getSession: ({ token, signal }: Auth) => apiRequest<Session>("/session", { token, signal }),
