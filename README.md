@@ -24,6 +24,7 @@ NaviNation is guidance only. It does not decide eligibility, approve documents, 
 | `contracts/openapi.json` | API contract, version 1.1.0, generated from the running app |
 | `contracts/examples` | Synthetic request/response fixtures (produced with the scripted test model) |
 | `docs/architecture.md` | Design, agent guardrails, decisions and assumptions |
+| `docs/open-data.md` | Government open data used, how it stays current, the navigation-gaps dataset we publish |
 | `docs/demo-guide.md` | Demo steps, example inputs, source coverage, 90-day plan |
 | `compose.yaml` | One-command Docker setup |
 
