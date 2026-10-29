@@ -26,7 +26,9 @@ def test_discovery_is_produced_by_the_agent(guest):
     tools = [s["tool"] for s in result["agent_steps"]]
     assert tools == ["read_catalog"]  # the catalog is in context: one model call, no extra tools
     assert "mohesr-degree-recognition" in ids(result)
-    assert any("AI agent" in n for n in result["notices"])
+    # The guide answers directly; results carry no meta notices about how they were produced.
+    assert not any("AI agent" in n for n in result["notices"])
+    assert "answer" in result and "answer_sources" in result
     for card in result["results"]:
         assert card["service"]["origin"] == "catalog"
         source_ids = {s["id"] for s in card["service"]["sources"]}
@@ -225,7 +227,7 @@ def test_web_found_service_requires_pages_the_agent_actually_read(guest):
         and card["service"]["sources"][0]["checked_at"]
     )
     assert card["service"]["documents"][0]["source_ids"] == [card["service"]["sources"][0]["id"]]
-    assert any("not reviewed" in n for n in result["notices"])
+    assert any("not reviewed" in r["text"] for r in card["reasons"])
     assert any(s["tool"] == "fetch_official_page" for s in result["agent_steps"])
     detail = guest.get(f"/services/{card['service']['id']}")
     assert detail.status_code == 200 and detail.json()["service"]["origin"] == "ai_web"

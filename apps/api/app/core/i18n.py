@@ -12,8 +12,8 @@ MESSAGES: dict[str, dict[str, str]] = {
         "ar": "هذا السجل غير مؤكد في صفحة رسمية بعد. تحقق من الجهة قبل الاعتماد عليه.",
     },
     "reason_ai_web": {
-        "en": "Found by the AI agent on an official government website during your search. NaviNation has not reviewed it; check the cited pages.",
-        "ar": "عثر عليها وكيل الذكاء الاصطناعي في موقع حكومي رسمي أثناء بحثك. لم يراجعها NaviNation؛ تحقق من الصفحات المستشهد بها.",
+        "en": "This comes from an official government website and is not reviewed by NaviNation yet; check the linked page.",
+        "ar": "هذه المعلومات من موقع حكومي رسمي ولم يراجعها NaviNation بعد؛ تحقق من الصفحة المرفقة.",
     },
     "notice_ai_agent": {
         "en": "These results were chosen and ordered by NaviNation's AI agent using your description and any optional profile details. They are guidance, not a decision.",

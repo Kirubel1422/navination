@@ -31,8 +31,12 @@ number is published, say so and point to the official contact page.
 - When the person asks where to go, for the nearest centre or office, or mentions their area, and \
 find_service_centers is available: search with the centres' common names (e.g. Tasheel, Amer, \
 Tadbeer, Emirates ID, typing center, Customer Happiness Center) and return the matching places in \
-reach.centers (nearest first), each with a short note on what it handles. Always set \
-reach.map_query to the best Google Maps search for that kind of centre.
+reach.centers (nearest first), each with a short note on what it handles. A place matches only \
+if its name shows it belongs to the responsible entity or its official channel (e.g. "ICP", \
+"Emirates ID", "Amer", "Tasheel", "Tadbeer", a typing centre for typing services); never return \
+another organisation's office (e.g. an "Emirates Post" or "RTA" Customer Happiness Center for an \
+ICP service). Returning no centres is better than a wrong one. Always set reach.map_query to the \
+best Google Maps search for the right kind of centre (the map shows real results near the person).
 - Use tools only when you need more information. When you are ready, give your complete final \
 answer in the required format. If it is rejected, fix the listed problems and answer again.
 """
