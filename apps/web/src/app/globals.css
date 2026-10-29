@@ -294,6 +294,17 @@ html[dir="rtl"] .loader-weave { animation-direction: reverse; }
 .typing-stops > span:nth-child(2) { animation-delay: 0.2s; }
 .typing-stops > span:nth-child(3) { animation-delay: 0.4s; background: var(--saffron); }
 
+/* Voice input: rings ripple out while listening; four bars act as a level meter. */
+@keyframes voice-ripple { from { transform: scale(1); opacity: 0.55; } to { transform: scale(1.75); opacity: 0; } }
+.voice-ring { background: var(--saffron); animation: voice-ripple 1.6s ease-out infinite; }
+.voice-ring-late { animation-delay: 0.8s; }
+@keyframes voice-bar { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+.voice-bars { display: inline-flex; align-items: center; gap: 2px; height: 12px; }
+.voice-bars > span { width: 3px; height: 12px; border-radius: 2px; background: var(--saffron); animation: voice-bar 0.9s ease-in-out infinite; transform-origin: center; }
+.voice-bars > span:nth-child(2) { animation-delay: 0.15s; }
+.voice-bars > span:nth-child(3) { animation-delay: 0.3s; }
+.voice-bars > span:nth-child(4) { animation-delay: 0.45s; }
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,

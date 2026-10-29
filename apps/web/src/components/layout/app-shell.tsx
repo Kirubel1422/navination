@@ -24,6 +24,7 @@ import { useSession } from "@/lib/session/session-provider";
 import { AnnouncerProvider } from "./announcer";
 import { ErrorState, LoadingState } from "./states";
 import { JourneyNavigation } from "./journey-navigation";
+import { Mark } from "./mark";
 
 function SessionGate({ children }: { children: React.ReactNode }) {
   const { state, startNewSession, retryBootstrap } = useSession();
@@ -74,12 +75,22 @@ function ClearSessionButton() {
   if (state.status !== "ready") return null;
   return (
     <Dialog onOpenChange={() => setError(null)}>
-      <DialogTrigger asChild>
-        <Button variant="ghost" size="sm" className="text-muted-foreground" data-testid="clear-session-open">
-          <Trash2 aria-hidden="true" />
-          {t("clearSession")}
-        </Button>
-      </DialogTrigger>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <DialogTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-9 rounded-full text-muted-foreground hover:bg-[#fdf1f0] hover:text-destructive"
+              aria-label={t("clearSession")}
+              data-testid="clear-session-open"
+            >
+              <Trash2 aria-hidden="true" />
+            </Button>
+          </DialogTrigger>
+        </TooltipTrigger>
+        <TooltipContent>{t("clearSession")}</TooltipContent>
+      </Tooltip>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>{t("clearConfirmTitle")}</DialogTitle>
@@ -114,16 +125,6 @@ function ClearSessionButton() {
   );
 }
 
-function Mark() {
-  return (
-    <svg viewBox="0 0 32 32" aria-hidden="true" className="size-8 shrink-0">
-      <circle cx="16" cy="16" r="15" fill="#0e6170" />
-      <path d="M4 22c6 0 8-9 14-9s8-4 11-4" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
-      <circle cx="18" cy="13" r="3.6" fill="#e9a23b" stroke="#fff" strokeWidth="1.6" />
-    </svg>
-  );
-}
-
 export function AppShell({ children }: { children: React.ReactNode }) {
   const { t, locale, setLocale } = useLocale();
   return (
@@ -134,19 +135,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       >
         {t("skipToContent")}
       </a>
-      <header className="z-40 border-b border-border/70 bg-salt/90 backdrop-blur-md lg:sticky lg:top-0">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
+      <header className="sticky top-0 z-40 border-b border-border/70 bg-salt/90 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center gap-x-3 px-4 py-2.5 sm:gap-x-6 sm:px-6 sm:py-3">
           <Link href="/" className="flex items-center gap-2.5 rounded-full focus-visible:ring-2 focus-visible:ring-ring">
             <Mark />
             <span className="text-[1.08rem] font-semibold tracking-[-0.01em] [font-variation-settings:'HEXP'_30]">NaviNation</span>
             <span className="sr-only">: {t("tagline")}</span>
           </Link>
-          <div className="order-3 w-full lg:order-none lg:w-auto lg:flex-1">
+          <div className="hidden lg:block lg:flex-1">
             <Suspense fallback={<div className="h-8" />}>
               <JourneyNavigation />
             </Suspense>
           </div>
-          <nav aria-label="NaviNation" className="ms-auto flex shrink-0 items-center gap-1">
+          <nav aria-label="NaviNation" className="ms-auto flex shrink-0 items-center gap-0.5 sm:gap-1">
             {API_MODE === "mock" && (
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -165,19 +166,26 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Button
               variant="ghost"
               size="sm"
-              className="h-9 rounded-full px-3"
+              className="h-9 rounded-full px-2.5 sm:px-3"
               lang={locale === "en" ? "ar" : "en"}
               aria-label={t("languageToggleLabel")}
               onClick={() => setLocale(locale === "en" ? "ar" : "en")}
               data-testid="language-toggle"
             >
-              <Languages aria-hidden="true" />
+              <Languages aria-hidden="true" className="max-sm:hidden" />
               {t("languageToggle")}
             </Button>
             <ProfileSheet />
+            <ClearSessionButton />
           </nav>
         </div>
       </header>
+      {/* On phones the route bar scrolls away so the sticky header stays one row. */}
+      <div className="border-b border-border/70 px-4 py-2.5 lg:hidden">
+        <Suspense fallback={<div className="h-6" />}>
+          <JourneyNavigation />
+        </Suspense>
+      </div>
       <main id="main" tabIndex={-1} className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 focus:outline-none sm:px-6 sm:py-10">
         <SessionGate>{children}</SessionGate>
       </main>
@@ -186,7 +194,6 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className="bg-card">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
             <p className="max-w-2xl text-xs leading-5 text-muted-foreground">{t("footerDisclaimer")}</p>
-            <ClearSessionButton />
           </div>
         </div>
       </footer>
