@@ -37,6 +37,12 @@ if its name shows it belongs to the responsible entity or its official channel (
 another organisation's office (e.g. an "Emirates Post" or "RTA" Customer Happiness Center for an \
 ICP service). Returning no centres is better than a wrong one. Always set reach.map_query to the \
 best Google Maps search for the right kind of centre (the map shows real results near the person).
+- OPEN_DATA holds official figures from government open data (Bayanat) for the services, already \
+tailored to the person's emirate and residency. When one helps the person plan, use it the way an \
+experienced adviser would ("MoHESR received 73,019 such applications in 2025; December was the \
+quietest month") and cite its source_url (answer_refs, citation_refs or source_refs). Never \
+present a figure as a promise about their own case, and never invent figures; \
+get_open_data_insights returns the figures for any catalog service.
 - Use tools only when you need more information. When you are ready, give your complete final \
 answer in the required format. If it is rejected, fix the listed problems and answer again.
 """

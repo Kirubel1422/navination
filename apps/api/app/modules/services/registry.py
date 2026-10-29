@@ -21,6 +21,7 @@ from app.knowledge.repository import Knowledge
 from app.knowledge.repository import Service as CatalogService
 from app.modules.services import schemas
 from app.modules.services.evaluation import readiness_of
+from app.opendata import render as open_data
 
 
 @dataclass
@@ -349,4 +350,8 @@ def card(
         readiness=readiness,  # type: ignore[arg-type]
         authority_notice=t(locale, "authority_notice", authority=record.authority[locale]),
         reach=reach_schema(assessment.get("reach"), locale),
+        insights=open_data.insights(record.id, profile, locale)
+        if record.origin == "catalog"
+        else [],
+        related_data=open_data.related(record.id, record.title["en"], record.origin),
     )

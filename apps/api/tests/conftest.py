@@ -24,6 +24,7 @@ os.environ["WEB_SEARCH_PROVIDER"] = "none"
 os.environ["BAYANAT_ENABLED"] = "false"
 os.environ["AJMAN_DATA_ENABLED"] = "false"
 os.environ["PLACES_ENABLED"] = "false"
+os.environ["OPEN_DATA_SYNC"] = "false"  # no portal calls; bundled copies are imported
 
 from alembic import command  # noqa: E402
 from alembic.config import Config  # noqa: E402
@@ -36,6 +37,7 @@ from app.db.session import get_sessionmaker  # noqa: E402
 from app.knowledge.importer import import_bundle  # noqa: E402
 from app.knowledge.seed_loader import load_seed  # noqa: E402
 from app.main import create_app  # noqa: E402
+from app.opendata.sync import import_bundled  # noqa: E402
 from app.providers.registry import set_provider_override  # noqa: E402
 from devtools.scripted_model import ScriptedModel  # noqa: E402
 
@@ -47,6 +49,7 @@ def database() -> Iterator[None]:
     command.upgrade(config, "head")
     with get_sessionmaker()() as db:
         import_bundle(db, load_seed())
+        import_bundled(db)
     yield
 
 

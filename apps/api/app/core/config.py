@@ -68,6 +68,10 @@ class Settings(BaseSettings):
     ajman_data_enabled: bool = True
     # Nearby service centres (OpenStreetMap via the public Photon geocoder; no key needed).
     places_enabled: bool = True
+    # Open data layer: mirror the Bayanat/Ajman catalogues and refresh the curated datasets in the
+    # background when older than this (bundled copies serve until then).
+    open_data_sync: bool = True
+    open_data_max_age_hours: float = 24.0
 
     # Request limits
     max_request_bytes: int = 32_768

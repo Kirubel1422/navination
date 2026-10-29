@@ -100,6 +100,56 @@ class Nearby(ResponseModel):
     reach: Reach
 
 
+class DataSource(ResponseModel):
+    """Where an open-data figure comes from, so people (and judges) can check it."""
+
+    key: str
+    title: str
+    publisher: str
+    portal: Literal["bayanat", "ajman"]
+    url: HttpsUrl
+    source_updated: date | None = Field(description="The portal's own last-updated date")
+    fetched_at: UtcDateTime = Field(description="When NaviNation last downloaded it")
+    origin: Literal["live", "bundled"] = Field(
+        description="live = synced from the portal; bundled = the reviewed copy shipped with the app"
+    )
+
+
+class InsightPoint(ResponseModel):
+    label: str
+    value: float
+
+
+class Insight(ResponseModel):
+    """A figure from government open data that helps plan this service."""
+
+    id: str
+    headline: str = Field(description="The whole fact as a sentence")
+    label: str = Field(description="The fact without its number, to sit under a large value")
+    detail: str | None
+    value: float | None
+    change: float | None = Field(
+        description="Change vs compared_to: percent for counts, percentage points for percents"
+    )
+    compared_to: str | None
+    unit: Literal["count", "percent"] | None
+    period: str
+    scope: str
+    freshness: Literal["current", "older"]
+    series: list[InsightPoint]
+    highlight: int | None = Field(description="Index of the point to emphasise in the series")
+    source: DataSource
+
+
+class RelatedDataset(ResponseModel):
+    title: str
+    publisher: str
+    portal: Literal["bayanat", "ajman"]
+    theme: str | None
+    url: HttpsUrl
+    last_updated: date | None
+
+
 class ServiceCard(ResponseModel):
     service: Service
     relevance: Relevance
@@ -108,3 +158,7 @@ class ServiceCard(ResponseModel):
     readiness: Readiness
     authority_notice: str
     reach: Reach | None = None
+    insights: list[Insight] = Field(
+        description="Figures from government open data for this service"
+    )
+    related_data: list[RelatedDataset] = Field(description="Other open datasets on the same topic")

@@ -107,6 +107,37 @@ class AjmanData:
             )
         return int(data.get("total_count") or 0), datasets
 
+    def catalogue(self, page_size: int = 100, max_pages: int = 20) -> list[AjmanDataset]:
+        """Every dataset on Ajman Data, for the local index sync (bypasses the request cache)."""
+        datasets: list[AjmanDataset] = []
+        for page in range(max_pages):
+            try:
+                response = self.client.get(
+                    API + "/catalog/datasets",
+                    params={"limit": page_size, "offset": page * page_size},
+                )
+                response.raise_for_status()
+                data = response.json()
+            except (httpx.HTTPError, ValueError) as exc:
+                raise AjmanError(f"data.ajman.ae catalogue failed: {type(exc).__name__}") from exc
+            for item in data.get("results", []):
+                meta = (item.get("metas") or {}).get("default") or {}
+                dataset_id = str(item.get("dataset_id", ""))
+                datasets.append(
+                    AjmanDataset(
+                        dataset_id=dataset_id,
+                        title=_plain(meta.get("title")),
+                        publisher=_plain(meta.get("publisher")),
+                        description=_plain(meta.get("description"))[:400],
+                        records_count=int(meta.get("records_count") or 0),
+                        modified=str(meta.get("modified") or "")[:10],
+                        url=dataset_url(dataset_id),
+                    )
+                )
+            if len(datasets) >= int(data.get("total_count") or 0) or not data.get("results"):
+                break
+        return datasets
+
     def records(self, dataset_id: str, query: str = "") -> dict[str, Any]:
         if not _DATASET_ID.match(dataset_id):
             raise AjmanError("Unknown Ajman dataset_id; use one from search_ajman_datasets.")

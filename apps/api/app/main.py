@@ -1,6 +1,10 @@
 """NaviNation API application factory."""
 
 import logging
+import threading
+from collections.abc import AsyncIterator
+from contextlib import asynccontextmanager
+from datetime import datetime
 from typing import Literal
 
 from fastapi import APIRouter, FastAPI
@@ -18,9 +22,20 @@ from app.modules.coach.router import router as coach_router
 from app.modules.discovery.router import router as discovery_router
 from app.modules.handoffs.router import router as handoffs_router
 from app.modules.journeys.router import router as journeys_router
+from app.modules.opendata.router import router as opendata_router
 from app.modules.services.router import router as services_router
 from app.modules.sessions.router import router as sessions_router
+from app.opendata import scheduler as od_scheduler
+from app.opendata import sync as od_sync
+from app.opendata.insights import snapshots as od_snapshots
 from app.providers.registry import get_provider
+
+
+class OpenDataHealth(ResponseModel):
+    datasets_indexed: int
+    curated_snapshots: int
+    last_sync: datetime | None
+    stale: bool
 
 
 class Health(ResponseModel):
@@ -29,6 +44,7 @@ class Health(ResponseModel):
     knowledge_status: Literal["verified", "mixed", "demo", "empty"]
     ai_available: bool
     web_search_available: bool
+    open_data: OpenDataHealth | None = None
 
 
 health_router = APIRouter(tags=["health"])
@@ -38,10 +54,18 @@ health_router = APIRouter(tags=["health"])
 def health() -> Health:
     knowledge_status = "empty"
     ok = True
+    open_data = None
     try:
         with get_sessionmaker()() as db:
             db.execute(text("SELECT 1"))
             knowledge_status = get_knowledge(db).status
+            last = od_sync.last_success(db)
+            open_data = OpenDataHealth(
+                datasets_indexed=od_sync.index_count(db),
+                curated_snapshots=len(od_snapshots()),
+                last_sync=last.finished_at if last else None,
+                stale=od_sync.is_stale(db, get_settings().open_data_max_age_hours),
+            )
     except Exception:  # noqa: BLE001 - health must report, not raise
         ok = False
     ai_available = get_provider() is not None
@@ -52,7 +76,18 @@ def health() -> Health:
         knowledge_status=knowledge_status,  # type: ignore[arg-type]
         ai_available=ai_available,
         web_search_available=get_official_web(get_settings()).search_available,
+        open_data=open_data,
     )
+
+
+@asynccontextmanager
+async def _lifespan(_: FastAPI) -> AsyncIterator[None]:
+    # Open data is refreshed in the background; the API serves the last copies meanwhile.
+    stop = threading.Event()
+    if get_settings().open_data_sync:
+        od_scheduler.start(stop)
+    yield
+    stop.set()
 
 
 def create_app() -> FastAPI:
@@ -70,6 +105,7 @@ def create_app() -> FastAPI:
         docs_url="/api/v1/docs",
         openapi_url="/api/v1/openapi.json",
         redoc_url=None,
+        lifespan=_lifespan,
     )
     install_error_handlers(app)
     app.add_middleware(
@@ -90,6 +126,7 @@ def create_app() -> FastAPI:
         journeys_router,
         coach_router,
         handoffs_router,
+        opendata_router,
     ):
         api.include_router(router)
     app.include_router(api)

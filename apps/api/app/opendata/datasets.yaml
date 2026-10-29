@@ -1,0 +1,61 @@
+# Curated government open datasets behind NaviNation's service insights (reviewed like the seed
+# catalog). Each entry says where the dataset lives, how to pick and read its resource, which
+# columns to keep, and which catalog services it informs.
+#
+# Bayanat encrypts dataset and resource ids per page view, so ids are never stored: `url` is a
+# durable link to the dataset page, and the resource is chosen by name/format at every sync.
+# Licence: UAE Open Data (free to reuse with attribution to the publishing entity).
+
+datasets:
+  - key: mohesr-eservices-usage
+    portal: bayanat
+    title: Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research
+    publisher: Ministry of Higher Education and Scientific Research
+    url: https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE
+    resource: {format: CSV}
+    table: {format: csv, header_contains: SERVICE NAME EN}
+    services: [mohesr-degree-recognition, degree-verification-partner]
+
+  - key: mofa-documents-attestation
+    portal: bayanat
+    title: Annual Documents Attestation
+    publisher: Ministry of Foreign Affairs and International Cooperation
+    url: https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs
+    resource: {format: XLSX, name_contains: English}
+    table: {format: xlsx, sheet: Attestation Requests, header_contains: Personal Affairs Documents}
+    services: [mofa-attestation-abroad, birth-certificate-attestation, mohesr-degree-recognition]
+
+  - key: mohap-live-births
+    portal: bayanat
+    title: Birth 2005 - 2024
+    publisher: Ministry of Health and Prevention
+    url: https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U
+    resource: {format: XLSX, name_excludes: [metadata, dictionary]}
+    table:
+      format: xlsx
+      header_contains: Emirate En
+      keep: [Year, Emirate En, Nationality Group En, Gender En, Total]
+    services:
+      [birth-registration, birth-certificate-attestation, newborn-residence-permit, newborn-passport-embassy, mabrouk-ma-yak]
+
+  - key: moe-services-on-time
+    portal: bayanat
+    title: The percentages of completed all type of services at the Happiness Service Center, Ministry of Education
+    publisher: Ministry of Education
+    url: https://bayanat.ae/en/Datasets/Dataset-info?id=1k108dXXGYl1yLSWLRoWEs6rjpcbbH46ycvvzipdY1Q
+    resource: {format: XLSX, name_excludes: [metadata]}
+    table: {format: xlsx, sheet: DataSet, header_contains: Service_Name_EN, keep: [Year, Service_Name_EN, Service_Name_AR, Percentage of completion on targeted time]}
+    services: [moe-school-equivalency]
+
+# Searches in the local catalogue index used for "Related open data" on each service.
+related:
+  uae-pass-account: [digital transactions, e-services usage]
+  mofa-attestation-abroad: [attestation, consular]
+  degree-verification-partner: [higher education, graduates]
+  mohesr-degree-recognition: [higher education students, higher education institutions]
+  moe-school-equivalency: [students government education, high school graduates]
+  birth-registration: [births emirate, live births]
+  birth-certificate-attestation: [births emirate, attestation]
+  newborn-passport-embassy: [births nationality, population nationality]
+  newborn-residence-permit: [births nationality, population emirates]
+  mabrouk-ma-yak: [births emirate, family]

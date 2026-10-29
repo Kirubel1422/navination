@@ -11,6 +11,9 @@ from app.agent.runtime import AgentContext, Tool, ToolError, WebSource
 from app.agent.web import OfficialWeb, WebError, host_of
 from app.core.timeutil import iso
 from app.knowledge.repository import Knowledge
+from app.opendata import index as open_data_index
+from app.opendata.insights import service_insights
+from app.opendata.insights import snapshots as open_data_snapshots
 
 
 def _obj(properties: dict[str, Any], required: list[str]) -> dict[str, Any]:
@@ -346,6 +349,24 @@ def _cite(ctx: AgentContext, url: str, title: str, publisher: str) -> None:
 def bayanat_tools(bayanat: Bayanat, ctx: AgentContext) -> list[Tool]:
     def search(args: dict[str, Any]) -> Any:
         query = str(args.get("query", "")).strip()
+        # The daily mirror of the catalogue answers first; the live portal is the fallback.
+        local = open_data_index.search(query, portal="bayanat")
+        if local:
+            ctx.record("search_bayanat_datasets", f"{query[:80]} ({len(local)} datasets)")
+            return {
+                "total_matches": len(local),
+                "datasets": [
+                    {
+                        "title": d["title"],
+                        "publishing_entity": d["publisher"],
+                        "last_updated": d["last_updated"].isoformat()
+                        if d["last_updated"]
+                        else None,
+                        "url": d["url"],
+                    }
+                    for d in local
+                ],
+            }
         try:
             total, datasets = bayanat.search(query)
         except BayanatError as exc:
@@ -480,3 +501,57 @@ def ajman_tools(ajman: AjmanData, ctx: AgentContext) -> list[Tool]:
             records,
         ),
     ]
+
+
+def open_data_facts(
+    service_ids: list[str], profile: dict[str, Any], ctx: AgentContext
+) -> list[dict[str, Any]]:
+    """Headline figures from government open data for these services, citable by source_url.
+
+    The dataset pages count as read sources, so the agent may cite them."""
+    facts = []
+    for service_id in service_ids:
+        for item in service_insights(service_id, profile)[:2]:
+            snap = open_data_snapshots().get(item["dataset_key"])
+            if snap is None:
+                continue
+            ctx.read_pages.setdefault(
+                snap.url,
+                WebSource(
+                    url=snap.url,
+                    title=snap.title,
+                    publisher=snap.publisher,
+                    fetched_at=snap.fetched_at,
+                ),
+            )
+            facts.append(
+                {
+                    "service_id": service_id,
+                    "fact": item["headline"]["en"]
+                    + (". " + item["detail"]["en"] if item.get("detail") else ""),
+                    "dataset": snap.title,
+                    "publisher": snap.publisher,
+                    "source_url": snap.url,
+                }
+            )
+    return facts
+
+
+def open_data_tool(profile: dict[str, Any], ctx: AgentContext) -> Tool:
+    def get(args: dict[str, Any]) -> Any:
+        service_id = str(args.get("service_id", "")).strip()
+        facts = open_data_facts([service_id], profile, ctx)
+        ctx.record("get_open_data_insights", f"{service_id} ({len(facts)} figures)")
+        return (
+            {"figures": facts}
+            if facts
+            else {"figures": [], "note": "No open dataset covers this service yet."}
+        )
+
+    return Tool(
+        "get_open_data_insights",
+        "Official figures from government open data (Bayanat) for a catalog service: volumes, "
+        "busiest and quietest months, trends, figures for the person's emirate. Cite source_url.",
+        _obj({"service_id": {"type": "string"}}, ["service_id"]),
+        get,
+    )

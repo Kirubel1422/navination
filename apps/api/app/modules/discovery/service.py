@@ -22,6 +22,8 @@ from app.agent.tools import (
     compact_catalog,
     compact_service,
     contacts_tool,
+    open_data_facts,
+    open_data_tool,
     places_tool,
     web_tools,
 )
@@ -35,6 +37,7 @@ from app.knowledge.repository import Knowledge
 from app.modules.discovery import schemas
 from app.modules.services import registry
 from app.modules.sessions.service import new_id, profile_of
+from app.opendata import navigation
 
 
 def _resolve_answer(
@@ -133,12 +136,14 @@ def discover(
             "service_centers": settings.places_enabled,
         },
         "LOCATION": {"shared": ctx.location is not None, "emirate": ctx.emirate},
+        "OPEN_DATA": open_data_facts(list(kb.services), profile, ctx),
     }
     tools = catalog_tools(kb, ctx) + web_tools(web, ctx)
     if settings.bayanat_enabled:
         tools += bayanat_tools(get_bayanat(settings.web_fetch_timeout_seconds), ctx)
     if settings.ajman_data_enabled:
         tools += ajman_tools(get_ajman(settings.web_fetch_timeout_seconds), ctx)
+    tools.append(open_data_tool(profile, ctx))
     if web.fetch_enabled:
         tools.append(contacts_tool(web, ctx))
     if settings.places_enabled:
@@ -208,6 +213,14 @@ def discover(
         answer=_stored_answer(draft, kb, ctx) if draft.status == "ready" else None,
     )
     db.add(row)
+    navigation.record(
+        db,
+        kind="search",
+        status=draft.status,
+        topic=topic_id,
+        locale=session.locale,
+        results=len(service_ids),
+    )
     db.commit()
     return render(db, kb, session, row)
 
@@ -228,7 +241,8 @@ def _stored_answer(
                     "id": registry.web_source_id(page.url),
                     "url": page.url,
                     "title": page.title,
-                    "publisher": host_of(page.url),
+                    # Open-data sources carry their ministry; fetched pages carry their host.
+                    "publisher": page.publisher or host_of(page.url),
                     "checked_at": iso(page.fetched_at),
                 }
             )

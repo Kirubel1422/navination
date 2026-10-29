@@ -162,7 +162,9 @@ class Bayanat:
         self._token = (time.monotonic(), html.unescape(match.group(1)))
         return self._token[1]
 
-    def _post(self, query: str, token: str) -> httpx.Response:
+    def _post(
+        self, query: str, token: str, page: int = 1, size: int = MAX_RESULTS
+    ) -> httpx.Response:
         return self.client.post(
             "/DatasetsListing/GetDatasetsListing",
             headers={"X-Requested-With": "XMLHttpRequest", "Referer": BASE_URL + "/en/Datasets"},
@@ -170,8 +172,8 @@ class Bayanat:
                 "searchText": query,
                 "lang": "en",
                 "SortingBy": "newest",
-                "pagingDTO[CurrentPageNumber]": "1",
-                "pagingDTO[PageCount]": str(MAX_RESULTS),
+                "pagingDTO[CurrentPageNumber]": str(page),
+                "pagingDTO[PageCount]": str(size),
                 "pagingDTO[IsFilterUpdated]": "true",
                 "__RequestVerificationToken": token,
             },
@@ -199,6 +201,38 @@ class Bayanat:
             self._cache[key] = (time.monotonic(), result)
             return result
 
+    def catalogue_page(self, page: int, size: int = 500) -> tuple[int, list[Dataset]]:
+        """One page of the whole catalogue (newest first), for the local index sync."""
+        try:
+            response = self._post("", self._fresh_token(), page, size)
+            if response.status_code >= 400 or "json" not in response.headers.get(
+                "content-type", ""
+            ):
+                response = self._post("", self._fresh_token(force=True), page, size)
+            data = response.json()
+        except (httpx.HTTPError, ValueError) as exc:
+            raise BayanatError(
+                f"bayanat.ae catalogue page {page} failed: {type(exc).__name__}"
+            ) from exc
+        total = int((data.get("pagingDTO") or {}).get("totalCount") or 0)
+        return total, parse_cards(str(data.get("pv") or ""))
+
+    def download(self, resource_id: str) -> tuple[str, bytes]:
+        """Raw bytes of a resource via the portal's own Download button endpoint."""
+        if not _RESOURCE_ID.match(resource_id):
+            raise BayanatError("Unknown resource_id; use one from get_bayanat_dataset.")
+        try:
+            response = self.client.get(
+                "/api/DatasetResources/DownloadSingle",
+                params={"resourceID": resource_id, "fileName": "resource"},
+            )
+        except httpx.HTTPError as exc:
+            raise BayanatError(f"Could not reach bayanat.ae: {type(exc).__name__}") from exc
+        content_type = response.headers.get("content-type", "")
+        if response.status_code >= 400 or "html" in content_type:
+            raise BayanatError("This resource could not be downloaded from bayanat.ae.")
+        return content_type, response.content[:MAX_RESOURCE_BYTES]
+
     def dataset(self, url: str) -> DatasetDetail:
         if not url.startswith(DATASET_PREFIX):
             raise BayanatError(f"Not a bayanat dataset URL; expected {DATASET_PREFIX}<id>.")
@@ -212,20 +246,9 @@ class Bayanat:
         return detail
 
     def resource(self, resource_id: str) -> dict[str, object]:
-        if not _RESOURCE_ID.match(resource_id):
-            raise BayanatError("Unknown resource_id; use one from get_bayanat_dataset.")
-        try:
-            response = self.client.get(
-                "/api/DatasetResources/DownloadSingle",
-                params={"resourceID": resource_id, "fileName": "resource"},
-            )
-        except httpx.HTTPError as exc:
-            raise BayanatError(f"Could not reach bayanat.ae: {type(exc).__name__}") from exc
-        content_type = response.headers.get("content-type", "")
-        if response.status_code >= 400 or "html" in content_type:
-            raise BayanatError("This resource could not be downloaded from bayanat.ae.")
+        content_type, content = self.download(resource_id)
         if "csv" in content_type or content_type.startswith("text/"):
-            return preview_csv(response.content[:MAX_RESOURCE_BYTES])
+            return preview_csv(content)
         return {
             "format": content_type or "unknown",
             "note": "Only CSV resources can be previewed here; open the dataset page to download.",

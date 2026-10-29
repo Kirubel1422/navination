@@ -314,3 +314,70 @@ class Handoff(Base):
     kind: Mapped[str] = mapped_column(String(16))
     url: Mapped[str] = mapped_column(Text)
     created_at: Mapped[datetime] = mapped_column(UTCDateTime)
+
+
+class OdDataset(Base):
+    """One dataset in a government open-data catalogue (Bayanat, Ajman Data), mirrored locally."""
+
+    __tablename__ = "od_datasets"
+
+    id: Mapped[str] = mapped_column(String(80), primary_key=True)  # portal + hash(entity, title)
+    portal: Mapped[str] = mapped_column(String(24), index=True)
+    title: Mapped[str] = mapped_column(Text)
+    entity: Mapped[str] = mapped_column(String(200))
+    theme: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    last_updated: Mapped[date | None] = mapped_column(Date, nullable=True)
+    url: Mapped[str] = mapped_column(Text)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    search_text: Mapped[str] = mapped_column(Text)
+    synced_at: Mapped[datetime] = mapped_column(UTCDateTime)
+
+
+class OdSnapshot(Base):
+    """The rows of a curated dataset that powers service insights, with provenance."""
+
+    __tablename__ = "od_snapshots"
+
+    key: Mapped[str] = mapped_column(String(80), primary_key=True)
+    title: Mapped[str] = mapped_column(Text)
+    publisher: Mapped[str] = mapped_column(String(200))
+    portal: Mapped[str] = mapped_column(String(24))
+    url: Mapped[str] = mapped_column(Text)
+    resource_name: Mapped[str] = mapped_column(Text)
+    source_updated: Mapped[date | None] = mapped_column(Date, nullable=True)
+    fetched_at: Mapped[datetime] = mapped_column(UTCDateTime)
+    checksum: Mapped[str] = mapped_column(String(64))
+    columns: Mapped[list[str]] = mapped_column(JSON)
+    rows: Mapped[list[list[Any]]] = mapped_column(JSON)
+    origin: Mapped[str] = mapped_column(String(16))  # "live" (synced) or "bundled" (shipped copy)
+
+
+class OdSyncRun(Base):
+    __tablename__ = "od_sync_runs"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    started_at: Mapped[datetime] = mapped_column(UTCDateTime)
+    finished_at: Mapped[datetime | None] = mapped_column(UTCDateTime, nullable=True)
+    status: Mapped[str] = mapped_column(String(16))
+    datasets_indexed: Mapped[int] = mapped_column(Integer, default=0)
+    snapshots_ok: Mapped[int] = mapped_column(Integer, default=0)
+    snapshots_failed: Mapped[int] = mapped_column(Integer, default=0)
+    notes: Mapped[list[str]] = mapped_column(JSON, default=list)
+
+
+class NavEvent(Base):
+    """An anonymous navigation outcome (no query text, no session): the data NaviNation gives
+    back to service owners about unmet needs and time to a plan."""
+
+    __tablename__ = "nav_events"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    day: Mapped[date] = mapped_column(Date, index=True)
+    kind: Mapped[str] = mapped_column(String(24))  # search | plan
+    status: Mapped[str] = mapped_column(
+        String(24)
+    )  # ready | needs_clarification | no_match | planned
+    topic: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    locale: Mapped[str] = mapped_column(String(4))
+    results: Mapped[int] = mapped_column(Integer, default=0)
+    seconds: Mapped[int | None] = mapped_column(Integer, nullable=True)  # first search -> plan

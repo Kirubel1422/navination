@@ -13,7 +13,15 @@ from app.agent.places import get_places
 from app.agent.reach import check_reach, store_reach
 from app.agent.runner import execute, trace_json
 from app.agent.runtime import AgentContext, FinishTool, Tool, ToolError
-from app.agent.tools import catalog_tools, contacts_tool, glossary_tool, places_tool, web_tools
+from app.agent.tools import (
+    catalog_tools,
+    contacts_tool,
+    glossary_tool,
+    open_data_facts,
+    open_data_tool,
+    places_tool,
+    web_tools,
+)
 from app.agent.web import get_official_web, host_of
 from app.core.config import get_settings
 from app.core.errors import AppError, not_found
@@ -230,6 +238,9 @@ def coach_turn(
             "service_centers": settings.places_enabled,
         },
         "LOCATION": {"shared": ctx.location is not None, "emirate": ctx.emirate},
+        "OPEN_DATA": open_data_facts(
+            list(dict.fromkeys(s.service_id for s in journey.steps)), profile_of(session), ctx
+        ),
     }
     get_step_tool = Tool(
         "get_step",
@@ -261,6 +272,7 @@ def coach_turn(
             glossary_tool(kb, ctx),
             *catalog_tools(kb, ctx),
             *web_tools(web, ctx),
+            open_data_tool(profile_of(session), ctx),
             *([contacts_tool(web, ctx)] if web.fetch_enabled else []),
             *(
                 [places_tool(get_places(settings.web_fetch_timeout_seconds), ctx)]
