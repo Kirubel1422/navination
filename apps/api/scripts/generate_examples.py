@@ -29,6 +29,7 @@ from app.db.session import get_sessionmaker  # noqa: E402
 from app.knowledge.importer import import_bundle  # noqa: E402
 from app.knowledge.seed_loader import load_seed  # noqa: E402
 from app.main import create_app  # noqa: E402
+from app.opendata.sync import import_bundled  # noqa: E402
 from app.providers.registry import set_provider_override  # noqa: E402
 from devtools.scripted_model import ScriptedModel  # noqa: E402
 
@@ -42,6 +43,7 @@ def main() -> None:
     command.upgrade(config, "head")
     with get_sessionmaker()() as db:
         import_bundle(db, load_seed())
+        import_bundled(db)
     OUT.mkdir(parents=True, exist_ok=True)
     for old in OUT.glob("*.json"):
         old.unlink()
@@ -168,6 +170,33 @@ def main() -> None:
         call("PATCH", f"/journeys/{journey['id']}/steps/{steps['uae-pass-account']}", stale_body),
     )
     save("replan_journey", {}, call("POST", f"/journeys/{journey['id']}/replan", {}))
+    # The demo persona: expat parents of a newborn in Umm Al Quwain (UAE residents).
+    persona = client.post("/api/v1/sessions", json={"locale": "en"}).json()["access_token"]
+    ph = {"Authorization": f"Bearer {persona}"}
+    persona_profile = {
+        "emirate": "umm_al_quwain",
+        "residency_status": "resident",
+        "life_stage": "parent",
+        "degree_issued_outside_uae": None,
+    }
+    client.put("/api/v1/session/profile", headers=ph, json=persona_profile)
+    baby_q = {
+        "query": "We just had a baby in Umm Al Quwain. What do we need to do?",
+        "clarification_answer": None,
+    }
+    baby = client.post("/api/v1/discover", headers=ph, json=baby_q)
+    baby_body = save("discover_persona_baby", baby_q, baby)
+    selected = [
+        c["service"]["id"] for c in baby_body["results"] if c["relevance"] != "criterion_mismatch"
+    ]
+    plan_req = {"discovery_id": baby_body["id"], "service_ids": selected}
+    save(
+        "create_journey_persona_baby",
+        plan_req,
+        client.post("/api/v1/journeys", headers=ph, json=plan_req),
+    )
+    save("get_open_data", None, client.get("/api/v1/open-data"))
+    save("get_navigation_gaps", None, client.get("/api/v1/open-data/navigation-gaps"))
     save("error_validation", {"query": ""}, call("POST", "/discover", {"query": ""}))
     set_provider_override(None)
     unavailable = {"query": "I need my overseas degree recognized", "clarification_answer": None}

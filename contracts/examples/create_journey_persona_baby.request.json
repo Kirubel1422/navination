@@ -1,0 +1,9 @@
+{
+  "discovery_id": "dis_av1aCEKPMnut7mFX",
+  "service_ids": [
+    "birth-registration",
+    "birth-certificate-attestation",
+    "newborn-passport-embassy",
+    "newborn-residence-permit"
+  ]
+}

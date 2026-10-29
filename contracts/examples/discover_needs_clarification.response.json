@@ -1,7 +1,7 @@
 {
   "status": 200,
   "body": {
-    "id": "dis_4RgHfnU61raaBT0X",
+    "id": "dis_kHTm4N1ZEkB5KE12",
     "context_revision": 0,
     "query": "My certificate from abroad needs to be accepted",
     "interpreted_need": "Your request could mean more than one thing",
@@ -10,7 +10,7 @@
     "life_event_id": null,
     "status": "needs_clarification",
     "clarification": {
-      "id": "q_042699b2",
+      "id": "q_91c2bf39",
       "prompt": "Which qualification do you want to use in the UAE?",
       "options": [
         {

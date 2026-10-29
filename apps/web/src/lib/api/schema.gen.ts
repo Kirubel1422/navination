@@ -244,6 +244,74 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/open-data": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Summary */
+        get: operations["summary_api_v1_open_data_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/open-data/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Search */
+        get: operations["search_api_v1_open_data_search_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/open-data/navigation-gaps": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Navigation Gaps */
+        get: operations["navigation_gaps_api_v1_open_data_navigation_gaps_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/open-data/navigation-gaps.csv": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Navigation Gaps Csv */
+        get: operations["navigation_gaps_csv_api_v1_open_data_navigation_gaps_csv_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -423,6 +491,70 @@ export interface components {
             /** Access Token */
             access_token: string;
         };
+        /** CuratedDataset */
+        CuratedDataset: {
+            source: components["schemas"]["DataSource"];
+            /** Rows */
+            rows: number;
+            /** Columns */
+            columns: string[];
+            /**
+             * Services
+             * @description Catalog services whose insights use this dataset
+             */
+            services: string[];
+            /** Service Titles */
+            service_titles: string[];
+            /**
+             * Data Period
+             * @description Latest period covered by the data
+             */
+            data_period: string | null;
+            /**
+             * Freshness
+             * @enum {string}
+             */
+            freshness: "current" | "older";
+        };
+        /**
+         * DataSource
+         * @description Where an open-data figure comes from, so people (and judges) can check it.
+         */
+        DataSource: {
+            /** Key */
+            key: string;
+            /** Title */
+            title: string;
+            /** Publisher */
+            publisher: string;
+            /**
+             * Portal
+             * @enum {string}
+             */
+            portal: "bayanat" | "ajman";
+            /**
+             * Url
+             * Format: uri
+             */
+            url: string;
+            /**
+             * Source Updated
+             * @description The portal's own last-updated date
+             */
+            source_updated: string | null;
+            /**
+             * Fetched At
+             * Format: date-time
+             * @description When NaviNation last downloaded it
+             */
+            fetched_at: string;
+            /**
+             * Origin
+             * @description live = synced from the portal; bundled = the reviewed copy shipped with the app
+             * @enum {string}
+             */
+            origin: "live" | "bundled";
+        };
         /** Dependency */
         Dependency: {
             /** From Step Id */
@@ -578,6 +710,62 @@ export interface components {
             ai_available: boolean;
             /** Web Search Available */
             web_search_available: boolean;
+            open_data?: components["schemas"]["OpenDataHealth"] | null;
+        };
+        /**
+         * Insight
+         * @description A figure from government open data that helps plan this service.
+         */
+        Insight: {
+            /** Id */
+            id: string;
+            /**
+             * Headline
+             * @description The whole fact as a sentence
+             */
+            headline: string;
+            /**
+             * Label
+             * @description The fact without its number, to sit under a large value
+             */
+            label: string;
+            /** Detail */
+            detail: string | null;
+            /** Value */
+            value: number | null;
+            /**
+             * Change
+             * @description Change vs compared_to: percent for counts, percentage points for percents
+             */
+            change: number | null;
+            /** Compared To */
+            compared_to: string | null;
+            /** Unit */
+            unit: ("count" | "percent") | null;
+            /** Period */
+            period: string;
+            /** Scope */
+            scope: string;
+            /**
+             * Freshness
+             * @enum {string}
+             */
+            freshness: "current" | "older";
+            /** Series */
+            series: components["schemas"]["InsightPoint"][];
+            /**
+             * Highlight
+             * @description Index of the point to emphasise in the series
+             */
+            highlight: number | null;
+            source: components["schemas"]["DataSource"];
+        };
+        /** InsightPoint */
+        InsightPoint: {
+            /** Label */
+            label: string;
+            /** Value */
+            value: number;
         };
         /** Journey */
         Journey: {
@@ -597,6 +785,10 @@ export interface components {
             steps: components["schemas"]["JourneyStep"][];
             /** Dependencies */
             dependencies: components["schemas"]["Dependency"][];
+            /** Personalization */
+            personalization: components["schemas"]["PersonalizationEffect"][];
+            /** Skipped */
+            skipped: components["schemas"]["SkippedService"][];
             /** Notices */
             notices: string[];
             /** Agent Steps */
@@ -643,6 +835,16 @@ export interface components {
             blocker_step_ids: string[];
             /** Notes */
             notes: string[];
+            /**
+             * Tailored By
+             * @description Profile answers that shaped this step (from the reviewed catalog)
+             */
+            tailored_by: ("emirate" | "residency_status" | "life_stage" | "degree_issued_outside_uae")[];
+            /**
+             * Tailored Note
+             * @description Catalog guidance for the person's answer
+             */
+            tailored_note: string | null;
         };
         /**
          * Location
@@ -658,6 +860,45 @@ export interface components {
         MessageList: {
             /** Items */
             items: components["schemas"]["CoachMessage"][];
+        };
+        /** NavigationGap */
+        NavigationGap: {
+            /**
+             * Week
+             * Format: date
+             */
+            week: string;
+            /** Topic */
+            topic: string;
+            /** Searches */
+            searches: number;
+            /** Ready */
+            ready: number;
+            /** Needs Clarification */
+            needs_clarification: number;
+            /** No Match */
+            no_match: number;
+            /** Plans */
+            plans: number;
+            /** Median Seconds To Plan */
+            median_seconds_to_plan: number | null;
+        };
+        /**
+         * NavigationGaps
+         * @description Anonymous navigation outcomes: what people look for and where guidance fails.
+         */
+        NavigationGaps: {
+            /**
+             * Generated At
+             * Format: date-time
+             */
+            generated_at: string;
+            /** Days */
+            days: number;
+            /** Licence */
+            licence: string;
+            /** Rows */
+            rows: components["schemas"]["NavigationGap"][];
         };
         /** Nearby */
         Nearby: {
@@ -675,6 +916,77 @@ export interface components {
              * @description Anything specific, e.g. 'open on Saturday'
              */
             request?: string | null;
+        };
+        /** OpenDataHealth */
+        OpenDataHealth: {
+            /** Datasets Indexed */
+            datasets_indexed: number;
+            /** Curated Snapshots */
+            curated_snapshots: number;
+            /** Last Sync */
+            last_sync: string | null;
+            /** Stale */
+            stale: boolean;
+        };
+        /** OpenDataSummary */
+        OpenDataSummary: {
+            /** Portals */
+            portals: components["schemas"]["PortalStatus"][];
+            /** Curated */
+            curated: components["schemas"]["CuratedDataset"][];
+            last_sync: components["schemas"]["SyncStatus"] | null;
+            /**
+             * Stale
+             * @description True when no successful sync happened within the refresh window
+             */
+            stale: boolean;
+            /**
+             * Findings
+             * @description What we learned integrating the portals (shared with FCSC)
+             */
+            findings: string[];
+            /** Navigation Dataset Path */
+            navigation_dataset_path: string;
+        };
+        /**
+         * PersonalizationEffect
+         * @description One profile answer and the steps it shaped.
+         */
+        PersonalizationEffect: {
+            /**
+             * Field
+             * @enum {string}
+             */
+            field: "emirate" | "residency_status" | "life_stage" | "degree_issued_outside_uae";
+            /**
+             * Value
+             * @description The answer as stored, e.g. 'umm_al_quwain', 'resident', 'true'
+             */
+            value: string;
+            /** Step Ids */
+            step_ids: string[];
+        };
+        /** PortalStatus */
+        PortalStatus: {
+            /**
+             * Portal
+             * @enum {string}
+             */
+            portal: "bayanat" | "ajman";
+            /** Name */
+            name: string;
+            /**
+             * Url
+             * Format: uri
+             */
+            url: string;
+            /**
+             * Access
+             * @description How NaviNation reads this portal
+             */
+            access: string;
+            /** Datasets Indexed */
+            datasets_indexed: number;
         };
         /** Profile */
         Profile: {
@@ -722,6 +1034,27 @@ export interface components {
             text: string;
             /** Source Ids */
             source_ids: string[];
+        };
+        /** RelatedDataset */
+        RelatedDataset: {
+            /** Title */
+            title: string;
+            /** Publisher */
+            publisher: string;
+            /**
+             * Portal
+             * @enum {string}
+             */
+            portal: "bayanat" | "ajman";
+            /** Theme */
+            theme: string | null;
+            /**
+             * Url
+             * Format: uri
+             */
+            url: string;
+            /** Last Updated */
+            last_updated: string | null;
         };
         /**
          * ReplanRequest
@@ -797,6 +1130,16 @@ export interface components {
             /** Authority Notice */
             authority_notice: string;
             reach?: components["schemas"]["Reach"] | null;
+            /**
+             * Insights
+             * @description Figures from government open data for this service
+             */
+            insights: components["schemas"]["Insight"][];
+            /**
+             * Related Data
+             * @description Other open datasets on the same topic
+             */
+            related_data: components["schemas"]["RelatedDataset"][];
         };
         /** Session */
         Session: {
@@ -815,6 +1158,23 @@ export interface components {
             /** Context Revision */
             context_revision: number;
             profile: components["schemas"]["Profile"];
+        };
+        /**
+         * SkippedService
+         * @description A service of this life event that the person's answers rule out.
+         */
+        SkippedService: {
+            /** Service Id */
+            service_id: string;
+            /** Title */
+            title: string;
+            /** Reason */
+            reason: string;
+            /**
+             * Field
+             * @enum {string}
+             */
+            field: "emirate" | "residency_status" | "life_stage" | "degree_issued_outside_uae";
         };
         /** Source */
         Source: {
@@ -863,6 +1223,26 @@ export interface components {
             step_id: string | null;
             /** Service Id */
             service_id: string | null;
+        };
+        /** SyncStatus */
+        SyncStatus: {
+            /** Status */
+            status: string;
+            /**
+             * Started At
+             * Format: date-time
+             */
+            started_at: string;
+            /** Finished At */
+            finished_at: string | null;
+            /** Datasets Indexed */
+            datasets_indexed: number;
+            /** Snapshots Ok */
+            snapshots_ok: number;
+            /** Snapshots Failed */
+            snapshots_failed: number;
+            /** Notes */
+            notes: string[];
         };
         /** UpdateSessionRequest */
         UpdateSessionRequest: {
@@ -1864,6 +2244,167 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Validation error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Unexpected error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+        };
+    };
+    summary_api_v1_open_data_get: {
+        parameters: {
+            query?: {
+                locale?: "en" | "ar";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OpenDataSummary"];
+                };
+            };
+            /** @description Validation error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Unexpected error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+        };
+    };
+    search_api_v1_open_data_search_get: {
+        parameters: {
+            query: {
+                q: string;
+                portal?: ("bayanat" | "ajman") | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RelatedDataset"][];
+                };
+            };
+            /** @description Validation error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Unexpected error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+        };
+    };
+    navigation_gaps_api_v1_open_data_navigation_gaps_get: {
+        parameters: {
+            query?: {
+                days?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["NavigationGaps"];
+                };
+            };
+            /** @description Validation error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Unexpected error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+        };
+    };
+    navigation_gaps_csv_api_v1_open_data_navigation_gaps_csv_get: {
+        parameters: {
+            query?: {
+                days?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The same rows as CSV */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/csv": unknown;
                 };
             };
             /** @description Validation error */

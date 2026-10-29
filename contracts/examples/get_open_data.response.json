@@ -1,0 +1,173 @@
+{
+  "status": 200,
+  "body": {
+    "portals": [
+      {
+        "portal": "bayanat",
+        "name": "Bayanat: UAE federal open data portal (FCSC)",
+        "url": "https://bayanat.ae",
+        "access": "Daily catalogue mirror; dataset files via the portal's download endpoint",
+        "datasets_indexed": 3544
+      },
+      {
+        "portal": "ajman",
+        "name": "Ajman Data (Department of Digital Ajman)",
+        "url": "https://data.ajman.ae",
+        "access": "Opendatasoft Explore API v2.1 (public, no key)",
+        "datasets_indexed": 193
+      }
+    ],
+    "curated": [
+      {
+        "source": {
+          "key": "mohesr-eservices-usage",
+          "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+          "publisher": "Ministry of Higher Education and Scientific Research",
+          "portal": "bayanat",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+          "source_updated": "2026-03-16",
+          "fetched_at": "2026-10-29T05:35:44Z",
+          "origin": "bundled"
+        },
+        "rows": 5,
+        "columns": [
+          "SERVICE NAME EN",
+          "SERVICE NAME AR",
+          "Jan-25",
+          "Feb-25",
+          "Mar-25",
+          "Apr-25",
+          "May-25",
+          "Jun-25",
+          "Jul-25",
+          "Aug-25",
+          "Sep-25",
+          "Oct-25",
+          "Nov-25",
+          "Dec-25",
+          "TOTAL"
+        ],
+        "services": [
+          "mohesr-degree-recognition",
+          "degree-verification-partner"
+        ],
+        "service_titles": [
+          "Get a university qualification from abroad recognised",
+          "Verify your degree through an authorised verification partner"
+        ],
+        "data_period": "2025",
+        "freshness": "current"
+      },
+      {
+        "source": {
+          "key": "mofa-documents-attestation",
+          "title": "Annual Documents Attestation",
+          "publisher": "Ministry of Foreign Affairs and International Cooperation",
+          "portal": "bayanat",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+          "source_updated": "2026-02-08",
+          "fetched_at": "2026-10-29T05:35:45Z",
+          "origin": "bundled"
+        },
+        "rows": 36,
+        "columns": [
+          "السنة",
+          "Total number of requests across all channels - Personal Affairs Documents",
+          "Total number of requests across all channels - Commercial Documents",
+          "Total number of users across all channels - Individuals",
+          "Total number of users across all channels - Companies",
+          "Total number of attestation requests – Inside the UAE",
+          "Total number of attestation requests – UAE missions abroad",
+          "Top 3 types of personal documents submitted for attestation",
+          "The top 3 types of commercial documents submitted for attestation"
+        ],
+        "services": [
+          "mofa-attestation-abroad",
+          "birth-certificate-attestation",
+          "mohesr-degree-recognition"
+        ],
+        "service_titles": [
+          "Attest a document issued outside the UAE",
+          "Attest the baby's birth certificate",
+          "Get a university qualification from abroad recognised"
+        ],
+        "data_period": "2025",
+        "freshness": "current"
+      },
+      {
+        "source": {
+          "key": "mohap-live-births",
+          "title": "Birth 2005 - 2024",
+          "publisher": "Ministry of Health and Prevention",
+          "portal": "bayanat",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+          "source_updated": "2026-03-12",
+          "fetched_at": "2026-10-29T05:35:46Z",
+          "origin": "bundled"
+        },
+        "rows": 571,
+        "columns": [
+          "Year",
+          "Emirate En",
+          "Nationality Group En",
+          "Gender En",
+          "Total"
+        ],
+        "services": [
+          "birth-registration",
+          "birth-certificate-attestation",
+          "newborn-residence-permit",
+          "newborn-passport-embassy",
+          "mabrouk-ma-yak"
+        ],
+        "service_titles": [
+          "Register the birth and get the birth certificate",
+          "Attest the baby's birth certificate",
+          "Issue the baby's residence permit and Emirates ID",
+          "Get the baby's passport from your embassy or consulate",
+          "Mabrouk Ma Yak newborn bundle (UAE nationals)"
+        ],
+        "data_period": "2024",
+        "freshness": "current"
+      },
+      {
+        "source": {
+          "key": "moe-services-on-time",
+          "title": "The percentages of completed all type of services at the Happiness Service Center, Ministry of Education",
+          "publisher": "Ministry of Education",
+          "portal": "bayanat",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1k108dXXGYl1yLSWLRoWEs6rjpcbbH46ycvvzipdY1Q",
+          "source_updated": "2020-09-22",
+          "fetched_at": "2026-10-29T05:35:47Z",
+          "origin": "bundled"
+        },
+        "rows": 41,
+        "columns": [
+          "Year",
+          "Service_Name_EN",
+          "Service_Name_AR",
+          "Percentage of completion on targeted time"
+        ],
+        "services": [
+          "moe-school-equivalency"
+        ],
+        "service_titles": [
+          "Equalise a school certificate issued abroad"
+        ],
+        "data_period": "2019",
+        "freshness": "older"
+      }
+    ],
+    "last_sync": null,
+    "stale": true,
+    "findings": [
+      "Bayanat has no public search API, so NaviNation mirrors the whole catalogue once a day (8 requests) instead of scraping on each search.",
+      "Bayanat's documented endpoint GetDatasetResource?resourceID={GUID} returned an empty body for every resource we tried; we read files through the portal's own download endpoint.",
+      "Bayanat re-encrypts dataset and resource ids on every page view, so datasets are keyed on publisher and title.",
+      "The playbook's Ajman API host (api.ajman.ae) does not resolve; the same Explore API v2.1 is served at data.ajman.ae.",
+      "No open dataset of service-centre locations was found; nearby centres come from OpenStreetMap until one is published.",
+      "Data we would request: UAE PASS sign-up volumes and Emirates ID processing times, which are not on Bayanat."
+    ],
+    "navigation_dataset_path": "/api/v1/open-data/navigation-gaps.csv"
+  }
+}

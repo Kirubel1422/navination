@@ -1,0 +1,40 @@
+{
+  "status": 200,
+  "body": {
+    "generated_at": "2026-10-29T06:49:00Z",
+    "days": 90,
+    "licence": "UAE Open Data: free to reuse with attribution to NaviNation",
+    "rows": [
+      {
+        "week": "2026-10-26",
+        "topic": "unassigned",
+        "searches": 2,
+        "ready": 0,
+        "needs_clarification": 1,
+        "no_match": 1,
+        "plans": 0,
+        "median_seconds_to_plan": null
+      },
+      {
+        "week": "2026-10-26",
+        "topic": "new_baby",
+        "searches": 1,
+        "ready": 1,
+        "needs_clarification": 0,
+        "no_match": 0,
+        "plans": 1,
+        "median_seconds_to_plan": 0
+      },
+      {
+        "week": "2026-10-26",
+        "topic": "education_qualification",
+        "searches": 2,
+        "ready": 2,
+        "needs_clarification": 0,
+        "no_match": 0,
+        "plans": 1,
+        "median_seconds_to_plan": 0
+      }
+    ]
+  }
+}

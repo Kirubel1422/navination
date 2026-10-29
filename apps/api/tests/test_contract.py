@@ -19,6 +19,7 @@ from app.modules.journeys.schemas import (
     ReplanRequest,
     StepUpdateRequest,
 )
+from app.modules.opendata.schemas import NavigationGaps, OpenDataSummary
 from app.modules.services.schemas import ServiceCard
 from app.modules.sessions.schemas import (
     CreateSessionRequest,
@@ -55,6 +56,10 @@ MODELS: dict[str, tuple[type[BaseModel] | None, type[BaseModel] | None]] = {
     "error_validation": (None, ErrorEnvelope),
     "error_ai_unavailable": (DiscoverRequest, ErrorEnvelope),
     "delete_session": (None, None),
+    "get_open_data": (None, OpenDataSummary),
+    "discover_persona_baby": (DiscoverRequest, Discovery),
+    "create_journey_persona_baby": (CreateJourneyRequest, Journey),
+    "get_navigation_gaps": (None, NavigationGaps),
 }
 
 

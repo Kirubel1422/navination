@@ -1,0 +1,973 @@
+{
+  "status": 200,
+  "body": {
+    "id": "dis_av1aCEKPMnut7mFX",
+    "context_revision": 1,
+    "query": "We just had a baby in Umm Al Quwain. What do we need to do?",
+    "interpreted_need": "Register a new baby",
+    "answer": null,
+    "answer_sources": [],
+    "life_event_id": "new_baby",
+    "status": "ready",
+    "clarification": null,
+    "results": [
+      {
+        "service": {
+          "id": "birth-registration",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Register the birth and get the birth certificate",
+          "summary": "The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification.",
+          "entity": "The hospital, MOHAP or the emirate health authority",
+          "jurisdiction": "Federal and emirate health authorities",
+          "eligibility_criteria": [
+            {
+              "id": "birth-registration.c1",
+              "text": "Residents have up to 30 days to register the birth.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.c2",
+              "text": "If the parents have different nationalities, the child takes the father's nationality.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "documents": [
+            {
+              "id": "birth-registration.d1",
+              "text": "Attested marriage certificate, with an Arabic translation if it is not in Arabic (listed for residents).",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.d2",
+              "text": "Originals and copies of both parents' passports (listed for residents).",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.d3",
+              "text": "The hospital birth notification.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.d4",
+              "text": "The hospital discharge summary (listed for residents).",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "fee_text": null,
+          "processing_time_text": null,
+          "official_url": null,
+          "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+          "sources": [
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            }
+          ],
+          "verification_status": "verified",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Relevant to your need: The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "ready",
+        "authority_notice": "Only the issuing health authority can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "births-all",
+            "headline": "1,334 births were registered in Umm Al Quwain in 2024",
+            "label": "births registered in Umm Al Quwain in 2024",
+            "detail": "+6.7% on 2023. 1.2% of the UAE's 106,915 births.",
+            "value": 1334.0,
+            "change": 6.7,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 1228.0
+              },
+              {
+                "label": "2016",
+                "value": 1488.0
+              },
+              {
+                "label": "2017",
+                "value": 1454.0
+              },
+              {
+                "label": "2018",
+                "value": 1343.0
+              },
+              {
+                "label": "2019",
+                "value": 1363.0
+              },
+              {
+                "label": "2020",
+                "value": 1271.0
+              },
+              {
+                "label": "2021",
+                "value": 1195.0
+              },
+              {
+                "label": "2022",
+                "value": 1281.0
+              },
+              {
+                "label": "2023",
+                "value": 1250.0
+              },
+              {
+                "label": "2024",
+                "value": 1334.0
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Live Births by Emirate",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+            "last_updated": "2022-06-22"
+          },
+          {
+            "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+            "last_updated": "2021-09-12"
+          }
+        ]
+      },
+      {
+        "service": {
+          "id": "birth-certificate-attestation",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Attest the baby's birth certificate",
+          "summary": "Expatriates must have the birth certificate attested by MOHAP and the Ministry of Foreign Affairs. Certificates stamped by DoH Abu Dhabi or DHA are treated as equivalent to the MOHAP seal.",
+          "entity": "MOHAP (or DoH / DHA) and the Ministry of Foreign Affairs",
+          "jurisdiction": "Federal (all emirates)",
+          "eligibility_criteria": [
+            {
+              "id": "birth-certificate-attestation.c1",
+              "text": "Applies to expatriates: birth certificates must be attested by MOHAP and the Ministry of Foreign Affairs.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-certificate-attestation.c2",
+              "text": "A DoH (Abu Dhabi) or DHA (Dubai) stamp is treated as equivalent to the MOHAP seal.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "documents": [
+            {
+              "id": "birth-certificate-attestation.d1",
+              "text": "The baby's birth certificate.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "fee_text": null,
+          "processing_time_text": null,
+          "official_url": "https://www.mofa.gov.ae/en/services/attestation",
+          "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+          "sources": [
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-mofa-attestation",
+              "title": "Attestation of documents and certificates",
+              "url": "https://www.mofa.gov.ae/en/services/attestation",
+              "publisher": "UAE Ministry of Foreign Affairs",
+              "checked_at": "2026-10-28T19:41:00Z",
+              "source_updated_at": null,
+              "verification_status": "verified"
+            }
+          ],
+          "verification_status": "verified",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Your profile matches: Applies to expatriates: birth certificates must be attested by MOHAP and the Ministry of Foreign Affairs.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "prerequisites_needed",
+        "authority_notice": "Only MOHAP and the Ministry of Foreign Affairs can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "mofa-personal-documents",
+            "headline": "657,768 personal documents attested by MoFA in 2025",
+            "label": "personal documents attested by MoFA in 2025",
+            "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+            "value": 657768.0,
+            "change": 13.4,
+            "compared_to": "2024",
+            "unit": "count",
+            "period": "2025",
+            "scope": "UAE",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "Jan",
+                "value": 48744.0
+              },
+              {
+                "label": "Feb",
+                "value": 46024.0
+              },
+              {
+                "label": "Mar",
+                "value": 44348.0
+              },
+              {
+                "label": "Apr",
+                "value": 47092.0
+              },
+              {
+                "label": "May",
+                "value": 50115.0
+              },
+              {
+                "label": "Jun",
+                "value": 44578.0
+              },
+              {
+                "label": "Jul",
+                "value": 68900.0
+              },
+              {
+                "label": "Aug",
+                "value": 61720.0
+              },
+              {
+                "label": "Sep",
+                "value": 61381.0
+              },
+              {
+                "label": "Oct",
+                "value": 62509.0
+              },
+              {
+                "label": "Nov",
+                "value": 56970.0
+              },
+              {
+                "label": "Dec",
+                "value": 65387.0
+              }
+            ],
+            "highlight": null,
+            "source": {
+              "key": "mofa-documents-attestation",
+              "title": "Annual Documents Attestation",
+              "publisher": "Ministry of Foreign Affairs and International Cooperation",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+              "source_updated": "2026-02-08",
+              "fetched_at": "2026-10-29T05:35:45Z",
+              "origin": "bundled"
+            }
+          },
+          {
+            "id": "births-all",
+            "headline": "1,334 births were registered in Umm Al Quwain in 2024",
+            "label": "births registered in Umm Al Quwain in 2024",
+            "detail": "+6.7% on 2023. 1.2% of the UAE's 106,915 births.",
+            "value": 1334.0,
+            "change": 6.7,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 1228.0
+              },
+              {
+                "label": "2016",
+                "value": 1488.0
+              },
+              {
+                "label": "2017",
+                "value": 1454.0
+              },
+              {
+                "label": "2018",
+                "value": 1343.0
+              },
+              {
+                "label": "2019",
+                "value": 1363.0
+              },
+              {
+                "label": "2020",
+                "value": 1271.0
+              },
+              {
+                "label": "2021",
+                "value": 1195.0
+              },
+              {
+                "label": "2022",
+                "value": 1281.0
+              },
+              {
+                "label": "2023",
+                "value": 1250.0
+              },
+              {
+                "label": "2024",
+                "value": 1334.0
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Live Births by Emirate",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+            "last_updated": "2022-06-22"
+          },
+          {
+            "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+            "last_updated": "2021-09-12"
+          }
+        ]
+      },
+      {
+        "service": {
+          "id": "newborn-passport-embassy",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Get the baby's passport from your embassy or consulate",
+          "summary": "u.ae lists the passport among the documents residents must arrange within 120 days of birth. A news report says expatriate residents apply to their own embassy or consulate in the UAE; we have not confirmed that on an official page.",
+          "entity": "The embassy or consulate of the baby's nationality",
+          "jurisdiction": "Foreign government (not a UAE entity)",
+          "eligibility_criteria": [
+            {
+              "id": "newborn-passport-embassy.c1",
+              "text": "Residents must arrange the baby's passport, Emirates ID and visa within 120 days of birth.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "newborn-passport-embassy.c2",
+              "text": "Reported: expatriate residents apply to their own embassy or consulate in the UAE.",
+              "source_ids": [
+                "src-gulfnews-newborn"
+              ]
+            }
+          ],
+          "documents": [],
+          "fee_text": null,
+          "processing_time_text": null,
+          "official_url": null,
+          "support_url": null,
+          "sources": [
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-gulfnews-newborn",
+              "title": "UAE: How to apply for your baby's birth certificate, passport and visa (news report)",
+              "url": "https://gulfnews.com/living-in-uae/visa-immigration/uae-how-to-apply-for-your-babys-birth-certificate-passport-and-visa-1.1608131310159",
+              "publisher": "Gulf News (not an official source)",
+              "checked_at": null,
+              "source_updated_at": null,
+              "verification_status": "needs_review"
+            }
+          ],
+          "verification_status": "needs_review",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Your profile matches: Residents must arrange the baby's passport, Emirates ID and visa within 120 days of birth.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "text": "This record is not confirmed on an official page yet. Check with the entity before relying on it.",
+            "source_ids": [
+              "src-gulfnews-newborn",
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "ready",
+        "authority_notice": "Only the embassy or consulate of the baby's nationality can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "births-expat",
+            "headline": "585 babies were born to expatriate families in Umm Al Quwain in 2024",
+            "label": "babies born to expatriate families in Umm Al Quwain in 2024",
+            "detail": "+46% on 2023. That is 44% of all births there.",
+            "value": 585.0,
+            "change": 45.5,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 411.0
+              },
+              {
+                "label": "2016",
+                "value": 470.0
+              },
+              {
+                "label": "2017",
+                "value": 469.0
+              },
+              {
+                "label": "2018",
+                "value": 412.0
+              },
+              {
+                "label": "2019",
+                "value": 372.0
+              },
+              {
+                "label": "2020",
+                "value": 398.0
+              },
+              {
+                "label": "2021",
+                "value": 377.0
+              },
+              {
+                "label": "2022",
+                "value": 338.0
+              },
+              {
+                "label": "2023",
+                "value": 402.0
+              },
+              {
+                "label": "2024",
+                "value": 585.0
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births by Emirate, Nationality and Gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1fGdxnUOHJivLD_fzokzyyrT9fOJynBnZdksAxPgLys",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Registered Still Births by Nationality and Gender -Emirate of Fujairah (2015-2017)",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=6c2-7EOh_6RSg9d_HnTTVueWtbzybx77Q0BKpUWnPMA",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Births, Deaths and Natural Population Increase by Nationality and Gender, Emirate of Fujairah",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=FSiruaSjdcwRugs3_FFGf3nMI0I20rZKSkzJlfpHI0U",
+            "last_updated": "2026-05-20"
+          }
+        ]
+      },
+      {
+        "service": {
+          "id": "newborn-residence-permit",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Issue the baby's residence permit and Emirates ID",
+          "summary": "ICP's Issuing Residency Permit service issues a new residence permit linked to an Emirates ID application. For family members, the sponsor must hold a valid UAE residence and meet the income condition.",
+          "entity": "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP); GDRFA in Dubai",
+          "jurisdiction": "Federal (ICP), with GDRFA Dubai for Dubai",
+          "eligibility_criteria": [
+            {
+              "id": "newborn-residence-permit.c1",
+              "text": "The sponsoring parent holds a valid UAE residence.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.c2",
+              "text": "Sponsor's minimum monthly income: AED 4,000, or AED 3,000 with housing provided.",
+              "source_ids": [
+                "src-icp-residency-permit",
+                "src-uae-family-residence"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.c3",
+              "text": "Residents must complete the baby's documents, including the visa, within 120 days of birth. After that AED 100 per day applies, and the baby cannot leave the country until the residence visa is finalised.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "documents": [
+            {
+              "id": "newborn-residence-permit.d1",
+              "text": "The baby's passport, valid for at least 6 months.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.d2",
+              "text": "A personal photo.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.d3",
+              "text": "Valid health insurance.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.d4",
+              "text": "The birth certificate (to prove the child's age).",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            }
+          ],
+          "fee_text": "ICP lists AED 100 application, AED 100 issuance per year, AED 100 smart service and AED 20 financial security deposit fees. Your total may differ.",
+          "processing_time_text": "ICP lists a service completion duration of 2 days.",
+          "official_url": "https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+          "support_url": "https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members",
+          "sources": [
+            {
+              "id": "src-icp-residency-permit",
+              "title": "Issuing Residency Permit",
+              "url": "https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+              "publisher": "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP)",
+              "checked_at": "2026-10-28T19:46:00Z",
+              "source_updated_at": null,
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-uae-family-residence",
+              "title": "Residence visa for families of employees",
+              "url": "https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:45:00Z",
+              "source_updated_at": "2026-09-28",
+              "verification_status": "verified"
+            }
+          ],
+          "verification_status": "verified",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Your profile matches: The sponsoring parent holds a valid UAE residence.",
+            "source_ids": [
+              "src-icp-residency-permit"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "prerequisites_needed",
+        "authority_notice": "Only ICP (or GDRFA Dubai) can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "births-expat",
+            "headline": "585 babies were born to expatriate families in Umm Al Quwain in 2024",
+            "label": "babies born to expatriate families in Umm Al Quwain in 2024",
+            "detail": "+46% on 2023. That is 44% of all births there.",
+            "value": 585.0,
+            "change": 45.5,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 411.0
+              },
+              {
+                "label": "2016",
+                "value": 470.0
+              },
+              {
+                "label": "2017",
+                "value": 469.0
+              },
+              {
+                "label": "2018",
+                "value": 412.0
+              },
+              {
+                "label": "2019",
+                "value": 372.0
+              },
+              {
+                "label": "2020",
+                "value": 398.0
+              },
+              {
+                "label": "2021",
+                "value": 377.0
+              },
+              {
+                "label": "2022",
+                "value": 338.0
+              },
+              {
+                "label": "2023",
+                "value": 402.0
+              },
+              {
+                "label": "2024",
+                "value": 585.0
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births by Emirate, Nationality and Gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1fGdxnUOHJivLD_fzokzyyrT9fOJynBnZdksAxPgLys",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Registered Still Births by Nationality and Gender -Emirate of Fujairah (2015-2017)",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=6c2-7EOh_6RSg9d_HnTTVueWtbzybx77Q0BKpUWnPMA",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Births, Deaths and Natural Population Increase by Nationality and Gender, Emirate of Fujairah",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=FSiruaSjdcwRugs3_FFGf3nMI0I20rZKSkzJlfpHI0U",
+            "last_updated": "2026-05-20"
+          }
+        ]
+      },
+      {
+        "service": {
+          "id": "mabrouk-ma-yak",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Mabrouk Ma Yak newborn bundle (UAE nationals)",
+          "summary": "For UAE nationals, the Mabrouk Ma Yak bundle combines the birth certificate, adding the baby to family data, passport, Emirates ID, Thiqa insurance and an optional health card.",
+          "entity": "UAE federal government (Mabrouk Ma Yak bundle on Usrati)",
+          "jurisdiction": "Federal (UAE nationals)",
+          "eligibility_criteria": [
+            {
+              "id": "mabrouk-ma-yak.c1",
+              "text": "For babies of UAE nationals.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "documents": [],
+          "fee_text": null,
+          "processing_time_text": null,
+          "official_url": "https://usrati.gov.ae/family/#/",
+          "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+          "sources": [
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            }
+          ],
+          "verification_status": "verified",
+          "origin": "catalog"
+        },
+        "relevance": "criterion_mismatch",
+        "reasons": [
+          {
+            "text": "Your profile may not meet: For babies of UAE nationals.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "ready",
+        "authority_notice": "Only the participating federal and local entities can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "births-citizen",
+            "headline": "749 Emirati babies were born in Umm Al Quwain in 2024",
+            "label": "Emirati babies born in Umm Al Quwain in 2024",
+            "detail": "−12% on 2023. That is 56% of all births there.",
+            "value": 749.0,
+            "change": -11.7,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 817.0
+              },
+              {
+                "label": "2016",
+                "value": 1018.0
+              },
+              {
+                "label": "2017",
+                "value": 985.0
+              },
+              {
+                "label": "2018",
+                "value": 931.0
+              },
+              {
+                "label": "2019",
+                "value": 991.0
+              },
+              {
+                "label": "2020",
+                "value": 873.0
+              },
+              {
+                "label": "2021",
+                "value": 818.0
+              },
+              {
+                "label": "2022",
+                "value": 943.0
+              },
+              {
+                "label": "2023",
+                "value": 848.0
+              },
+              {
+                "label": "2024",
+                "value": 749.0
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Live Births by Emirate",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+            "last_updated": "2022-06-22"
+          },
+          {
+            "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+            "last_updated": "2021-09-12"
+          }
+        ]
+      }
+    ],
+    "mode": "ai",
+    "notices": [],
+    "agent_steps": [
+      {
+        "tool": "read_catalog",
+        "detail": "10 reviewed services"
+      }
+    ]
+  }
+}

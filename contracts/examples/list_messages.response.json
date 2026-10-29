@@ -3,19 +3,19 @@
   "body": {
     "items": [
       {
-        "id": "msg_YBcDaKfsYZPcG_zz",
+        "id": "msg_YpbgGFcc6YaP26BE",
         "role": "user",
         "content": "What documents do I need for this step?",
-        "step_id": "stp_1NX6TFo_8yVXXyYi",
+        "step_id": "stp_wEeLQOMHlMJlOEAd",
         "citations": [],
         "reach": null,
-        "created_at": "2026-10-29T00:54:46.188000Z"
+        "created_at": "2026-10-29T06:49:00.518000Z"
       },
       {
-        "id": "msg_sYy-FdDhfhlqhMyc",
+        "id": "msg_4s4cvMFHtaQQpkxq",
         "role": "assistant",
         "content": "Preparation checklist:\n- The original document (for example, your degree certificate). Mission courier services collect the original. (have)\n- Proof that the issuing country's foreign office attested the document, where your mission requires it. (missing)",
-        "step_id": "stp_1NX6TFo_8yVXXyYi",
+        "step_id": "stp_wEeLQOMHlMJlOEAd",
         "citations": [
           {
             "id": "src-mofa-attestation",
@@ -37,25 +37,25 @@
           }
         ],
         "reach": null,
-        "created_at": "2026-10-29T00:54:46.188000Z"
+        "created_at": "2026-10-29T06:49:00.518000Z"
       },
       {
-        "id": "msg_BbRVjV1yXoGvcKSb",
+        "id": "msg_QYNIpE7vRfvW_ahE",
         "role": "user",
         "content": "Can you recommend a good typing centre near me?",
-        "step_id": "stp_TbC5GRbRSAkBuxow",
+        "step_id": "stp_dyQwvdSbpXR51Iuc",
         "citations": [],
         "reach": null,
-        "created_at": "2026-10-29T00:54:46.198000Z"
+        "created_at": "2026-10-29T06:49:00.529000Z"
       },
       {
-        "id": "msg_YeN0quA7tfYBx9DR",
+        "id": "msg_16HToiTJIhVRD8uy",
         "role": "assistant",
         "content": "I couldn't find that in the available sources, so I won't guess. Please contact the responsible entity.",
-        "step_id": "stp_TbC5GRbRSAkBuxow",
+        "step_id": "stp_dyQwvdSbpXR51Iuc",
         "citations": [],
         "reach": null,
-        "created_at": "2026-10-29T00:54:46.198000Z"
+        "created_at": "2026-10-29T06:49:00.529000Z"
       }
     ]
   }

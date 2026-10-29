@@ -1,7 +1,7 @@
 {
   "status": 200,
   "body": {
-    "id": "jrn_y5Rx0mdBqv31Ljvy",
+    "id": "jrn_rUzt6LegeJPVQtmF",
     "title": "Plan: Get an overseas university degree recognised",
     "life_event_id": "education_qualification",
     "context_revision": 1,
@@ -25,7 +25,7 @@
     ],
     "steps": [
       {
-        "id": "stp_6iDy2Dh1Qd27fRvt",
+        "id": "stp_YnkWF_oi3mMO4MJP",
         "title": "Verify your degree through an authorised verification partner",
         "instructions": "Prepare and apply: News reporting says MoHESR appointed authorised partners to verify foreign degrees before you apply for recognition. We have not confirmed this on an official MoHESR page, so treat it as something to check.",
         "checklist": [],
@@ -85,7 +85,109 @@
           "missing_profile_fields": [],
           "readiness": "ready",
           "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-          "reach": null
+          "reach": null,
+          "insights": [
+            {
+              "id": "mohesr-recognition-volume",
+              "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+              "label": "applications to recognise a qualification from abroad in 2025",
+              "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+              "value": 73019.0,
+              "change": null,
+              "compared_to": null,
+              "unit": "count",
+              "period": "2025",
+              "scope": "UAE",
+              "freshness": "current",
+              "series": [
+                {
+                  "label": "Jan",
+                  "value": 7402.0
+                },
+                {
+                  "label": "Feb",
+                  "value": 7649.0
+                },
+                {
+                  "label": "Mar",
+                  "value": 6700.0
+                },
+                {
+                  "label": "Apr",
+                  "value": 8039.0
+                },
+                {
+                  "label": "May",
+                  "value": 7016.0
+                },
+                {
+                  "label": "Jun",
+                  "value": 5221.0
+                },
+                {
+                  "label": "Jul",
+                  "value": 5586.0
+                },
+                {
+                  "label": "Aug",
+                  "value": 5202.0
+                },
+                {
+                  "label": "Sep",
+                  "value": 4957.0
+                },
+                {
+                  "label": "Oct",
+                  "value": 6458.0
+                },
+                {
+                  "label": "Nov",
+                  "value": 4830.0
+                },
+                {
+                  "label": "Dec",
+                  "value": 3959.0
+                }
+              ],
+              "highlight": 3,
+              "source": {
+                "key": "mohesr-eservices-usage",
+                "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+                "publisher": "Ministry of Higher Education and Scientific Research",
+                "portal": "bayanat",
+                "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+                "source_updated": "2026-03-16",
+                "fetched_at": "2026-10-29T05:35:44Z",
+                "origin": "bundled"
+              }
+            }
+          ],
+          "related_data": [
+            {
+              "title": "Number of Graduates at Government Higher Education Institutions by Specialty, Nationality and gender",
+              "publisher": "Federal Competitiveness and Statistics Center",
+              "portal": "bayanat",
+              "theme": "education",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=erWzP7fTNBYVFNyWE2vu58LtciQugx4xIqfklvlJfSY",
+              "last_updated": "2026-05-20"
+            },
+            {
+              "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+              "publisher": "Federal Competitiveness and Statistics Center",
+              "portal": "bayanat",
+              "theme": "education",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+              "last_updated": "2026-05-20"
+            },
+            {
+              "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+              "publisher": "Federal Competitiveness and Statistics Center",
+              "portal": "bayanat",
+              "theme": "education",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+              "last_updated": "2026-05-20"
+            }
+          ]
         },
         "order_group": 0,
         "prerequisite_step_ids": [],
@@ -95,10 +197,14 @@
         "blocker_step_ids": [],
         "notes": [
           "This step is not confirmed on an official page. Check it with an adviser or the entity."
-        ]
+        ],
+        "tailored_by": [
+          "degree_issued_outside_uae"
+        ],
+        "tailored_note": null
       },
       {
-        "id": "stp_wO2OD_FLBothZyBC",
+        "id": "stp_2QojOFInDsetTQzC",
         "title": "Set up UAE PASS to sign in to online services",
         "instructions": "UAE PASS is the sign-in used by federal online services. MoFA's online attestation application and ICP's smart services both state that you sign in with UAE PASS.",
         "checklist": [],
@@ -161,7 +267,34 @@
           "missing_profile_fields": [],
           "readiness": "ready",
           "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
-          "reach": null
+          "reach": null,
+          "insights": [],
+          "related_data": [
+            {
+              "title": "Digital Transactions",
+              "publisher": "Transport Authority",
+              "portal": "ajman",
+              "theme": "government",
+              "url": "https://data.ajman.ae/explore/dataset/digital-transactions/",
+              "last_updated": "2026-07-31"
+            },
+            {
+              "title": "Total Digital Transactions Report for UAEU E-services 2022-2025",
+              "publisher": "United Arab Emirates University",
+              "portal": "bayanat",
+              "theme": "education",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1Jzpy-F_VuxYtPCbECq6MrQB8dZFJo1FAnaqi05h0ic",
+              "last_updated": "2026-04-29"
+            },
+            {
+              "title": "TDRA Service Transactions by Year",
+              "publisher": "Telecommunications and Digital Government Regulatory Authority",
+              "portal": "bayanat",
+              "theme": "government",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=AM9VhLvgUE8TlrC_AQmkmuK04Tav4QDTsV2OOaAEVH8",
+              "last_updated": "2024-09-30"
+            }
+          ]
         },
         "order_group": 0,
         "prerequisite_step_ids": [],
@@ -169,10 +302,12 @@
         "progress": "completed",
         "availability": "ready",
         "blocker_step_ids": [],
-        "notes": []
+        "notes": [],
+        "tailored_by": [],
+        "tailored_note": null
       },
       {
-        "id": "stp_1NX6TFo_8yVXXyYi",
+        "id": "stp_wEeLQOMHlMJlOEAd",
         "title": "Attest a document issued outside the UAE",
         "instructions": "Prepare and apply: The Ministry of Foreign Affairs attests documents issued abroad through UAE missions in the country of issue. You apply online with UAE PASS where the mission offers it, or visit the mission in person.",
         "checklist": [
@@ -281,11 +416,179 @@
           "missing_profile_fields": [],
           "readiness": "prerequisites_needed",
           "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
-          "reach": null
+          "reach": null,
+          "insights": [
+            {
+              "id": "mofa-missions-abroad",
+              "headline": "250,578 attestation requests through UAE missions abroad in 2025",
+              "label": "attestation requests through UAE missions abroad in 2025",
+              "detail": "+55% on 2024. Busiest month: December.",
+              "value": 250578.0,
+              "change": 54.7,
+              "compared_to": "2024",
+              "unit": "count",
+              "period": "2025",
+              "scope": "UAE missions abroad",
+              "freshness": "current",
+              "series": [
+                {
+                  "label": "Jan",
+                  "value": 13088.0
+                },
+                {
+                  "label": "Feb",
+                  "value": 13161.0
+                },
+                {
+                  "label": "Mar",
+                  "value": 15590.0
+                },
+                {
+                  "label": "Apr",
+                  "value": 14037.0
+                },
+                {
+                  "label": "May",
+                  "value": 14835.0
+                },
+                {
+                  "label": "Jun",
+                  "value": 14116.0
+                },
+                {
+                  "label": "Jul",
+                  "value": 25303.0
+                },
+                {
+                  "label": "Aug",
+                  "value": 24609.0
+                },
+                {
+                  "label": "Sep",
+                  "value": 25199.0
+                },
+                {
+                  "label": "Oct",
+                  "value": 28154.0
+                },
+                {
+                  "label": "Nov",
+                  "value": 26587.0
+                },
+                {
+                  "label": "Dec",
+                  "value": 35899.0
+                }
+              ],
+              "highlight": 11,
+              "source": {
+                "key": "mofa-documents-attestation",
+                "title": "Annual Documents Attestation",
+                "publisher": "Ministry of Foreign Affairs and International Cooperation",
+                "portal": "bayanat",
+                "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+                "source_updated": "2026-02-08",
+                "fetched_at": "2026-10-29T05:35:45Z",
+                "origin": "bundled"
+              }
+            },
+            {
+              "id": "mofa-personal-documents",
+              "headline": "657,768 personal documents attested by MoFA in 2025",
+              "label": "personal documents attested by MoFA in 2025",
+              "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+              "value": 657768.0,
+              "change": 13.4,
+              "compared_to": "2024",
+              "unit": "count",
+              "period": "2025",
+              "scope": "UAE",
+              "freshness": "current",
+              "series": [
+                {
+                  "label": "Jan",
+                  "value": 48744.0
+                },
+                {
+                  "label": "Feb",
+                  "value": 46024.0
+                },
+                {
+                  "label": "Mar",
+                  "value": 44348.0
+                },
+                {
+                  "label": "Apr",
+                  "value": 47092.0
+                },
+                {
+                  "label": "May",
+                  "value": 50115.0
+                },
+                {
+                  "label": "Jun",
+                  "value": 44578.0
+                },
+                {
+                  "label": "Jul",
+                  "value": 68900.0
+                },
+                {
+                  "label": "Aug",
+                  "value": 61720.0
+                },
+                {
+                  "label": "Sep",
+                  "value": 61381.0
+                },
+                {
+                  "label": "Oct",
+                  "value": 62509.0
+                },
+                {
+                  "label": "Nov",
+                  "value": 56970.0
+                },
+                {
+                  "label": "Dec",
+                  "value": 65387.0
+                }
+              ],
+              "highlight": null,
+              "source": {
+                "key": "mofa-documents-attestation",
+                "title": "Annual Documents Attestation",
+                "publisher": "Ministry of Foreign Affairs and International Cooperation",
+                "portal": "bayanat",
+                "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+                "source_updated": "2026-02-08",
+                "fetched_at": "2026-10-29T05:35:45Z",
+                "origin": "bundled"
+              }
+            }
+          ],
+          "related_data": [
+            {
+              "title": "General attestations and certifications by court, request type, and year from 2019 to 2025",
+              "publisher": "Ministry of Justice",
+              "portal": "bayanat",
+              "theme": "government",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=Hlr-4c8Ft7pfoZRjin9a3zrxyeGVdV_O8fpa6GBYCpk",
+              "last_updated": "2026-05-13"
+            },
+            {
+              "title": "Total Annual Documents Attestation via eDAS",
+              "publisher": "Ministry of Foreign Affairs and International Cooperation",
+              "portal": "bayanat",
+              "theme": "government",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=etzliFcUJkC3rr6cvGqJUT9BjpBhHlYJ5JiO3LmlKZ0",
+              "last_updated": "2026-02-08"
+            }
+          ]
         },
         "order_group": 1,
         "prerequisite_step_ids": [
-          "stp_wO2OD_FLBothZyBC"
+          "stp_2QojOFInDsetTQzC"
         ],
         "document_progress": [
           {
@@ -302,10 +605,14 @@
         "blocker_step_ids": [],
         "notes": [
           "Requires \"Set up UAE PASS to sign in to online services\" first: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
-        ]
+        ],
+        "tailored_by": [
+          "degree_issued_outside_uae"
+        ],
+        "tailored_note": null
       },
       {
-        "id": "stp_TbC5GRbRSAkBuxow",
+        "id": "stp_dyQwvdSbpXR51Iuc",
         "title": "Get a university qualification from abroad recognised",
         "instructions": "Prepare and apply: MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government serv…",
         "checklist": [],
@@ -375,12 +682,188 @@
           "missing_profile_fields": [],
           "readiness": "ready",
           "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-          "reach": null
+          "reach": null,
+          "insights": [
+            {
+              "id": "mohesr-recognition-volume",
+              "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+              "label": "applications to recognise a qualification from abroad in 2025",
+              "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+              "value": 73019.0,
+              "change": null,
+              "compared_to": null,
+              "unit": "count",
+              "period": "2025",
+              "scope": "UAE",
+              "freshness": "current",
+              "series": [
+                {
+                  "label": "Jan",
+                  "value": 7402.0
+                },
+                {
+                  "label": "Feb",
+                  "value": 7649.0
+                },
+                {
+                  "label": "Mar",
+                  "value": 6700.0
+                },
+                {
+                  "label": "Apr",
+                  "value": 8039.0
+                },
+                {
+                  "label": "May",
+                  "value": 7016.0
+                },
+                {
+                  "label": "Jun",
+                  "value": 5221.0
+                },
+                {
+                  "label": "Jul",
+                  "value": 5586.0
+                },
+                {
+                  "label": "Aug",
+                  "value": 5202.0
+                },
+                {
+                  "label": "Sep",
+                  "value": 4957.0
+                },
+                {
+                  "label": "Oct",
+                  "value": 6458.0
+                },
+                {
+                  "label": "Nov",
+                  "value": 4830.0
+                },
+                {
+                  "label": "Dec",
+                  "value": 3959.0
+                }
+              ],
+              "highlight": 3,
+              "source": {
+                "key": "mohesr-eservices-usage",
+                "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+                "publisher": "Ministry of Higher Education and Scientific Research",
+                "portal": "bayanat",
+                "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+                "source_updated": "2026-03-16",
+                "fetched_at": "2026-10-29T05:35:44Z",
+                "origin": "bundled"
+              }
+            },
+            {
+              "id": "mofa-personal-documents",
+              "headline": "657,768 personal documents attested by MoFA in 2025",
+              "label": "personal documents attested by MoFA in 2025",
+              "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+              "value": 657768.0,
+              "change": 13.4,
+              "compared_to": "2024",
+              "unit": "count",
+              "period": "2025",
+              "scope": "UAE",
+              "freshness": "current",
+              "series": [
+                {
+                  "label": "Jan",
+                  "value": 48744.0
+                },
+                {
+                  "label": "Feb",
+                  "value": 46024.0
+                },
+                {
+                  "label": "Mar",
+                  "value": 44348.0
+                },
+                {
+                  "label": "Apr",
+                  "value": 47092.0
+                },
+                {
+                  "label": "May",
+                  "value": 50115.0
+                },
+                {
+                  "label": "Jun",
+                  "value": 44578.0
+                },
+                {
+                  "label": "Jul",
+                  "value": 68900.0
+                },
+                {
+                  "label": "Aug",
+                  "value": 61720.0
+                },
+                {
+                  "label": "Sep",
+                  "value": 61381.0
+                },
+                {
+                  "label": "Oct",
+                  "value": 62509.0
+                },
+                {
+                  "label": "Nov",
+                  "value": 56970.0
+                },
+                {
+                  "label": "Dec",
+                  "value": 65387.0
+                }
+              ],
+              "highlight": null,
+              "source": {
+                "key": "mofa-documents-attestation",
+                "title": "Annual Documents Attestation",
+                "publisher": "Ministry of Foreign Affairs and International Cooperation",
+                "portal": "bayanat",
+                "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+                "source_updated": "2026-02-08",
+                "fetched_at": "2026-10-29T05:35:45Z",
+                "origin": "bundled"
+              }
+            }
+          ],
+          "related_data": [
+            {
+              "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+              "publisher": "Federal Competitiveness and Statistics Center",
+              "portal": "bayanat",
+              "theme": "education",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+              "last_updated": "2026-05-20"
+            },
+            {
+              "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+              "publisher": "Federal Competitiveness and Statistics Center",
+              "portal": "bayanat",
+              "theme": "education",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+              "last_updated": "2026-05-20"
+            },
+            {
+              "title": "Number of Students in Higher Education Institutions by Emirate, Sector and Gender",
+              "publisher": "Federal Competitiveness and Statistics Center",
+              "portal": "bayanat",
+              "theme": "education",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=YlMC0rDwXzgYsoG-v5myQIyQT56g28IRGFugEYGt-kc",
+              "last_updated": "2026-05-20"
+            }
+          ]
         },
         "order_group": 2,
         "prerequisite_step_ids": [
-          "stp_6iDy2Dh1Qd27fRvt",
-          "stp_1NX6TFo_8yVXXyYi"
+          "stp_YnkWF_oi3mMO4MJP",
+          "stp_wEeLQOMHlMJlOEAd"
         ],
         "document_progress": [],
         "progress": "not_started",
@@ -389,13 +872,17 @@
         "notes": [
           "Suggested after \"Verify your degree through an authorised verification partner\" (advice only): Do the earlier step first.",
           "Suggested after \"Attest a document issued outside the UAE\" (advice only): Do the earlier step first."
-        ]
+        ],
+        "tailored_by": [
+          "degree_issued_outside_uae"
+        ],
+        "tailored_note": null
       }
     ],
     "dependencies": [
       {
-        "from_step_id": "stp_wO2OD_FLBothZyBC",
-        "to_step_id": "stp_1NX6TFo_8yVXXyYi",
+        "from_step_id": "stp_2QojOFInDsetTQzC",
+        "to_step_id": "stp_wEeLQOMHlMJlOEAd",
         "kind": "required",
         "explanation": "MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies.",
         "source_ids": [
@@ -403,28 +890,54 @@
         ]
       },
       {
-        "from_step_id": "stp_6iDy2Dh1Qd27fRvt",
-        "to_step_id": "stp_TbC5GRbRSAkBuxow",
+        "from_step_id": "stp_YnkWF_oi3mMO4MJP",
+        "to_step_id": "stp_dyQwvdSbpXR51Iuc",
         "kind": "recommended",
         "explanation": "Do the earlier step first.",
         "source_ids": []
       },
       {
-        "from_step_id": "stp_1NX6TFo_8yVXXyYi",
-        "to_step_id": "stp_TbC5GRbRSAkBuxow",
+        "from_step_id": "stp_wEeLQOMHlMJlOEAd",
+        "to_step_id": "stp_dyQwvdSbpXR51Iuc",
         "kind": "recommended",
         "explanation": "Do the earlier step first.",
         "source_ids": []
       }
     ],
+    "personalization": [
+      {
+        "field": "emirate",
+        "value": "dubai",
+        "step_ids": []
+      },
+      {
+        "field": "residency_status",
+        "value": "resident",
+        "step_ids": []
+      },
+      {
+        "field": "life_stage",
+        "value": "worker",
+        "step_ids": []
+      },
+      {
+        "field": "degree_issued_outside_uae",
+        "value": "true",
+        "step_ids": [
+          "stp_YnkWF_oi3mMO4MJP",
+          "stp_wEeLQOMHlMJlOEAd",
+          "stp_dyQwvdSbpXR51Iuc"
+        ]
+      }
+    ],
+    "skipped": [],
     "notices": [
       "Your profile changed after this plan was made. You can still read it, but update the plan before changing progress, asking the coach or continuing to a service.",
       "Progress and document checklists are reported by you. They are not proof that an application was submitted or approved.",
-      "This plan was generated by NaviNation's AI agent for your request and profile. Only officially verified rules can block a step.",
       "Added \"Set up UAE PASS to sign in to online services\" before \"Attest a document issued outside the UAE\" because a verified rule requires it: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
     ],
     "agent_steps": [],
-    "created_at": "2026-10-29T00:54:46.144000Z",
-    "updated_at": "2026-10-29T00:54:46.176000Z"
+    "created_at": "2026-10-29T06:49:00.430000Z",
+    "updated_at": "2026-10-29T06:49:00.488000Z"
   }
 }

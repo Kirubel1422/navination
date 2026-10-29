@@ -1307,6 +1307,247 @@
           }
         }
       }
+    },
+    "/api/v1/open-data": {
+      "get": {
+        "tags": [
+          "open data"
+        ],
+        "summary": "Summary",
+        "operationId": "summary_api_v1_open_data_get",
+        "parameters": [
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "en",
+                "ar"
+              ],
+              "type": "string",
+              "default": "en",
+              "title": "Locale"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OpenDataSummary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/open-data/search": {
+      "get": {
+        "tags": [
+          "open data"
+        ],
+        "summary": "Search",
+        "operationId": "search_api_v1_open_data_search_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 120,
+              "title": "Q"
+            }
+          },
+          {
+            "name": "portal",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "bayanat",
+                    "ajman"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Portal"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RelatedDataset"
+                  },
+                  "title": "Response Search Api V1 Open Data Search Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/open-data/navigation-gaps": {
+      "get": {
+        "tags": [
+          "open data"
+        ],
+        "summary": "Navigation Gaps",
+        "operationId": "navigation_gaps_api_v1_open_data_navigation_gaps_get",
+        "parameters": [
+          {
+            "name": "days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 365,
+              "minimum": 1,
+              "default": 90,
+              "title": "Days"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NavigationGaps"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/open-data/navigation-gaps.csv": {
+      "get": {
+        "tags": [
+          "open data"
+        ],
+        "summary": "Navigation Gaps Csv",
+        "operationId": "navigation_gaps_csv_api_v1_open_data_navigation_gaps_csv_get",
+        "parameters": [
+          {
+            "name": "days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 365,
+              "minimum": 1,
+              "default": 90,
+              "title": "Days"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The same rows as CSV",
+            "content": {
+              "text/csv": {}
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1795,6 +2036,143 @@
         ],
         "title": "CreateSessionResponse"
       },
+      "CuratedDataset": {
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "rows": {
+            "type": "integer",
+            "title": "Rows"
+          },
+          "columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Columns"
+          },
+          "services": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Services",
+            "description": "Catalog services whose insights use this dataset"
+          },
+          "service_titles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Service Titles"
+          },
+          "data_period": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Data Period",
+            "description": "Latest period covered by the data"
+          },
+          "freshness": {
+            "type": "string",
+            "enum": [
+              "current",
+              "older"
+            ],
+            "title": "Freshness"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "source",
+          "rows",
+          "columns",
+          "services",
+          "service_titles",
+          "data_period",
+          "freshness"
+        ],
+        "title": "CuratedDataset"
+      },
+      "DataSource": {
+        "properties": {
+          "key": {
+            "type": "string",
+            "title": "Key"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "publisher": {
+            "type": "string",
+            "title": "Publisher"
+          },
+          "portal": {
+            "type": "string",
+            "enum": [
+              "bayanat",
+              "ajman"
+            ],
+            "title": "Portal"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "format": "uri",
+            "title": "Url"
+          },
+          "source_updated": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Updated",
+            "description": "The portal's own last-updated date"
+          },
+          "fetched_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Fetched At",
+            "description": "When NaviNation last downloaded it"
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "live",
+              "bundled"
+            ],
+            "title": "Origin",
+            "description": "live = synced from the portal; bundled = the reviewed copy shipped with the app"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "key",
+          "title",
+          "publisher",
+          "portal",
+          "url",
+          "source_updated",
+          "fetched_at",
+          "origin"
+        ],
+        "title": "DataSource",
+        "description": "Where an open-data figure comes from, so people (and judges) can check it."
+      },
       "Dependency": {
         "properties": {
           "from_step_id": {
@@ -2210,6 +2588,16 @@
           "web_search_available": {
             "type": "boolean",
             "title": "Web Search Available"
+          },
+          "open_data": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/OpenDataHealth"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,
@@ -2222,6 +2610,161 @@
           "web_search_available"
         ],
         "title": "Health"
+      },
+      "Insight": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "headline": {
+            "type": "string",
+            "title": "Headline",
+            "description": "The whole fact as a sentence"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "description": "The fact without its number, to sit under a large value"
+          },
+          "detail": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Detail"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          },
+          "change": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Change",
+            "description": "Change vs compared_to: percent for counts, percentage points for percents"
+          },
+          "compared_to": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Compared To"
+          },
+          "unit": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "count",
+                  "percent"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unit"
+          },
+          "period": {
+            "type": "string",
+            "title": "Period"
+          },
+          "scope": {
+            "type": "string",
+            "title": "Scope"
+          },
+          "freshness": {
+            "type": "string",
+            "enum": [
+              "current",
+              "older"
+            ],
+            "title": "Freshness"
+          },
+          "series": {
+            "items": {
+              "$ref": "#/components/schemas/InsightPoint"
+            },
+            "type": "array",
+            "title": "Series"
+          },
+          "highlight": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Highlight",
+            "description": "Index of the point to emphasise in the series"
+          },
+          "source": {
+            "$ref": "#/components/schemas/DataSource"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "headline",
+          "label",
+          "detail",
+          "value",
+          "change",
+          "compared_to",
+          "unit",
+          "period",
+          "scope",
+          "freshness",
+          "series",
+          "highlight",
+          "source"
+        ],
+        "title": "Insight",
+        "description": "A figure from government open data that helps plan this service."
+      },
+      "InsightPoint": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "value": {
+            "type": "number",
+            "title": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "label",
+          "value"
+        ],
+        "title": "InsightPoint"
       },
       "Journey": {
         "properties": {
@@ -2266,6 +2809,20 @@
             "type": "array",
             "title": "Dependencies"
           },
+          "personalization": {
+            "items": {
+              "$ref": "#/components/schemas/PersonalizationEffect"
+            },
+            "type": "array",
+            "title": "Personalization"
+          },
+          "skipped": {
+            "items": {
+              "$ref": "#/components/schemas/SkippedService"
+            },
+            "type": "array",
+            "title": "Skipped"
+          },
           "notices": {
             "items": {
               "type": "string"
@@ -2302,6 +2859,8 @@
           "stages",
           "steps",
           "dependencies",
+          "personalization",
+          "skipped",
           "notices",
           "agent_steps",
           "created_at",
@@ -2383,6 +2942,32 @@
             },
             "type": "array",
             "title": "Notes"
+          },
+          "tailored_by": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "emirate",
+                "residency_status",
+                "life_stage",
+                "degree_issued_outside_uae"
+              ]
+            },
+            "type": "array",
+            "title": "Tailored By",
+            "description": "Profile answers that shaped this step (from the reviewed catalog)"
+          },
+          "tailored_note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tailored Note",
+            "description": "Catalog guidance for the person's answer"
           }
         },
         "additionalProperties": false,
@@ -2399,7 +2984,9 @@
           "progress",
           "availability",
           "blocker_step_ids",
-          "notes"
+          "notes",
+          "tailored_by",
+          "tailored_note"
         ],
         "title": "JourneyStep"
       },
@@ -2443,6 +3030,97 @@
           "items"
         ],
         "title": "MessageList"
+      },
+      "NavigationGap": {
+        "properties": {
+          "week": {
+            "type": "string",
+            "format": "date",
+            "title": "Week"
+          },
+          "topic": {
+            "type": "string",
+            "title": "Topic"
+          },
+          "searches": {
+            "type": "integer",
+            "title": "Searches"
+          },
+          "ready": {
+            "type": "integer",
+            "title": "Ready"
+          },
+          "needs_clarification": {
+            "type": "integer",
+            "title": "Needs Clarification"
+          },
+          "no_match": {
+            "type": "integer",
+            "title": "No Match"
+          },
+          "plans": {
+            "type": "integer",
+            "title": "Plans"
+          },
+          "median_seconds_to_plan": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Seconds To Plan"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "week",
+          "topic",
+          "searches",
+          "ready",
+          "needs_clarification",
+          "no_match",
+          "plans",
+          "median_seconds_to_plan"
+        ],
+        "title": "NavigationGap"
+      },
+      "NavigationGaps": {
+        "properties": {
+          "generated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Generated At"
+          },
+          "days": {
+            "type": "integer",
+            "title": "Days"
+          },
+          "licence": {
+            "type": "string",
+            "title": "Licence"
+          },
+          "rows": {
+            "items": {
+              "$ref": "#/components/schemas/NavigationGap"
+            },
+            "type": "array",
+            "title": "Rows"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "generated_at",
+          "days",
+          "licence",
+          "rows"
+        ],
+        "title": "NavigationGaps",
+        "description": "Anonymous navigation outcomes: what people look for and where guidance fails."
       },
       "Nearby": {
         "properties": {
@@ -2496,6 +3174,175 @@
         "additionalProperties": false,
         "type": "object",
         "title": "NearbyRequest"
+      },
+      "OpenDataHealth": {
+        "properties": {
+          "datasets_indexed": {
+            "type": "integer",
+            "title": "Datasets Indexed"
+          },
+          "curated_snapshots": {
+            "type": "integer",
+            "title": "Curated Snapshots"
+          },
+          "last_sync": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Sync"
+          },
+          "stale": {
+            "type": "boolean",
+            "title": "Stale"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "datasets_indexed",
+          "curated_snapshots",
+          "last_sync",
+          "stale"
+        ],
+        "title": "OpenDataHealth"
+      },
+      "OpenDataSummary": {
+        "properties": {
+          "portals": {
+            "items": {
+              "$ref": "#/components/schemas/PortalStatus"
+            },
+            "type": "array",
+            "title": "Portals"
+          },
+          "curated": {
+            "items": {
+              "$ref": "#/components/schemas/CuratedDataset"
+            },
+            "type": "array",
+            "title": "Curated"
+          },
+          "last_sync": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/SyncStatus"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "stale": {
+            "type": "boolean",
+            "title": "Stale",
+            "description": "True when no successful sync happened within the refresh window"
+          },
+          "findings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Findings",
+            "description": "What we learned integrating the portals (shared with FCSC)"
+          },
+          "navigation_dataset_path": {
+            "type": "string",
+            "title": "Navigation Dataset Path"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "portals",
+          "curated",
+          "last_sync",
+          "stale",
+          "findings",
+          "navigation_dataset_path"
+        ],
+        "title": "OpenDataSummary"
+      },
+      "PersonalizationEffect": {
+        "properties": {
+          "field": {
+            "type": "string",
+            "enum": [
+              "emirate",
+              "residency_status",
+              "life_stage",
+              "degree_issued_outside_uae"
+            ],
+            "title": "Field"
+          },
+          "value": {
+            "type": "string",
+            "title": "Value",
+            "description": "The answer as stored, e.g. 'umm_al_quwain', 'resident', 'true'"
+          },
+          "step_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Step Ids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "field",
+          "value",
+          "step_ids"
+        ],
+        "title": "PersonalizationEffect",
+        "description": "One profile answer and the steps it shaped."
+      },
+      "PortalStatus": {
+        "properties": {
+          "portal": {
+            "type": "string",
+            "enum": [
+              "bayanat",
+              "ajman"
+            ],
+            "title": "Portal"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "format": "uri",
+            "title": "Url"
+          },
+          "access": {
+            "type": "string",
+            "title": "Access",
+            "description": "How NaviNation reads this portal"
+          },
+          "datasets_indexed": {
+            "type": "integer",
+            "title": "Datasets Indexed"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "portal",
+          "name",
+          "url",
+          "access",
+          "datasets_indexed"
+        ],
+        "title": "PortalStatus"
       },
       "Profile": {
         "properties": {
@@ -2712,6 +3559,66 @@
           "source_ids"
         ],
         "title": "Reason"
+      },
+      "RelatedDataset": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "publisher": {
+            "type": "string",
+            "title": "Publisher"
+          },
+          "portal": {
+            "type": "string",
+            "enum": [
+              "bayanat",
+              "ajman"
+            ],
+            "title": "Portal"
+          },
+          "theme": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Theme"
+          },
+          "url": {
+            "type": "string",
+            "pattern": "^https://",
+            "format": "uri",
+            "title": "Url"
+          },
+          "last_updated": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Updated"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "title",
+          "publisher",
+          "portal",
+          "theme",
+          "url",
+          "last_updated"
+        ],
+        "title": "RelatedDataset"
       },
       "ReplanRequest": {
         "properties": {},
@@ -2942,6 +3849,22 @@
                 "type": "null"
               }
             ]
+          },
+          "insights": {
+            "items": {
+              "$ref": "#/components/schemas/Insight"
+            },
+            "type": "array",
+            "title": "Insights",
+            "description": "Figures from government open data for this service"
+          },
+          "related_data": {
+            "items": {
+              "$ref": "#/components/schemas/RelatedDataset"
+            },
+            "type": "array",
+            "title": "Related Data",
+            "description": "Other open datasets on the same topic"
           }
         },
         "additionalProperties": false,
@@ -2952,7 +3875,9 @@
           "reasons",
           "missing_profile_fields",
           "readiness",
-          "authority_notice"
+          "authority_notice",
+          "insights",
+          "related_data"
         ],
         "title": "ServiceCard"
       },
@@ -2993,6 +3918,42 @@
           "profile"
         ],
         "title": "Session"
+      },
+      "SkippedService": {
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "title": "Service Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "field": {
+            "type": "string",
+            "enum": [
+              "emirate",
+              "residency_status",
+              "life_stage",
+              "degree_issued_outside_uae"
+            ],
+            "title": "Field"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "service_id",
+          "title",
+          "reason",
+          "field"
+        ],
+        "title": "SkippedService",
+        "description": "A service of this life event that the person's answers rule out."
       },
       "Source": {
         "properties": {
@@ -3173,6 +4134,62 @@
           "service_id"
         ],
         "title": "SuggestedAction"
+      },
+      "SyncStatus": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Started At"
+          },
+          "finished_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished At"
+          },
+          "datasets_indexed": {
+            "type": "integer",
+            "title": "Datasets Indexed"
+          },
+          "snapshots_ok": {
+            "type": "integer",
+            "title": "Snapshots Ok"
+          },
+          "snapshots_failed": {
+            "type": "integer",
+            "title": "Snapshots Failed"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "started_at",
+          "finished_at",
+          "datasets_indexed",
+          "snapshots_ok",
+          "snapshots_failed",
+          "notes"
+        ],
+        "title": "SyncStatus"
       },
       "UpdateSessionRequest": {
         "properties": {

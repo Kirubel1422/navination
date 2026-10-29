@@ -66,6 +66,182 @@
     "missing_profile_fields": [],
     "readiness": "ready",
     "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-    "reach": null
+    "reach": null,
+    "insights": [
+      {
+        "id": "mohesr-recognition-volume",
+        "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+        "label": "applications to recognise a qualification from abroad in 2025",
+        "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+        "value": 73019.0,
+        "change": null,
+        "compared_to": null,
+        "unit": "count",
+        "period": "2025",
+        "scope": "UAE",
+        "freshness": "current",
+        "series": [
+          {
+            "label": "Jan",
+            "value": 7402.0
+          },
+          {
+            "label": "Feb",
+            "value": 7649.0
+          },
+          {
+            "label": "Mar",
+            "value": 6700.0
+          },
+          {
+            "label": "Apr",
+            "value": 8039.0
+          },
+          {
+            "label": "May",
+            "value": 7016.0
+          },
+          {
+            "label": "Jun",
+            "value": 5221.0
+          },
+          {
+            "label": "Jul",
+            "value": 5586.0
+          },
+          {
+            "label": "Aug",
+            "value": 5202.0
+          },
+          {
+            "label": "Sep",
+            "value": 4957.0
+          },
+          {
+            "label": "Oct",
+            "value": 6458.0
+          },
+          {
+            "label": "Nov",
+            "value": 4830.0
+          },
+          {
+            "label": "Dec",
+            "value": 3959.0
+          }
+        ],
+        "highlight": 3,
+        "source": {
+          "key": "mohesr-eservices-usage",
+          "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+          "publisher": "Ministry of Higher Education and Scientific Research",
+          "portal": "bayanat",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+          "source_updated": "2026-03-16",
+          "fetched_at": "2026-10-29T05:35:44Z",
+          "origin": "bundled"
+        }
+      },
+      {
+        "id": "mofa-personal-documents",
+        "headline": "657,768 personal documents attested by MoFA in 2025",
+        "label": "personal documents attested by MoFA in 2025",
+        "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+        "value": 657768.0,
+        "change": 13.4,
+        "compared_to": "2024",
+        "unit": "count",
+        "period": "2025",
+        "scope": "UAE",
+        "freshness": "current",
+        "series": [
+          {
+            "label": "Jan",
+            "value": 48744.0
+          },
+          {
+            "label": "Feb",
+            "value": 46024.0
+          },
+          {
+            "label": "Mar",
+            "value": 44348.0
+          },
+          {
+            "label": "Apr",
+            "value": 47092.0
+          },
+          {
+            "label": "May",
+            "value": 50115.0
+          },
+          {
+            "label": "Jun",
+            "value": 44578.0
+          },
+          {
+            "label": "Jul",
+            "value": 68900.0
+          },
+          {
+            "label": "Aug",
+            "value": 61720.0
+          },
+          {
+            "label": "Sep",
+            "value": 61381.0
+          },
+          {
+            "label": "Oct",
+            "value": 62509.0
+          },
+          {
+            "label": "Nov",
+            "value": 56970.0
+          },
+          {
+            "label": "Dec",
+            "value": 65387.0
+          }
+        ],
+        "highlight": null,
+        "source": {
+          "key": "mofa-documents-attestation",
+          "title": "Annual Documents Attestation",
+          "publisher": "Ministry of Foreign Affairs and International Cooperation",
+          "portal": "bayanat",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+          "source_updated": "2026-02-08",
+          "fetched_at": "2026-10-29T05:35:45Z",
+          "origin": "bundled"
+        }
+      }
+    ],
+    "related_data": [
+      {
+        "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+        "publisher": "Federal Competitiveness and Statistics Center",
+        "portal": "bayanat",
+        "theme": "education",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+        "last_updated": "2026-05-20"
+      },
+      {
+        "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+        "publisher": "Federal Competitiveness and Statistics Center",
+        "portal": "bayanat",
+        "theme": "education",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+        "last_updated": "2026-05-20"
+      },
+      {
+        "title": "Number of Students in Higher Education Institutions by Emirate, Sector and Gender",
+        "publisher": "Federal Competitiveness and Statistics Center",
+        "portal": "bayanat",
+        "theme": "education",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=YlMC0rDwXzgYsoG-v5myQIyQT56g28IRGFugEYGt-kc",
+        "last_updated": "2026-05-20"
+      }
+    ]
   }
 }

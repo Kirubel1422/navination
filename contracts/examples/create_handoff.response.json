@@ -1,11 +1,11 @@
 {
   "status": 201,
   "body": {
-    "id": "hnd_lYIyuXt0KLU3X6si",
+    "id": "hnd_tOnG1rLYZpokxyH4",
     "kind": "official",
     "service_id": "mohesr-degree-recognition",
     "url": "https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx",
     "label": "Continue to Ministry of Higher Education and Scientific Research (MoHESR)",
-    "created_at": "2026-10-29T00:54:46.211000Z"
+    "created_at": "2026-10-29T06:49:00.543000Z"
   }
 }

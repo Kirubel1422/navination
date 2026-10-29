@@ -6,9 +6,9 @@ type S = components["schemas"];
 
 export const createSession = {
   "session": {
-    "id": "ses_b1FaYoxxb-zKhbGq",
+    "id": "ses_-CKgm3eQUFFC-0Za",
     "locale": "en",
-    "expires_at": "2026-10-30T00:54:46.043000Z",
+    "expires_at": "2026-10-30T06:49:00.283000Z",
     "context_revision": 0,
     "profile": {
       "emirate": null,
@@ -21,7 +21,7 @@ export const createSession = {
 } satisfies S["CreateSessionResponse"];
 
 export const discoverReady = {
-  "id": "dis_jWIsF3IAQxCbMkrf",
+  "id": "dis_ziRqww_vN2usTjEJ",
   "context_revision": 1,
   "query": "I recently arrived and need my overseas degree recognized",
   "interpreted_need": "Get an overseas university degree recognised",
@@ -97,7 +97,183 @@ export const discoverReady = {
       "missing_profile_fields": [],
       "readiness": "ready",
       "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [
+        {
+          "id": "mohesr-recognition-volume",
+          "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+          "label": "applications to recognise a qualification from abroad in 2025",
+          "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+          "value": 73019,
+          "change": null,
+          "compared_to": null,
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 7402
+            },
+            {
+              "label": "Feb",
+              "value": 7649
+            },
+            {
+              "label": "Mar",
+              "value": 6700
+            },
+            {
+              "label": "Apr",
+              "value": 8039
+            },
+            {
+              "label": "May",
+              "value": 7016
+            },
+            {
+              "label": "Jun",
+              "value": 5221
+            },
+            {
+              "label": "Jul",
+              "value": 5586
+            },
+            {
+              "label": "Aug",
+              "value": 5202
+            },
+            {
+              "label": "Sep",
+              "value": 4957
+            },
+            {
+              "label": "Oct",
+              "value": 6458
+            },
+            {
+              "label": "Nov",
+              "value": 4830
+            },
+            {
+              "label": "Dec",
+              "value": 3959
+            }
+          ],
+          "highlight": 3,
+          "source": {
+            "key": "mohesr-eservices-usage",
+            "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+            "publisher": "Ministry of Higher Education and Scientific Research",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+            "source_updated": "2026-03-16",
+            "fetched_at": "2026-10-29T05:35:44Z",
+            "origin": "bundled"
+          }
+        },
+        {
+          "id": "mofa-personal-documents",
+          "headline": "657,768 personal documents attested by MoFA in 2025",
+          "label": "personal documents attested by MoFA in 2025",
+          "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+          "value": 657768,
+          "change": 13.4,
+          "compared_to": "2024",
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 48744
+            },
+            {
+              "label": "Feb",
+              "value": 46024
+            },
+            {
+              "label": "Mar",
+              "value": 44348
+            },
+            {
+              "label": "Apr",
+              "value": 47092
+            },
+            {
+              "label": "May",
+              "value": 50115
+            },
+            {
+              "label": "Jun",
+              "value": 44578
+            },
+            {
+              "label": "Jul",
+              "value": 68900
+            },
+            {
+              "label": "Aug",
+              "value": 61720
+            },
+            {
+              "label": "Sep",
+              "value": 61381
+            },
+            {
+              "label": "Oct",
+              "value": 62509
+            },
+            {
+              "label": "Nov",
+              "value": 56970
+            },
+            {
+              "label": "Dec",
+              "value": 65387
+            }
+          ],
+          "highlight": null,
+          "source": {
+            "key": "mofa-documents-attestation",
+            "title": "Annual Documents Attestation",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+            "source_updated": "2026-02-08",
+            "fetched_at": "2026-10-29T05:35:45Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students in Higher Education Institutions by Emirate, Sector and Gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=YlMC0rDwXzgYsoG-v5myQIyQT56g28IRGFugEYGt-kc",
+          "last_updated": "2026-05-20"
+        }
+      ]
     },
     {
       "service": {
@@ -187,7 +363,175 @@ export const discoverReady = {
       "missing_profile_fields": [],
       "readiness": "prerequisites_needed",
       "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [
+        {
+          "id": "mofa-missions-abroad",
+          "headline": "250,578 attestation requests through UAE missions abroad in 2025",
+          "label": "attestation requests through UAE missions abroad in 2025",
+          "detail": "+55% on 2024. Busiest month: December.",
+          "value": 250578,
+          "change": 54.7,
+          "compared_to": "2024",
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE missions abroad",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 13088
+            },
+            {
+              "label": "Feb",
+              "value": 13161
+            },
+            {
+              "label": "Mar",
+              "value": 15590
+            },
+            {
+              "label": "Apr",
+              "value": 14037
+            },
+            {
+              "label": "May",
+              "value": 14835
+            },
+            {
+              "label": "Jun",
+              "value": 14116
+            },
+            {
+              "label": "Jul",
+              "value": 25303
+            },
+            {
+              "label": "Aug",
+              "value": 24609
+            },
+            {
+              "label": "Sep",
+              "value": 25199
+            },
+            {
+              "label": "Oct",
+              "value": 28154
+            },
+            {
+              "label": "Nov",
+              "value": 26587
+            },
+            {
+              "label": "Dec",
+              "value": 35899
+            }
+          ],
+          "highlight": 11,
+          "source": {
+            "key": "mofa-documents-attestation",
+            "title": "Annual Documents Attestation",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+            "source_updated": "2026-02-08",
+            "fetched_at": "2026-10-29T05:35:45Z",
+            "origin": "bundled"
+          }
+        },
+        {
+          "id": "mofa-personal-documents",
+          "headline": "657,768 personal documents attested by MoFA in 2025",
+          "label": "personal documents attested by MoFA in 2025",
+          "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+          "value": 657768,
+          "change": 13.4,
+          "compared_to": "2024",
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 48744
+            },
+            {
+              "label": "Feb",
+              "value": 46024
+            },
+            {
+              "label": "Mar",
+              "value": 44348
+            },
+            {
+              "label": "Apr",
+              "value": 47092
+            },
+            {
+              "label": "May",
+              "value": 50115
+            },
+            {
+              "label": "Jun",
+              "value": 44578
+            },
+            {
+              "label": "Jul",
+              "value": 68900
+            },
+            {
+              "label": "Aug",
+              "value": 61720
+            },
+            {
+              "label": "Sep",
+              "value": 61381
+            },
+            {
+              "label": "Oct",
+              "value": 62509
+            },
+            {
+              "label": "Nov",
+              "value": 56970
+            },
+            {
+              "label": "Dec",
+              "value": 65387
+            }
+          ],
+          "highlight": null,
+          "source": {
+            "key": "mofa-documents-attestation",
+            "title": "Annual Documents Attestation",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+            "source_updated": "2026-02-08",
+            "fetched_at": "2026-10-29T05:35:45Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "General attestations and certifications by court, request type, and year from 2019 to 2025",
+          "publisher": "Ministry of Justice",
+          "portal": "bayanat",
+          "theme": "government",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=Hlr-4c8Ft7pfoZRjin9a3zrxyeGVdV_O8fpa6GBYCpk",
+          "last_updated": "2026-05-13"
+        },
+        {
+          "title": "Total Annual Documents Attestation via eDAS",
+          "publisher": "Ministry of Foreign Affairs and International Cooperation",
+          "portal": "bayanat",
+          "theme": "government",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=etzliFcUJkC3rr6cvGqJUT9BjpBhHlYJ5JiO3LmlKZ0",
+          "last_updated": "2026-02-08"
+        }
+      ]
     },
     {
       "service": {
@@ -248,7 +592,34 @@ export const discoverReady = {
       "missing_profile_fields": [],
       "readiness": "ready",
       "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [],
+      "related_data": [
+        {
+          "title": "Digital Transactions",
+          "publisher": "Transport Authority",
+          "portal": "ajman",
+          "theme": "government",
+          "url": "https://data.ajman.ae/explore/dataset/digital-transactions/",
+          "last_updated": "2026-07-31"
+        },
+        {
+          "title": "Total Digital Transactions Report for UAEU E-services 2022-2025",
+          "publisher": "United Arab Emirates University",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1Jzpy-F_VuxYtPCbECq6MrQB8dZFJo1FAnaqi05h0ic",
+          "last_updated": "2026-04-29"
+        },
+        {
+          "title": "TDRA Service Transactions by Year",
+          "publisher": "Telecommunications and Digital Government Regulatory Authority",
+          "portal": "bayanat",
+          "theme": "government",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=AM9VhLvgUE8TlrC_AQmkmuK04Tav4QDTsV2OOaAEVH8",
+          "last_updated": "2024-09-30"
+        }
+      ]
     },
     {
       "service": {
@@ -306,7 +677,109 @@ export const discoverReady = {
       "missing_profile_fields": [],
       "readiness": "ready",
       "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [
+        {
+          "id": "mohesr-recognition-volume",
+          "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+          "label": "applications to recognise a qualification from abroad in 2025",
+          "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+          "value": 73019,
+          "change": null,
+          "compared_to": null,
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 7402
+            },
+            {
+              "label": "Feb",
+              "value": 7649
+            },
+            {
+              "label": "Mar",
+              "value": 6700
+            },
+            {
+              "label": "Apr",
+              "value": 8039
+            },
+            {
+              "label": "May",
+              "value": 7016
+            },
+            {
+              "label": "Jun",
+              "value": 5221
+            },
+            {
+              "label": "Jul",
+              "value": 5586
+            },
+            {
+              "label": "Aug",
+              "value": 5202
+            },
+            {
+              "label": "Sep",
+              "value": 4957
+            },
+            {
+              "label": "Oct",
+              "value": 6458
+            },
+            {
+              "label": "Nov",
+              "value": 4830
+            },
+            {
+              "label": "Dec",
+              "value": 3959
+            }
+          ],
+          "highlight": 3,
+          "source": {
+            "key": "mohesr-eservices-usage",
+            "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+            "publisher": "Ministry of Higher Education and Scientific Research",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+            "source_updated": "2026-03-16",
+            "fetched_at": "2026-10-29T05:35:44Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Number of Graduates at Government Higher Education Institutions by Specialty, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=erWzP7fTNBYVFNyWE2vu58LtciQugx4xIqfklvlJfSY",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+          "last_updated": "2026-05-20"
+        }
+      ]
     }
   ],
   "mode": "ai",
@@ -320,7 +793,7 @@ export const discoverReady = {
 } satisfies S["Discovery"];
 
 export const discoverClarification = {
-  "id": "dis_4RgHfnU61raaBT0X",
+  "id": "dis_kHTm4N1ZEkB5KE12",
   "context_revision": 0,
   "query": "My certificate from abroad needs to be accepted",
   "interpreted_need": "Your request could mean more than one thing",
@@ -329,7 +802,7 @@ export const discoverClarification = {
   "life_event_id": null,
   "status": "needs_clarification",
   "clarification": {
-    "id": "q_042699b2",
+    "id": "q_91c2bf39",
     "prompt": "Which qualification do you want to use in the UAE?",
     "options": [
       {
@@ -354,7 +827,7 @@ export const discoverClarification = {
 } satisfies S["Discovery"];
 
 export const discoverClarificationAnswer = {
-  "id": "dis_3imr3OMCdro2hyF-",
+  "id": "dis_p_NG96WfhCAaaWjA",
   "context_revision": 0,
   "query": "My certificate from abroad needs to be accepted",
   "interpreted_need": "Get an overseas university degree recognised",
@@ -423,7 +896,34 @@ export const discoverClarificationAnswer = {
       "missing_profile_fields": [],
       "readiness": "ready",
       "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [],
+      "related_data": [
+        {
+          "title": "Digital Transactions",
+          "publisher": "Transport Authority",
+          "portal": "ajman",
+          "theme": "government",
+          "url": "https://data.ajman.ae/explore/dataset/digital-transactions/",
+          "last_updated": "2026-07-31"
+        },
+        {
+          "title": "Total Digital Transactions Report for UAEU E-services 2022-2025",
+          "publisher": "United Arab Emirates University",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1Jzpy-F_VuxYtPCbECq6MrQB8dZFJo1FAnaqi05h0ic",
+          "last_updated": "2026-04-29"
+        },
+        {
+          "title": "TDRA Service Transactions by Year",
+          "publisher": "Telecommunications and Digital Government Regulatory Authority",
+          "portal": "bayanat",
+          "theme": "government",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=AM9VhLvgUE8TlrC_AQmkmuK04Tav4QDTsV2OOaAEVH8",
+          "last_updated": "2024-09-30"
+        }
+      ]
     },
     {
       "service": {
@@ -493,7 +993,183 @@ export const discoverClarificationAnswer = {
       ],
       "readiness": "ready",
       "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [
+        {
+          "id": "mohesr-recognition-volume",
+          "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+          "label": "applications to recognise a qualification from abroad in 2025",
+          "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+          "value": 73019,
+          "change": null,
+          "compared_to": null,
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 7402
+            },
+            {
+              "label": "Feb",
+              "value": 7649
+            },
+            {
+              "label": "Mar",
+              "value": 6700
+            },
+            {
+              "label": "Apr",
+              "value": 8039
+            },
+            {
+              "label": "May",
+              "value": 7016
+            },
+            {
+              "label": "Jun",
+              "value": 5221
+            },
+            {
+              "label": "Jul",
+              "value": 5586
+            },
+            {
+              "label": "Aug",
+              "value": 5202
+            },
+            {
+              "label": "Sep",
+              "value": 4957
+            },
+            {
+              "label": "Oct",
+              "value": 6458
+            },
+            {
+              "label": "Nov",
+              "value": 4830
+            },
+            {
+              "label": "Dec",
+              "value": 3959
+            }
+          ],
+          "highlight": 3,
+          "source": {
+            "key": "mohesr-eservices-usage",
+            "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+            "publisher": "Ministry of Higher Education and Scientific Research",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+            "source_updated": "2026-03-16",
+            "fetched_at": "2026-10-29T05:35:44Z",
+            "origin": "bundled"
+          }
+        },
+        {
+          "id": "mofa-personal-documents",
+          "headline": "657,768 personal documents attested by MoFA in 2025",
+          "label": "personal documents attested by MoFA in 2025",
+          "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+          "value": 657768,
+          "change": 13.4,
+          "compared_to": "2024",
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 48744
+            },
+            {
+              "label": "Feb",
+              "value": 46024
+            },
+            {
+              "label": "Mar",
+              "value": 44348
+            },
+            {
+              "label": "Apr",
+              "value": 47092
+            },
+            {
+              "label": "May",
+              "value": 50115
+            },
+            {
+              "label": "Jun",
+              "value": 44578
+            },
+            {
+              "label": "Jul",
+              "value": 68900
+            },
+            {
+              "label": "Aug",
+              "value": 61720
+            },
+            {
+              "label": "Sep",
+              "value": 61381
+            },
+            {
+              "label": "Oct",
+              "value": 62509
+            },
+            {
+              "label": "Nov",
+              "value": 56970
+            },
+            {
+              "label": "Dec",
+              "value": 65387
+            }
+          ],
+          "highlight": null,
+          "source": {
+            "key": "mofa-documents-attestation",
+            "title": "Annual Documents Attestation",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+            "source_updated": "2026-02-08",
+            "fetched_at": "2026-10-29T05:35:45Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students in Higher Education Institutions by Emirate, Sector and Gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=YlMC0rDwXzgYsoG-v5myQIyQT56g28IRGFugEYGt-kc",
+          "last_updated": "2026-05-20"
+        }
+      ]
     },
     {
       "service": {
@@ -585,7 +1261,175 @@ export const discoverClarificationAnswer = {
       ],
       "readiness": "prerequisites_needed",
       "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [
+        {
+          "id": "mofa-missions-abroad",
+          "headline": "250,578 attestation requests through UAE missions abroad in 2025",
+          "label": "attestation requests through UAE missions abroad in 2025",
+          "detail": "+55% on 2024. Busiest month: December.",
+          "value": 250578,
+          "change": 54.7,
+          "compared_to": "2024",
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE missions abroad",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 13088
+            },
+            {
+              "label": "Feb",
+              "value": 13161
+            },
+            {
+              "label": "Mar",
+              "value": 15590
+            },
+            {
+              "label": "Apr",
+              "value": 14037
+            },
+            {
+              "label": "May",
+              "value": 14835
+            },
+            {
+              "label": "Jun",
+              "value": 14116
+            },
+            {
+              "label": "Jul",
+              "value": 25303
+            },
+            {
+              "label": "Aug",
+              "value": 24609
+            },
+            {
+              "label": "Sep",
+              "value": 25199
+            },
+            {
+              "label": "Oct",
+              "value": 28154
+            },
+            {
+              "label": "Nov",
+              "value": 26587
+            },
+            {
+              "label": "Dec",
+              "value": 35899
+            }
+          ],
+          "highlight": 11,
+          "source": {
+            "key": "mofa-documents-attestation",
+            "title": "Annual Documents Attestation",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+            "source_updated": "2026-02-08",
+            "fetched_at": "2026-10-29T05:35:45Z",
+            "origin": "bundled"
+          }
+        },
+        {
+          "id": "mofa-personal-documents",
+          "headline": "657,768 personal documents attested by MoFA in 2025",
+          "label": "personal documents attested by MoFA in 2025",
+          "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+          "value": 657768,
+          "change": 13.4,
+          "compared_to": "2024",
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 48744
+            },
+            {
+              "label": "Feb",
+              "value": 46024
+            },
+            {
+              "label": "Mar",
+              "value": 44348
+            },
+            {
+              "label": "Apr",
+              "value": 47092
+            },
+            {
+              "label": "May",
+              "value": 50115
+            },
+            {
+              "label": "Jun",
+              "value": 44578
+            },
+            {
+              "label": "Jul",
+              "value": 68900
+            },
+            {
+              "label": "Aug",
+              "value": 61720
+            },
+            {
+              "label": "Sep",
+              "value": 61381
+            },
+            {
+              "label": "Oct",
+              "value": 62509
+            },
+            {
+              "label": "Nov",
+              "value": 56970
+            },
+            {
+              "label": "Dec",
+              "value": 65387
+            }
+          ],
+          "highlight": null,
+          "source": {
+            "key": "mofa-documents-attestation",
+            "title": "Annual Documents Attestation",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+            "source_updated": "2026-02-08",
+            "fetched_at": "2026-10-29T05:35:45Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "General attestations and certifications by court, request type, and year from 2019 to 2025",
+          "publisher": "Ministry of Justice",
+          "portal": "bayanat",
+          "theme": "government",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=Hlr-4c8Ft7pfoZRjin9a3zrxyeGVdV_O8fpa6GBYCpk",
+          "last_updated": "2026-05-13"
+        },
+        {
+          "title": "Total Annual Documents Attestation via eDAS",
+          "publisher": "Ministry of Foreign Affairs and International Cooperation",
+          "portal": "bayanat",
+          "theme": "government",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=etzliFcUJkC3rr6cvGqJUT9BjpBhHlYJ5JiO3LmlKZ0",
+          "last_updated": "2026-02-08"
+        }
+      ]
     },
     {
       "service": {
@@ -645,7 +1489,109 @@ export const discoverClarificationAnswer = {
       ],
       "readiness": "ready",
       "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-      "reach": null
+      "reach": null,
+      "insights": [
+        {
+          "id": "mohesr-recognition-volume",
+          "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+          "label": "applications to recognise a qualification from abroad in 2025",
+          "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+          "value": 73019,
+          "change": null,
+          "compared_to": null,
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 7402
+            },
+            {
+              "label": "Feb",
+              "value": 7649
+            },
+            {
+              "label": "Mar",
+              "value": 6700
+            },
+            {
+              "label": "Apr",
+              "value": 8039
+            },
+            {
+              "label": "May",
+              "value": 7016
+            },
+            {
+              "label": "Jun",
+              "value": 5221
+            },
+            {
+              "label": "Jul",
+              "value": 5586
+            },
+            {
+              "label": "Aug",
+              "value": 5202
+            },
+            {
+              "label": "Sep",
+              "value": 4957
+            },
+            {
+              "label": "Oct",
+              "value": 6458
+            },
+            {
+              "label": "Nov",
+              "value": 4830
+            },
+            {
+              "label": "Dec",
+              "value": 3959
+            }
+          ],
+          "highlight": 3,
+          "source": {
+            "key": "mohesr-eservices-usage",
+            "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+            "publisher": "Ministry of Higher Education and Scientific Research",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+            "source_updated": "2026-03-16",
+            "fetched_at": "2026-10-29T05:35:44Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Number of Graduates at Government Higher Education Institutions by Specialty, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=erWzP7fTNBYVFNyWE2vu58LtciQugx4xIqfklvlJfSY",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "education",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+          "last_updated": "2026-05-20"
+        }
+      ]
     }
   ],
   "mode": "ai",
@@ -659,7 +1605,7 @@ export const discoverClarificationAnswer = {
 } satisfies S["Discovery"];
 
 export const discoverNoMatch = {
-  "id": "dis_5ZfV57JUZ7XuLxAh",
+  "id": "dis_qc30rtYaKV7aGcOj",
   "context_revision": 0,
   "query": "I want to renew my driving licence",
   "interpreted_need": "A request NaviNation cannot match to evidence yet",
@@ -748,11 +1694,187 @@ export const serviceCard = {
   "missing_profile_fields": [],
   "readiness": "ready",
   "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-  "reach": null
+  "reach": null,
+  "insights": [
+    {
+      "id": "mohesr-recognition-volume",
+      "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+      "label": "applications to recognise a qualification from abroad in 2025",
+      "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+      "value": 73019,
+      "change": null,
+      "compared_to": null,
+      "unit": "count",
+      "period": "2025",
+      "scope": "UAE",
+      "freshness": "current",
+      "series": [
+        {
+          "label": "Jan",
+          "value": 7402
+        },
+        {
+          "label": "Feb",
+          "value": 7649
+        },
+        {
+          "label": "Mar",
+          "value": 6700
+        },
+        {
+          "label": "Apr",
+          "value": 8039
+        },
+        {
+          "label": "May",
+          "value": 7016
+        },
+        {
+          "label": "Jun",
+          "value": 5221
+        },
+        {
+          "label": "Jul",
+          "value": 5586
+        },
+        {
+          "label": "Aug",
+          "value": 5202
+        },
+        {
+          "label": "Sep",
+          "value": 4957
+        },
+        {
+          "label": "Oct",
+          "value": 6458
+        },
+        {
+          "label": "Nov",
+          "value": 4830
+        },
+        {
+          "label": "Dec",
+          "value": 3959
+        }
+      ],
+      "highlight": 3,
+      "source": {
+        "key": "mohesr-eservices-usage",
+        "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+        "publisher": "Ministry of Higher Education and Scientific Research",
+        "portal": "bayanat",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+        "source_updated": "2026-03-16",
+        "fetched_at": "2026-10-29T05:35:44Z",
+        "origin": "bundled"
+      }
+    },
+    {
+      "id": "mofa-personal-documents",
+      "headline": "657,768 personal documents attested by MoFA in 2025",
+      "label": "personal documents attested by MoFA in 2025",
+      "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+      "value": 657768,
+      "change": 13.4,
+      "compared_to": "2024",
+      "unit": "count",
+      "period": "2025",
+      "scope": "UAE",
+      "freshness": "current",
+      "series": [
+        {
+          "label": "Jan",
+          "value": 48744
+        },
+        {
+          "label": "Feb",
+          "value": 46024
+        },
+        {
+          "label": "Mar",
+          "value": 44348
+        },
+        {
+          "label": "Apr",
+          "value": 47092
+        },
+        {
+          "label": "May",
+          "value": 50115
+        },
+        {
+          "label": "Jun",
+          "value": 44578
+        },
+        {
+          "label": "Jul",
+          "value": 68900
+        },
+        {
+          "label": "Aug",
+          "value": 61720
+        },
+        {
+          "label": "Sep",
+          "value": 61381
+        },
+        {
+          "label": "Oct",
+          "value": 62509
+        },
+        {
+          "label": "Nov",
+          "value": 56970
+        },
+        {
+          "label": "Dec",
+          "value": 65387
+        }
+      ],
+      "highlight": null,
+      "source": {
+        "key": "mofa-documents-attestation",
+        "title": "Annual Documents Attestation",
+        "publisher": "Ministry of Foreign Affairs and International Cooperation",
+        "portal": "bayanat",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+        "source_updated": "2026-02-08",
+        "fetched_at": "2026-10-29T05:35:45Z",
+        "origin": "bundled"
+      }
+    }
+  ],
+  "related_data": [
+    {
+      "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+      "publisher": "Federal Competitiveness and Statistics Center",
+      "portal": "bayanat",
+      "theme": "education",
+      "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+      "last_updated": "2026-05-20"
+    },
+    {
+      "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+      "publisher": "Federal Competitiveness and Statistics Center",
+      "portal": "bayanat",
+      "theme": "education",
+      "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+      "last_updated": "2026-05-20"
+    },
+    {
+      "title": "Number of Students in Higher Education Institutions by Emirate, Sector and Gender",
+      "publisher": "Federal Competitiveness and Statistics Center",
+      "portal": "bayanat",
+      "theme": "education",
+      "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=YlMC0rDwXzgYsoG-v5myQIyQT56g28IRGFugEYGt-kc",
+      "last_updated": "2026-05-20"
+    }
+  ]
 } satisfies S["ServiceCard"];
 
 export const journey = {
-  "id": "jrn_y5Rx0mdBqv31Ljvy",
+  "id": "jrn_rUzt6LegeJPVQtmF",
   "title": "Plan: Get an overseas university degree recognised",
   "life_event_id": "education_qualification",
   "context_revision": 1,
@@ -776,7 +1898,7 @@ export const journey = {
   ],
   "steps": [
     {
-      "id": "stp_6iDy2Dh1Qd27fRvt",
+      "id": "stp_YnkWF_oi3mMO4MJP",
       "title": "Verify your degree through an authorised verification partner",
       "instructions": "Prepare and apply: News reporting says MoHESR appointed authorised partners to verify foreign degrees before you apply for recognition. We have not confirmed this on an official MoHESR page, so treat it as something to check.",
       "checklist": [],
@@ -836,7 +1958,109 @@ export const journey = {
         "missing_profile_fields": [],
         "readiness": "ready",
         "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-        "reach": null
+        "reach": null,
+        "insights": [
+          {
+            "id": "mohesr-recognition-volume",
+            "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+            "label": "applications to recognise a qualification from abroad in 2025",
+            "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+            "value": 73019,
+            "change": null,
+            "compared_to": null,
+            "unit": "count",
+            "period": "2025",
+            "scope": "UAE",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "Jan",
+                "value": 7402
+              },
+              {
+                "label": "Feb",
+                "value": 7649
+              },
+              {
+                "label": "Mar",
+                "value": 6700
+              },
+              {
+                "label": "Apr",
+                "value": 8039
+              },
+              {
+                "label": "May",
+                "value": 7016
+              },
+              {
+                "label": "Jun",
+                "value": 5221
+              },
+              {
+                "label": "Jul",
+                "value": 5586
+              },
+              {
+                "label": "Aug",
+                "value": 5202
+              },
+              {
+                "label": "Sep",
+                "value": 4957
+              },
+              {
+                "label": "Oct",
+                "value": 6458
+              },
+              {
+                "label": "Nov",
+                "value": 4830
+              },
+              {
+                "label": "Dec",
+                "value": 3959
+              }
+            ],
+            "highlight": 3,
+            "source": {
+              "key": "mohesr-eservices-usage",
+              "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+              "publisher": "Ministry of Higher Education and Scientific Research",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+              "source_updated": "2026-03-16",
+              "fetched_at": "2026-10-29T05:35:44Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Number of Graduates at Government Higher Education Institutions by Specialty, Nationality and gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "education",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=erWzP7fTNBYVFNyWE2vu58LtciQugx4xIqfklvlJfSY",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "education",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "education",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+            "last_updated": "2026-05-20"
+          }
+        ]
       },
       "order_group": 0,
       "prerequisite_step_ids": [],
@@ -846,10 +2070,14 @@ export const journey = {
       "blocker_step_ids": [],
       "notes": [
         "This step is not confirmed on an official page. Check it with an adviser or the entity."
-      ]
+      ],
+      "tailored_by": [
+        "degree_issued_outside_uae"
+      ],
+      "tailored_note": null
     },
     {
-      "id": "stp_wO2OD_FLBothZyBC",
+      "id": "stp_2QojOFInDsetTQzC",
       "title": "Set up UAE PASS to sign in to online services",
       "instructions": "UAE PASS is the sign-in used by federal online services. MoFA's online attestation application and ICP's smart services both state that you sign in with UAE PASS.",
       "checklist": [],
@@ -912,7 +2140,34 @@ export const journey = {
         "missing_profile_fields": [],
         "readiness": "ready",
         "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
-        "reach": null
+        "reach": null,
+        "insights": [],
+        "related_data": [
+          {
+            "title": "Digital Transactions",
+            "publisher": "Transport Authority",
+            "portal": "ajman",
+            "theme": "government",
+            "url": "https://data.ajman.ae/explore/dataset/digital-transactions/",
+            "last_updated": "2026-07-31"
+          },
+          {
+            "title": "Total Digital Transactions Report for UAEU E-services 2022-2025",
+            "publisher": "United Arab Emirates University",
+            "portal": "bayanat",
+            "theme": "education",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1Jzpy-F_VuxYtPCbECq6MrQB8dZFJo1FAnaqi05h0ic",
+            "last_updated": "2026-04-29"
+          },
+          {
+            "title": "TDRA Service Transactions by Year",
+            "publisher": "Telecommunications and Digital Government Regulatory Authority",
+            "portal": "bayanat",
+            "theme": "government",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=AM9VhLvgUE8TlrC_AQmkmuK04Tav4QDTsV2OOaAEVH8",
+            "last_updated": "2024-09-30"
+          }
+        ]
       },
       "order_group": 0,
       "prerequisite_step_ids": [],
@@ -920,10 +2175,12 @@ export const journey = {
       "progress": "not_started",
       "availability": "ready",
       "blocker_step_ids": [],
-      "notes": []
+      "notes": [],
+      "tailored_by": [],
+      "tailored_note": null
     },
     {
-      "id": "stp_1NX6TFo_8yVXXyYi",
+      "id": "stp_wEeLQOMHlMJlOEAd",
       "title": "Attest a document issued outside the UAE",
       "instructions": "Prepare and apply: The Ministry of Foreign Affairs attests documents issued abroad through UAE missions in the country of issue. You apply online with UAE PASS where the mission offers it, or visit the mission in person.",
       "checklist": [
@@ -1032,11 +2289,179 @@ export const journey = {
         "missing_profile_fields": [],
         "readiness": "prerequisites_needed",
         "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
-        "reach": null
+        "reach": null,
+        "insights": [
+          {
+            "id": "mofa-missions-abroad",
+            "headline": "250,578 attestation requests through UAE missions abroad in 2025",
+            "label": "attestation requests through UAE missions abroad in 2025",
+            "detail": "+55% on 2024. Busiest month: December.",
+            "value": 250578,
+            "change": 54.7,
+            "compared_to": "2024",
+            "unit": "count",
+            "period": "2025",
+            "scope": "UAE missions abroad",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "Jan",
+                "value": 13088
+              },
+              {
+                "label": "Feb",
+                "value": 13161
+              },
+              {
+                "label": "Mar",
+                "value": 15590
+              },
+              {
+                "label": "Apr",
+                "value": 14037
+              },
+              {
+                "label": "May",
+                "value": 14835
+              },
+              {
+                "label": "Jun",
+                "value": 14116
+              },
+              {
+                "label": "Jul",
+                "value": 25303
+              },
+              {
+                "label": "Aug",
+                "value": 24609
+              },
+              {
+                "label": "Sep",
+                "value": 25199
+              },
+              {
+                "label": "Oct",
+                "value": 28154
+              },
+              {
+                "label": "Nov",
+                "value": 26587
+              },
+              {
+                "label": "Dec",
+                "value": 35899
+              }
+            ],
+            "highlight": 11,
+            "source": {
+              "key": "mofa-documents-attestation",
+              "title": "Annual Documents Attestation",
+              "publisher": "Ministry of Foreign Affairs and International Cooperation",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+              "source_updated": "2026-02-08",
+              "fetched_at": "2026-10-29T05:35:45Z",
+              "origin": "bundled"
+            }
+          },
+          {
+            "id": "mofa-personal-documents",
+            "headline": "657,768 personal documents attested by MoFA in 2025",
+            "label": "personal documents attested by MoFA in 2025",
+            "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+            "value": 657768,
+            "change": 13.4,
+            "compared_to": "2024",
+            "unit": "count",
+            "period": "2025",
+            "scope": "UAE",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "Jan",
+                "value": 48744
+              },
+              {
+                "label": "Feb",
+                "value": 46024
+              },
+              {
+                "label": "Mar",
+                "value": 44348
+              },
+              {
+                "label": "Apr",
+                "value": 47092
+              },
+              {
+                "label": "May",
+                "value": 50115
+              },
+              {
+                "label": "Jun",
+                "value": 44578
+              },
+              {
+                "label": "Jul",
+                "value": 68900
+              },
+              {
+                "label": "Aug",
+                "value": 61720
+              },
+              {
+                "label": "Sep",
+                "value": 61381
+              },
+              {
+                "label": "Oct",
+                "value": 62509
+              },
+              {
+                "label": "Nov",
+                "value": 56970
+              },
+              {
+                "label": "Dec",
+                "value": 65387
+              }
+            ],
+            "highlight": null,
+            "source": {
+              "key": "mofa-documents-attestation",
+              "title": "Annual Documents Attestation",
+              "publisher": "Ministry of Foreign Affairs and International Cooperation",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+              "source_updated": "2026-02-08",
+              "fetched_at": "2026-10-29T05:35:45Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "General attestations and certifications by court, request type, and year from 2019 to 2025",
+            "publisher": "Ministry of Justice",
+            "portal": "bayanat",
+            "theme": "government",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=Hlr-4c8Ft7pfoZRjin9a3zrxyeGVdV_O8fpa6GBYCpk",
+            "last_updated": "2026-05-13"
+          },
+          {
+            "title": "Total Annual Documents Attestation via eDAS",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "theme": "government",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=etzliFcUJkC3rr6cvGqJUT9BjpBhHlYJ5JiO3LmlKZ0",
+            "last_updated": "2026-02-08"
+          }
+        ]
       },
       "order_group": 1,
       "prerequisite_step_ids": [
-        "stp_wO2OD_FLBothZyBC"
+        "stp_2QojOFInDsetTQzC"
       ],
       "document_progress": [
         {
@@ -1051,15 +2476,19 @@ export const journey = {
       "progress": "not_started",
       "availability": "blocked",
       "blocker_step_ids": [
-        "stp_wO2OD_FLBothZyBC"
+        "stp_2QojOFInDsetTQzC"
       ],
       "notes": [
         "Waiting for: Set up UAE PASS to sign in to online services. Complete those steps first.",
         "Requires \"Set up UAE PASS to sign in to online services\" first: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
-      ]
+      ],
+      "tailored_by": [
+        "degree_issued_outside_uae"
+      ],
+      "tailored_note": null
     },
     {
-      "id": "stp_TbC5GRbRSAkBuxow",
+      "id": "stp_dyQwvdSbpXR51Iuc",
       "title": "Get a university qualification from abroad recognised",
       "instructions": "Prepare and apply: MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government serv…",
       "checklist": [],
@@ -1129,12 +2558,188 @@ export const journey = {
         "missing_profile_fields": [],
         "readiness": "ready",
         "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
-        "reach": null
+        "reach": null,
+        "insights": [
+          {
+            "id": "mohesr-recognition-volume",
+            "headline": "73,019 applications to recognise a qualification from abroad in 2025",
+            "label": "applications to recognise a qualification from abroad in 2025",
+            "detail": "Busiest month: April (8,039). Quietest: December (3,959). It was 48% of all MoHESR e-service use.",
+            "value": 73019,
+            "change": null,
+            "compared_to": null,
+            "unit": "count",
+            "period": "2025",
+            "scope": "UAE",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "Jan",
+                "value": 7402
+              },
+              {
+                "label": "Feb",
+                "value": 7649
+              },
+              {
+                "label": "Mar",
+                "value": 6700
+              },
+              {
+                "label": "Apr",
+                "value": 8039
+              },
+              {
+                "label": "May",
+                "value": 7016
+              },
+              {
+                "label": "Jun",
+                "value": 5221
+              },
+              {
+                "label": "Jul",
+                "value": 5586
+              },
+              {
+                "label": "Aug",
+                "value": 5202
+              },
+              {
+                "label": "Sep",
+                "value": 4957
+              },
+              {
+                "label": "Oct",
+                "value": 6458
+              },
+              {
+                "label": "Nov",
+                "value": 4830
+              },
+              {
+                "label": "Dec",
+                "value": 3959
+              }
+            ],
+            "highlight": 3,
+            "source": {
+              "key": "mohesr-eservices-usage",
+              "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+              "publisher": "Ministry of Higher Education and Scientific Research",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+              "source_updated": "2026-03-16",
+              "fetched_at": "2026-10-29T05:35:44Z",
+              "origin": "bundled"
+            }
+          },
+          {
+            "id": "mofa-personal-documents",
+            "headline": "657,768 personal documents attested by MoFA in 2025",
+            "label": "personal documents attested by MoFA in 2025",
+            "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+            "value": 657768,
+            "change": 13.4,
+            "compared_to": "2024",
+            "unit": "count",
+            "period": "2025",
+            "scope": "UAE",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "Jan",
+                "value": 48744
+              },
+              {
+                "label": "Feb",
+                "value": 46024
+              },
+              {
+                "label": "Mar",
+                "value": 44348
+              },
+              {
+                "label": "Apr",
+                "value": 47092
+              },
+              {
+                "label": "May",
+                "value": 50115
+              },
+              {
+                "label": "Jun",
+                "value": 44578
+              },
+              {
+                "label": "Jul",
+                "value": 68900
+              },
+              {
+                "label": "Aug",
+                "value": 61720
+              },
+              {
+                "label": "Sep",
+                "value": 61381
+              },
+              {
+                "label": "Oct",
+                "value": 62509
+              },
+              {
+                "label": "Nov",
+                "value": 56970
+              },
+              {
+                "label": "Dec",
+                "value": 65387
+              }
+            ],
+            "highlight": null,
+            "source": {
+              "key": "mofa-documents-attestation",
+              "title": "Annual Documents Attestation",
+              "publisher": "Ministry of Foreign Affairs and International Cooperation",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+              "source_updated": "2026-02-08",
+              "fetched_at": "2026-10-29T05:35:45Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Number of Students at Government Higher Education Institutions by Specialty, Nationality and gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "education",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=ELljw6aPN7GoacxSy5BEyZ4y-GuKCYCx38AnhdCtHEM",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Number of Students at Private Higher Education Institutions by Specialist, Nationality and gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "education",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=9AKdAa6PmZh330H89FFtyV_MzbAAWwT-r-IfE3zr5bc",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Number of Students in Higher Education Institutions by Emirate, Sector and Gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "education",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=YlMC0rDwXzgYsoG-v5myQIyQT56g28IRGFugEYGt-kc",
+            "last_updated": "2026-05-20"
+          }
+        ]
       },
       "order_group": 2,
       "prerequisite_step_ids": [
-        "stp_6iDy2Dh1Qd27fRvt",
-        "stp_1NX6TFo_8yVXXyYi"
+        "stp_YnkWF_oi3mMO4MJP",
+        "stp_wEeLQOMHlMJlOEAd"
       ],
       "document_progress": [],
       "progress": "not_started",
@@ -1143,13 +2748,17 @@ export const journey = {
       "notes": [
         "Suggested after \"Verify your degree through an authorised verification partner\" (advice only): Do the earlier step first.",
         "Suggested after \"Attest a document issued outside the UAE\" (advice only): Do the earlier step first."
-      ]
+      ],
+      "tailored_by": [
+        "degree_issued_outside_uae"
+      ],
+      "tailored_note": null
     }
   ],
   "dependencies": [
     {
-      "from_step_id": "stp_wO2OD_FLBothZyBC",
-      "to_step_id": "stp_1NX6TFo_8yVXXyYi",
+      "from_step_id": "stp_2QojOFInDsetTQzC",
+      "to_step_id": "stp_wEeLQOMHlMJlOEAd",
       "kind": "required",
       "explanation": "MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies.",
       "source_ids": [
@@ -1157,45 +2766,71 @@ export const journey = {
       ]
     },
     {
-      "from_step_id": "stp_6iDy2Dh1Qd27fRvt",
-      "to_step_id": "stp_TbC5GRbRSAkBuxow",
+      "from_step_id": "stp_YnkWF_oi3mMO4MJP",
+      "to_step_id": "stp_dyQwvdSbpXR51Iuc",
       "kind": "recommended",
       "explanation": "Do the earlier step first.",
       "source_ids": []
     },
     {
-      "from_step_id": "stp_1NX6TFo_8yVXXyYi",
-      "to_step_id": "stp_TbC5GRbRSAkBuxow",
+      "from_step_id": "stp_wEeLQOMHlMJlOEAd",
+      "to_step_id": "stp_dyQwvdSbpXR51Iuc",
       "kind": "recommended",
       "explanation": "Do the earlier step first.",
       "source_ids": []
     }
   ],
+  "personalization": [
+    {
+      "field": "emirate",
+      "value": "dubai",
+      "step_ids": []
+    },
+    {
+      "field": "residency_status",
+      "value": "resident",
+      "step_ids": []
+    },
+    {
+      "field": "life_stage",
+      "value": "worker",
+      "step_ids": []
+    },
+    {
+      "field": "degree_issued_outside_uae",
+      "value": "true",
+      "step_ids": [
+        "stp_YnkWF_oi3mMO4MJP",
+        "stp_wEeLQOMHlMJlOEAd",
+        "stp_dyQwvdSbpXR51Iuc"
+      ]
+    }
+  ],
+  "skipped": [],
   "notices": [
     "Progress and document checklists are reported by you. They are not proof that an application was submitted or approved.",
-    "This plan was generated by NaviNation's AI agent for your request and profile. Only officially verified rules can block a step.",
     "Added \"Set up UAE PASS to sign in to online services\" before \"Attest a document issued outside the UAE\" because a verified rule requires it: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
   ],
   "agent_steps": [],
-  "created_at": "2026-10-29T00:54:46.144000Z",
-  "updated_at": "2026-10-29T00:54:46.144000Z"
+  "created_at": "2026-10-29T06:49:00.430000Z",
+  "updated_at": "2026-10-29T06:49:00.430000Z"
 } satisfies S["Journey"];
 
 export const coachTurn = {
   "user_message": {
-    "id": "msg_YBcDaKfsYZPcG_zz",
+    "id": "msg_YpbgGFcc6YaP26BE",
     "role": "user",
     "content": "What documents do I need for this step?",
-    "step_id": "stp_1NX6TFo_8yVXXyYi",
+    "step_id": "stp_wEeLQOMHlMJlOEAd",
     "citations": [],
     "reach": null,
-    "created_at": "2026-10-29T00:54:46.188000Z"
+    "created_at": "2026-10-29T06:49:00.518000Z"
   },
   "assistant_message": {
-    "id": "msg_sYy-FdDhfhlqhMyc",
+    "id": "msg_4s4cvMFHtaQQpkxq",
     "role": "assistant",
     "content": "Preparation checklist:\n- The original document (for example, your degree certificate). Mission courier services collect the original. (have)\n- Proof that the issuing country's foreign office attested the document, where your mission requires it. (missing)",
-    "step_id": "stp_1NX6TFo_8yVXXyYi",
+    "step_id": "stp_wEeLQOMHlMJlOEAd",
     "citations": [
       {
         "id": "src-mofa-attestation",
@@ -1217,7 +2852,7 @@ export const coachTurn = {
       }
     ],
     "reach": null,
-    "created_at": "2026-10-29T00:54:46.188000Z"
+    "created_at": "2026-10-29T06:49:00.518000Z"
   },
   "mode": "ai",
   "grounding_status": "grounded",
@@ -1226,29 +2861,29 @@ export const coachTurn = {
   "agent_steps": [
     {
       "tool": "get_step",
-      "detail": "stp_1NX6TFo_8yVXXyYi"
+      "detail": "stp_wEeLQOMHlMJlOEAd"
     }
   ]
 } satisfies S["CoachTurn"];
 
 export const coachInsufficient = {
   "user_message": {
-    "id": "msg_BbRVjV1yXoGvcKSb",
+    "id": "msg_QYNIpE7vRfvW_ahE",
     "role": "user",
     "content": "Can you recommend a good typing centre near me?",
-    "step_id": "stp_TbC5GRbRSAkBuxow",
+    "step_id": "stp_dyQwvdSbpXR51Iuc",
     "citations": [],
     "reach": null,
-    "created_at": "2026-10-29T00:54:46.198000Z"
+    "created_at": "2026-10-29T06:49:00.529000Z"
   },
   "assistant_message": {
-    "id": "msg_YeN0quA7tfYBx9DR",
+    "id": "msg_16HToiTJIhVRD8uy",
     "role": "assistant",
     "content": "I couldn't find that in the available sources, so I won't guess. Please contact the responsible entity.",
-    "step_id": "stp_TbC5GRbRSAkBuxow",
+    "step_id": "stp_dyQwvdSbpXR51Iuc",
     "citations": [],
     "reach": null,
-    "created_at": "2026-10-29T00:54:46.198000Z"
+    "created_at": "2026-10-29T06:49:00.529000Z"
   },
   "mode": "ai",
   "grounding_status": "insufficient_evidence",
@@ -1257,18 +2892,18 @@ export const coachInsufficient = {
   "agent_steps": [
     {
       "tool": "get_step",
-      "detail": "stp_TbC5GRbRSAkBuxow"
+      "detail": "stp_dyQwvdSbpXR51Iuc"
     }
   ]
 } satisfies S["CoachTurn"];
 
 export const handoff = {
-  "id": "hnd_lYIyuXt0KLU3X6si",
+  "id": "hnd_tOnG1rLYZpokxyH4",
   "kind": "official",
   "service_id": "mohesr-degree-recognition",
   "url": "https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx",
   "label": "Continue to Ministry of Higher Education and Scientific Research (MoHESR)",
-  "created_at": "2026-10-29T00:54:46.211000Z"
+  "created_at": "2026-10-29T06:49:00.543000Z"
 } satisfies S["Handoff"];
 
 export const errorPrerequisites = {
@@ -1278,10 +2913,10 @@ export const errorPrerequisites = {
     "details": [
       {
         "field": "progress",
-        "message": "Blocked by step stp_wO2OD_FLBothZyBC"
+        "message": "Blocked by step stp_2QojOFInDsetTQzC"
       }
     ],
-    "request_id": "req_0a59c5bdbff7f9bb"
+    "request_id": "req_7cb88a8cd2186bd9"
   }
 } satisfies S["ErrorEnvelope"];
 
@@ -1290,7 +2925,7 @@ export const errorHandoffUnavailable = {
     "code": "HANDOFF_UNAVAILABLE",
     "message": "We don't have a verified destination for this step. Contact the responsible entity directly.",
     "details": [],
-    "request_id": "req_a2593a2902e80bb5"
+    "request_id": "req_cb379c8482ed26b7"
   }
 } satisfies S["ErrorEnvelope"];
 
@@ -1299,7 +2934,2287 @@ export const errorContextStale = {
     "code": "CONTEXT_STALE",
     "message": "Your profile changed after this plan was made. Update the plan before continuing.",
     "details": [],
-    "request_id": "req_330b19c496ada053"
+    "request_id": "req_71a5df0bdad2961b"
   }
 } satisfies S["ErrorEnvelope"];
+
+export const openData = {
+  "portals": [
+    {
+      "portal": "bayanat",
+      "name": "Bayanat: UAE federal open data portal (FCSC)",
+      "url": "https://bayanat.ae",
+      "access": "Daily catalogue mirror; dataset files via the portal's download endpoint",
+      "datasets_indexed": 3544
+    },
+    {
+      "portal": "ajman",
+      "name": "Ajman Data (Department of Digital Ajman)",
+      "url": "https://data.ajman.ae",
+      "access": "Opendatasoft Explore API v2.1 (public, no key)",
+      "datasets_indexed": 193
+    }
+  ],
+  "curated": [
+    {
+      "source": {
+        "key": "mohesr-eservices-usage",
+        "title": "Monthly e-services usage statistics provided by the Ministry of Higher Education and Scientific Research",
+        "publisher": "Ministry of Higher Education and Scientific Research",
+        "portal": "bayanat",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=fQJBLD41RKpal9tewQ5MKxrqFbsApEbxRfzeS6GW7BE",
+        "source_updated": "2026-03-16",
+        "fetched_at": "2026-10-29T05:35:44Z",
+        "origin": "bundled"
+      },
+      "rows": 5,
+      "columns": [
+        "SERVICE NAME EN",
+        "SERVICE NAME AR",
+        "Jan-25",
+        "Feb-25",
+        "Mar-25",
+        "Apr-25",
+        "May-25",
+        "Jun-25",
+        "Jul-25",
+        "Aug-25",
+        "Sep-25",
+        "Oct-25",
+        "Nov-25",
+        "Dec-25",
+        "TOTAL"
+      ],
+      "services": [
+        "mohesr-degree-recognition",
+        "degree-verification-partner"
+      ],
+      "service_titles": [
+        "Get a university qualification from abroad recognised",
+        "Verify your degree through an authorised verification partner"
+      ],
+      "data_period": "2025",
+      "freshness": "current"
+    },
+    {
+      "source": {
+        "key": "mofa-documents-attestation",
+        "title": "Annual Documents Attestation",
+        "publisher": "Ministry of Foreign Affairs and International Cooperation",
+        "portal": "bayanat",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+        "source_updated": "2026-02-08",
+        "fetched_at": "2026-10-29T05:35:45Z",
+        "origin": "bundled"
+      },
+      "rows": 36,
+      "columns": [
+        "السنة",
+        "Total number of requests across all channels - Personal Affairs Documents",
+        "Total number of requests across all channels - Commercial Documents",
+        "Total number of users across all channels - Individuals",
+        "Total number of users across all channels - Companies",
+        "Total number of attestation requests – Inside the UAE",
+        "Total number of attestation requests – UAE missions abroad",
+        "Top 3 types of personal documents submitted for attestation",
+        "The top 3 types of commercial documents submitted for attestation"
+      ],
+      "services": [
+        "mofa-attestation-abroad",
+        "birth-certificate-attestation",
+        "mohesr-degree-recognition"
+      ],
+      "service_titles": [
+        "Attest a document issued outside the UAE",
+        "Attest the baby's birth certificate",
+        "Get a university qualification from abroad recognised"
+      ],
+      "data_period": "2025",
+      "freshness": "current"
+    },
+    {
+      "source": {
+        "key": "mohap-live-births",
+        "title": "Birth 2005 - 2024",
+        "publisher": "Ministry of Health and Prevention",
+        "portal": "bayanat",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+        "source_updated": "2026-03-12",
+        "fetched_at": "2026-10-29T05:35:46Z",
+        "origin": "bundled"
+      },
+      "rows": 571,
+      "columns": [
+        "Year",
+        "Emirate En",
+        "Nationality Group En",
+        "Gender En",
+        "Total"
+      ],
+      "services": [
+        "birth-registration",
+        "birth-certificate-attestation",
+        "newborn-residence-permit",
+        "newborn-passport-embassy",
+        "mabrouk-ma-yak"
+      ],
+      "service_titles": [
+        "Register the birth and get the birth certificate",
+        "Attest the baby's birth certificate",
+        "Issue the baby's residence permit and Emirates ID",
+        "Get the baby's passport from your embassy or consulate",
+        "Mabrouk Ma Yak newborn bundle (UAE nationals)"
+      ],
+      "data_period": "2024",
+      "freshness": "current"
+    },
+    {
+      "source": {
+        "key": "moe-services-on-time",
+        "title": "The percentages of completed all type of services at the Happiness Service Center, Ministry of Education",
+        "publisher": "Ministry of Education",
+        "portal": "bayanat",
+        "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1k108dXXGYl1yLSWLRoWEs6rjpcbbH46ycvvzipdY1Q",
+        "source_updated": "2020-09-22",
+        "fetched_at": "2026-10-29T05:35:47Z",
+        "origin": "bundled"
+      },
+      "rows": 41,
+      "columns": [
+        "Year",
+        "Service_Name_EN",
+        "Service_Name_AR",
+        "Percentage of completion on targeted time"
+      ],
+      "services": [
+        "moe-school-equivalency"
+      ],
+      "service_titles": [
+        "Equalise a school certificate issued abroad"
+      ],
+      "data_period": "2019",
+      "freshness": "older"
+    }
+  ],
+  "last_sync": null,
+  "stale": true,
+  "findings": [
+    "Bayanat has no public search API, so NaviNation mirrors the whole catalogue once a day (8 requests) instead of scraping on each search.",
+    "Bayanat's documented endpoint GetDatasetResource?resourceID={GUID} returned an empty body for every resource we tried; we read files through the portal's own download endpoint.",
+    "Bayanat re-encrypts dataset and resource ids on every page view, so datasets are keyed on publisher and title.",
+    "The playbook's Ajman API host (api.ajman.ae) does not resolve; the same Explore API v2.1 is served at data.ajman.ae.",
+    "No open dataset of service-centre locations was found; nearby centres come from OpenStreetMap until one is published.",
+    "Data we would request: UAE PASS sign-up volumes and Emirates ID processing times, which are not on Bayanat."
+  ],
+  "navigation_dataset_path": "/api/v1/open-data/navigation-gaps.csv"
+} satisfies S["OpenDataSummary"];
+
+export const discoverPersona = {
+  "id": "dis_av1aCEKPMnut7mFX",
+  "context_revision": 1,
+  "query": "We just had a baby in Umm Al Quwain. What do we need to do?",
+  "interpreted_need": "Register a new baby",
+  "answer": null,
+  "answer_sources": [],
+  "life_event_id": "new_baby",
+  "status": "ready",
+  "clarification": null,
+  "results": [
+    {
+      "service": {
+        "id": "birth-registration",
+        "life_event_ids": [
+          "new_baby"
+        ],
+        "title": "Register the birth and get the birth certificate",
+        "summary": "The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification.",
+        "entity": "The hospital, MOHAP or the emirate health authority",
+        "jurisdiction": "Federal and emirate health authorities",
+        "eligibility_criteria": [
+          {
+            "id": "birth-registration.c1",
+            "text": "Residents have up to 30 days to register the birth.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "id": "birth-registration.c2",
+            "text": "If the parents have different nationalities, the child takes the father's nationality.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "id": "birth-registration.d1",
+            "text": "Attested marriage certificate, with an Arabic translation if it is not in Arabic (listed for residents).",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "id": "birth-registration.d2",
+            "text": "Originals and copies of both parents' passports (listed for residents).",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "id": "birth-registration.d3",
+            "text": "The hospital birth notification.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "id": "birth-registration.d4",
+            "text": "The hospital discharge summary (listed for residents).",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "fee_text": null,
+        "processing_time_text": null,
+        "official_url": null,
+        "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+        "sources": [
+          {
+            "id": "src-uae-having-a-baby",
+            "title": "Having a baby",
+            "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+            "publisher": "The UAE Government portal (u.ae)",
+            "checked_at": "2026-10-28T19:43:00Z",
+            "source_updated_at": "2026-09-30",
+            "verification_status": "verified"
+          }
+        ],
+        "verification_status": "verified",
+        "origin": "catalog"
+      },
+      "relevance": "potentially_relevant",
+      "reasons": [
+        {
+          "text": "Relevant to your need: The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification.",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ]
+        }
+      ],
+      "missing_profile_fields": [],
+      "readiness": "ready",
+      "authority_notice": "Only the issuing health authority can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null,
+      "insights": [
+        {
+          "id": "births-all",
+          "headline": "1,334 births were registered in Umm Al Quwain in 2024",
+          "label": "births registered in Umm Al Quwain in 2024",
+          "detail": "+6.7% on 2023. 1.2% of the UAE's 106,915 births.",
+          "value": 1334,
+          "change": 6.7,
+          "compared_to": "2023",
+          "unit": "count",
+          "period": "2024",
+          "scope": "Umm Al Quwain",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "2015",
+              "value": 1228
+            },
+            {
+              "label": "2016",
+              "value": 1488
+            },
+            {
+              "label": "2017",
+              "value": 1454
+            },
+            {
+              "label": "2018",
+              "value": 1343
+            },
+            {
+              "label": "2019",
+              "value": 1363
+            },
+            {
+              "label": "2020",
+              "value": 1271
+            },
+            {
+              "label": "2021",
+              "value": 1195
+            },
+            {
+              "label": "2022",
+              "value": 1281
+            },
+            {
+              "label": "2023",
+              "value": 1250
+            },
+            {
+              "label": "2024",
+              "value": 1334
+            }
+          ],
+          "highlight": 9,
+          "source": {
+            "key": "mohap-live-births",
+            "title": "Birth 2005 - 2024",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+            "source_updated": "2026-03-12",
+            "fetched_at": "2026-10-29T05:35:46Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+          "publisher": "Statistics Centre − Abu Dhabi",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Live Births by Emirate",
+          "publisher": "Ministry of Health and Prevention",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+          "last_updated": "2022-06-22"
+        },
+        {
+          "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+          "publisher": "Statistics Centre − Abu Dhabi",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+          "last_updated": "2021-09-12"
+        }
+      ]
+    },
+    {
+      "service": {
+        "id": "birth-certificate-attestation",
+        "life_event_ids": [
+          "new_baby"
+        ],
+        "title": "Attest the baby's birth certificate",
+        "summary": "Expatriates must have the birth certificate attested by MOHAP and the Ministry of Foreign Affairs. Certificates stamped by DoH Abu Dhabi or DHA are treated as equivalent to the MOHAP seal.",
+        "entity": "MOHAP (or DoH / DHA) and the Ministry of Foreign Affairs",
+        "jurisdiction": "Federal (all emirates)",
+        "eligibility_criteria": [
+          {
+            "id": "birth-certificate-attestation.c1",
+            "text": "Applies to expatriates: birth certificates must be attested by MOHAP and the Ministry of Foreign Affairs.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "id": "birth-certificate-attestation.c2",
+            "text": "A DoH (Abu Dhabi) or DHA (Dubai) stamp is treated as equivalent to the MOHAP seal.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "id": "birth-certificate-attestation.d1",
+            "text": "The baby's birth certificate.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "fee_text": null,
+        "processing_time_text": null,
+        "official_url": "https://www.mofa.gov.ae/en/services/attestation",
+        "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+        "sources": [
+          {
+            "id": "src-uae-having-a-baby",
+            "title": "Having a baby",
+            "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+            "publisher": "The UAE Government portal (u.ae)",
+            "checked_at": "2026-10-28T19:43:00Z",
+            "source_updated_at": "2026-09-30",
+            "verification_status": "verified"
+          },
+          {
+            "id": "src-mofa-attestation",
+            "title": "Attestation of documents and certificates",
+            "url": "https://www.mofa.gov.ae/en/services/attestation",
+            "publisher": "UAE Ministry of Foreign Affairs",
+            "checked_at": "2026-10-28T19:41:00Z",
+            "source_updated_at": null,
+            "verification_status": "verified"
+          }
+        ],
+        "verification_status": "verified",
+        "origin": "catalog"
+      },
+      "relevance": "potentially_relevant",
+      "reasons": [
+        {
+          "text": "Your profile matches: Applies to expatriates: birth certificates must be attested by MOHAP and the Ministry of Foreign Affairs.",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ]
+        }
+      ],
+      "missing_profile_fields": [],
+      "readiness": "prerequisites_needed",
+      "authority_notice": "Only MOHAP and the Ministry of Foreign Affairs can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null,
+      "insights": [
+        {
+          "id": "mofa-personal-documents",
+          "headline": "657,768 personal documents attested by MoFA in 2025",
+          "label": "personal documents attested by MoFA in 2025",
+          "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+          "value": 657768,
+          "change": 13.4,
+          "compared_to": "2024",
+          "unit": "count",
+          "period": "2025",
+          "scope": "UAE",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "Jan",
+              "value": 48744
+            },
+            {
+              "label": "Feb",
+              "value": 46024
+            },
+            {
+              "label": "Mar",
+              "value": 44348
+            },
+            {
+              "label": "Apr",
+              "value": 47092
+            },
+            {
+              "label": "May",
+              "value": 50115
+            },
+            {
+              "label": "Jun",
+              "value": 44578
+            },
+            {
+              "label": "Jul",
+              "value": 68900
+            },
+            {
+              "label": "Aug",
+              "value": 61720
+            },
+            {
+              "label": "Sep",
+              "value": 61381
+            },
+            {
+              "label": "Oct",
+              "value": 62509
+            },
+            {
+              "label": "Nov",
+              "value": 56970
+            },
+            {
+              "label": "Dec",
+              "value": 65387
+            }
+          ],
+          "highlight": null,
+          "source": {
+            "key": "mofa-documents-attestation",
+            "title": "Annual Documents Attestation",
+            "publisher": "Ministry of Foreign Affairs and International Cooperation",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+            "source_updated": "2026-02-08",
+            "fetched_at": "2026-10-29T05:35:45Z",
+            "origin": "bundled"
+          }
+        },
+        {
+          "id": "births-all",
+          "headline": "1,334 births were registered in Umm Al Quwain in 2024",
+          "label": "births registered in Umm Al Quwain in 2024",
+          "detail": "+6.7% on 2023. 1.2% of the UAE's 106,915 births.",
+          "value": 1334,
+          "change": 6.7,
+          "compared_to": "2023",
+          "unit": "count",
+          "period": "2024",
+          "scope": "Umm Al Quwain",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "2015",
+              "value": 1228
+            },
+            {
+              "label": "2016",
+              "value": 1488
+            },
+            {
+              "label": "2017",
+              "value": 1454
+            },
+            {
+              "label": "2018",
+              "value": 1343
+            },
+            {
+              "label": "2019",
+              "value": 1363
+            },
+            {
+              "label": "2020",
+              "value": 1271
+            },
+            {
+              "label": "2021",
+              "value": 1195
+            },
+            {
+              "label": "2022",
+              "value": 1281
+            },
+            {
+              "label": "2023",
+              "value": 1250
+            },
+            {
+              "label": "2024",
+              "value": 1334
+            }
+          ],
+          "highlight": 9,
+          "source": {
+            "key": "mohap-live-births",
+            "title": "Birth 2005 - 2024",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+            "source_updated": "2026-03-12",
+            "fetched_at": "2026-10-29T05:35:46Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+          "publisher": "Statistics Centre − Abu Dhabi",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Live Births by Emirate",
+          "publisher": "Ministry of Health and Prevention",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+          "last_updated": "2022-06-22"
+        },
+        {
+          "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+          "publisher": "Statistics Centre − Abu Dhabi",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+          "last_updated": "2021-09-12"
+        }
+      ]
+    },
+    {
+      "service": {
+        "id": "newborn-passport-embassy",
+        "life_event_ids": [
+          "new_baby"
+        ],
+        "title": "Get the baby's passport from your embassy or consulate",
+        "summary": "u.ae lists the passport among the documents residents must arrange within 120 days of birth. A news report says expatriate residents apply to their own embassy or consulate in the UAE; we have not confirmed that on an official page.",
+        "entity": "The embassy or consulate of the baby's nationality",
+        "jurisdiction": "Foreign government (not a UAE entity)",
+        "eligibility_criteria": [
+          {
+            "id": "newborn-passport-embassy.c1",
+            "text": "Residents must arrange the baby's passport, Emirates ID and visa within 120 days of birth.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "id": "newborn-passport-embassy.c2",
+            "text": "Reported: expatriate residents apply to their own embassy or consulate in the UAE.",
+            "source_ids": [
+              "src-gulfnews-newborn"
+            ]
+          }
+        ],
+        "documents": [],
+        "fee_text": null,
+        "processing_time_text": null,
+        "official_url": null,
+        "support_url": null,
+        "sources": [
+          {
+            "id": "src-uae-having-a-baby",
+            "title": "Having a baby",
+            "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+            "publisher": "The UAE Government portal (u.ae)",
+            "checked_at": "2026-10-28T19:43:00Z",
+            "source_updated_at": "2026-09-30",
+            "verification_status": "verified"
+          },
+          {
+            "id": "src-gulfnews-newborn",
+            "title": "UAE: How to apply for your baby's birth certificate, passport and visa (news report)",
+            "url": "https://gulfnews.com/living-in-uae/visa-immigration/uae-how-to-apply-for-your-babys-birth-certificate-passport-and-visa-1.1608131310159",
+            "publisher": "Gulf News (not an official source)",
+            "checked_at": null,
+            "source_updated_at": null,
+            "verification_status": "needs_review"
+          }
+        ],
+        "verification_status": "needs_review",
+        "origin": "catalog"
+      },
+      "relevance": "potentially_relevant",
+      "reasons": [
+        {
+          "text": "Your profile matches: Residents must arrange the baby's passport, Emirates ID and visa within 120 days of birth.",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ]
+        },
+        {
+          "text": "This record is not confirmed on an official page yet. Check with the entity before relying on it.",
+          "source_ids": [
+            "src-gulfnews-newborn",
+            "src-uae-having-a-baby"
+          ]
+        }
+      ],
+      "missing_profile_fields": [],
+      "readiness": "ready",
+      "authority_notice": "Only the embassy or consulate of the baby's nationality can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null,
+      "insights": [
+        {
+          "id": "births-expat",
+          "headline": "585 babies were born to expatriate families in Umm Al Quwain in 2024",
+          "label": "babies born to expatriate families in Umm Al Quwain in 2024",
+          "detail": "+46% on 2023. That is 44% of all births there.",
+          "value": 585,
+          "change": 45.5,
+          "compared_to": "2023",
+          "unit": "count",
+          "period": "2024",
+          "scope": "Umm Al Quwain",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "2015",
+              "value": 411
+            },
+            {
+              "label": "2016",
+              "value": 470
+            },
+            {
+              "label": "2017",
+              "value": 469
+            },
+            {
+              "label": "2018",
+              "value": 412
+            },
+            {
+              "label": "2019",
+              "value": 372
+            },
+            {
+              "label": "2020",
+              "value": 398
+            },
+            {
+              "label": "2021",
+              "value": 377
+            },
+            {
+              "label": "2022",
+              "value": 338
+            },
+            {
+              "label": "2023",
+              "value": 402
+            },
+            {
+              "label": "2024",
+              "value": 585
+            }
+          ],
+          "highlight": 9,
+          "source": {
+            "key": "mohap-live-births",
+            "title": "Birth 2005 - 2024",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+            "source_updated": "2026-03-12",
+            "fetched_at": "2026-10-29T05:35:46Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Births by Emirate, Nationality and Gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1fGdxnUOHJivLD_fzokzyyrT9fOJynBnZdksAxPgLys",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Registered Still Births by Nationality and Gender -Emirate of Fujairah (2015-2017)",
+          "publisher": "Government of Fujairah",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=6c2-7EOh_6RSg9d_HnTTVueWtbzybx77Q0BKpUWnPMA",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Births, Deaths and Natural Population Increase by Nationality and Gender, Emirate of Fujairah",
+          "publisher": "Government of Fujairah",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=FSiruaSjdcwRugs3_FFGf3nMI0I20rZKSkzJlfpHI0U",
+          "last_updated": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "service": {
+        "id": "newborn-residence-permit",
+        "life_event_ids": [
+          "new_baby"
+        ],
+        "title": "Issue the baby's residence permit and Emirates ID",
+        "summary": "ICP's Issuing Residency Permit service issues a new residence permit linked to an Emirates ID application. For family members, the sponsor must hold a valid UAE residence and meet the income condition.",
+        "entity": "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP); GDRFA in Dubai",
+        "jurisdiction": "Federal (ICP), with GDRFA Dubai for Dubai",
+        "eligibility_criteria": [
+          {
+            "id": "newborn-residence-permit.c1",
+            "text": "The sponsoring parent holds a valid UAE residence.",
+            "source_ids": [
+              "src-icp-residency-permit"
+            ]
+          },
+          {
+            "id": "newborn-residence-permit.c2",
+            "text": "Sponsor's minimum monthly income: AED 4,000, or AED 3,000 with housing provided.",
+            "source_ids": [
+              "src-icp-residency-permit",
+              "src-uae-family-residence"
+            ]
+          },
+          {
+            "id": "newborn-residence-permit.c3",
+            "text": "Residents must complete the baby's documents, including the visa, within 120 days of birth. After that AED 100 per day applies, and the baby cannot leave the country until the residence visa is finalised.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "documents": [
+          {
+            "id": "newborn-residence-permit.d1",
+            "text": "The baby's passport, valid for at least 6 months.",
+            "source_ids": [
+              "src-icp-residency-permit"
+            ]
+          },
+          {
+            "id": "newborn-residence-permit.d2",
+            "text": "A personal photo.",
+            "source_ids": [
+              "src-icp-residency-permit"
+            ]
+          },
+          {
+            "id": "newborn-residence-permit.d3",
+            "text": "Valid health insurance.",
+            "source_ids": [
+              "src-icp-residency-permit"
+            ]
+          },
+          {
+            "id": "newborn-residence-permit.d4",
+            "text": "The birth certificate (to prove the child's age).",
+            "source_ids": [
+              "src-icp-residency-permit"
+            ]
+          }
+        ],
+        "fee_text": "ICP lists AED 100 application, AED 100 issuance per year, AED 100 smart service and AED 20 financial security deposit fees. Your total may differ.",
+        "processing_time_text": "ICP lists a service completion duration of 2 days.",
+        "official_url": "https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+        "support_url": "https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members",
+        "sources": [
+          {
+            "id": "src-icp-residency-permit",
+            "title": "Issuing Residency Permit",
+            "url": "https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+            "publisher": "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP)",
+            "checked_at": "2026-10-28T19:46:00Z",
+            "source_updated_at": null,
+            "verification_status": "verified"
+          },
+          {
+            "id": "src-uae-having-a-baby",
+            "title": "Having a baby",
+            "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+            "publisher": "The UAE Government portal (u.ae)",
+            "checked_at": "2026-10-28T19:43:00Z",
+            "source_updated_at": "2026-09-30",
+            "verification_status": "verified"
+          },
+          {
+            "id": "src-uae-family-residence",
+            "title": "Residence visa for families of employees",
+            "url": "https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members",
+            "publisher": "The UAE Government portal (u.ae)",
+            "checked_at": "2026-10-28T19:45:00Z",
+            "source_updated_at": "2026-09-28",
+            "verification_status": "verified"
+          }
+        ],
+        "verification_status": "verified",
+        "origin": "catalog"
+      },
+      "relevance": "potentially_relevant",
+      "reasons": [
+        {
+          "text": "Your profile matches: The sponsoring parent holds a valid UAE residence.",
+          "source_ids": [
+            "src-icp-residency-permit"
+          ]
+        }
+      ],
+      "missing_profile_fields": [],
+      "readiness": "prerequisites_needed",
+      "authority_notice": "Only ICP (or GDRFA Dubai) can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null,
+      "insights": [
+        {
+          "id": "births-expat",
+          "headline": "585 babies were born to expatriate families in Umm Al Quwain in 2024",
+          "label": "babies born to expatriate families in Umm Al Quwain in 2024",
+          "detail": "+46% on 2023. That is 44% of all births there.",
+          "value": 585,
+          "change": 45.5,
+          "compared_to": "2023",
+          "unit": "count",
+          "period": "2024",
+          "scope": "Umm Al Quwain",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "2015",
+              "value": 411
+            },
+            {
+              "label": "2016",
+              "value": 470
+            },
+            {
+              "label": "2017",
+              "value": 469
+            },
+            {
+              "label": "2018",
+              "value": 412
+            },
+            {
+              "label": "2019",
+              "value": 372
+            },
+            {
+              "label": "2020",
+              "value": 398
+            },
+            {
+              "label": "2021",
+              "value": 377
+            },
+            {
+              "label": "2022",
+              "value": 338
+            },
+            {
+              "label": "2023",
+              "value": 402
+            },
+            {
+              "label": "2024",
+              "value": 585
+            }
+          ],
+          "highlight": 9,
+          "source": {
+            "key": "mohap-live-births",
+            "title": "Birth 2005 - 2024",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+            "source_updated": "2026-03-12",
+            "fetched_at": "2026-10-29T05:35:46Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Births by Emirate, Nationality and Gender",
+          "publisher": "Federal Competitiveness and Statistics Center",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1fGdxnUOHJivLD_fzokzyyrT9fOJynBnZdksAxPgLys",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Registered Still Births by Nationality and Gender -Emirate of Fujairah (2015-2017)",
+          "publisher": "Government of Fujairah",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=6c2-7EOh_6RSg9d_HnTTVueWtbzybx77Q0BKpUWnPMA",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Births, Deaths and Natural Population Increase by Nationality and Gender, Emirate of Fujairah",
+          "publisher": "Government of Fujairah",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=FSiruaSjdcwRugs3_FFGf3nMI0I20rZKSkzJlfpHI0U",
+          "last_updated": "2026-05-20"
+        }
+      ]
+    },
+    {
+      "service": {
+        "id": "mabrouk-ma-yak",
+        "life_event_ids": [
+          "new_baby"
+        ],
+        "title": "Mabrouk Ma Yak newborn bundle (UAE nationals)",
+        "summary": "For UAE nationals, the Mabrouk Ma Yak bundle combines the birth certificate, adding the baby to family data, passport, Emirates ID, Thiqa insurance and an optional health card.",
+        "entity": "UAE federal government (Mabrouk Ma Yak bundle on Usrati)",
+        "jurisdiction": "Federal (UAE nationals)",
+        "eligibility_criteria": [
+          {
+            "id": "mabrouk-ma-yak.c1",
+            "text": "For babies of UAE nationals.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "documents": [],
+        "fee_text": null,
+        "processing_time_text": null,
+        "official_url": "https://usrati.gov.ae/family/#/",
+        "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+        "sources": [
+          {
+            "id": "src-uae-having-a-baby",
+            "title": "Having a baby",
+            "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+            "publisher": "The UAE Government portal (u.ae)",
+            "checked_at": "2026-10-28T19:43:00Z",
+            "source_updated_at": "2026-09-30",
+            "verification_status": "verified"
+          }
+        ],
+        "verification_status": "verified",
+        "origin": "catalog"
+      },
+      "relevance": "criterion_mismatch",
+      "reasons": [
+        {
+          "text": "Your profile may not meet: For babies of UAE nationals.",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ]
+        }
+      ],
+      "missing_profile_fields": [],
+      "readiness": "ready",
+      "authority_notice": "Only the participating federal and local entities can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null,
+      "insights": [
+        {
+          "id": "births-citizen",
+          "headline": "749 Emirati babies were born in Umm Al Quwain in 2024",
+          "label": "Emirati babies born in Umm Al Quwain in 2024",
+          "detail": "−12% on 2023. That is 56% of all births there.",
+          "value": 749,
+          "change": -11.7,
+          "compared_to": "2023",
+          "unit": "count",
+          "period": "2024",
+          "scope": "Umm Al Quwain",
+          "freshness": "current",
+          "series": [
+            {
+              "label": "2015",
+              "value": 817
+            },
+            {
+              "label": "2016",
+              "value": 1018
+            },
+            {
+              "label": "2017",
+              "value": 985
+            },
+            {
+              "label": "2018",
+              "value": 931
+            },
+            {
+              "label": "2019",
+              "value": 991
+            },
+            {
+              "label": "2020",
+              "value": 873
+            },
+            {
+              "label": "2021",
+              "value": 818
+            },
+            {
+              "label": "2022",
+              "value": 943
+            },
+            {
+              "label": "2023",
+              "value": 848
+            },
+            {
+              "label": "2024",
+              "value": 749
+            }
+          ],
+          "highlight": 9,
+          "source": {
+            "key": "mohap-live-births",
+            "title": "Birth 2005 - 2024",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+            "source_updated": "2026-03-12",
+            "fetched_at": "2026-10-29T05:35:46Z",
+            "origin": "bundled"
+          }
+        }
+      ],
+      "related_data": [
+        {
+          "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+          "publisher": "Statistics Centre − Abu Dhabi",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+          "last_updated": "2026-05-20"
+        },
+        {
+          "title": "Live Births by Emirate",
+          "publisher": "Ministry of Health and Prevention",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+          "last_updated": "2022-06-22"
+        },
+        {
+          "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+          "publisher": "Statistics Centre − Abu Dhabi",
+          "portal": "bayanat",
+          "theme": "health",
+          "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+          "last_updated": "2021-09-12"
+        }
+      ]
+    }
+  ],
+  "mode": "ai",
+  "notices": [],
+  "agent_steps": [
+    {
+      "tool": "read_catalog",
+      "detail": "10 reviewed services"
+    }
+  ]
+} satisfies S["Discovery"];
+
+export const journeyPersona = {
+  "id": "jrn_tlSDZsVvSzsE2-Kd",
+  "title": "Plan: Register a new baby",
+  "life_event_id": "new_baby",
+  "context_revision": 1,
+  "is_stale": false,
+  "stages": [
+    {
+      "order_group": 0,
+      "title": "Get ready",
+      "description": "Set up what later steps need."
+    },
+    {
+      "order_group": 1,
+      "title": "Main applications",
+      "description": "Apply once the earlier steps are done."
+    },
+    {
+      "order_group": 2,
+      "title": "Final steps",
+      "description": "Finish with the remaining services."
+    }
+  ],
+  "steps": [
+    {
+      "id": "stp_CD7Br2JI3vzQwETy",
+      "title": "Register the birth and get the birth certificate",
+      "instructions": "Prepare and apply: The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification.",
+      "checklist": [
+        {
+          "id": "birth-registration.c1",
+          "text": "Attested marriage certificate, with an Arabic translation if it is not in Arabic (listed for residents).",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ],
+          "ai_generated": true
+        },
+        {
+          "id": "birth-registration.c2",
+          "text": "Originals and copies of both parents' passports (listed for residents).",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ],
+          "ai_generated": true
+        },
+        {
+          "id": "birth-registration.c3",
+          "text": "The hospital birth notification.",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ],
+          "ai_generated": true
+        },
+        {
+          "id": "birth-registration.c4",
+          "text": "The hospital discharge summary (listed for residents).",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ],
+          "ai_generated": true
+        }
+      ],
+      "service_card": {
+        "service": {
+          "id": "birth-registration",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Register the birth and get the birth certificate",
+          "summary": "The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification.",
+          "entity": "The hospital, MOHAP or the emirate health authority",
+          "jurisdiction": "Federal and emirate health authorities",
+          "eligibility_criteria": [
+            {
+              "id": "birth-registration.c1",
+              "text": "Residents have up to 30 days to register the birth.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.c2",
+              "text": "If the parents have different nationalities, the child takes the father's nationality.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "documents": [
+            {
+              "id": "birth-registration.d1",
+              "text": "Attested marriage certificate, with an Arabic translation if it is not in Arabic (listed for residents).",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.d2",
+              "text": "Originals and copies of both parents' passports (listed for residents).",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.d3",
+              "text": "The hospital birth notification.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-registration.d4",
+              "text": "The hospital discharge summary (listed for residents).",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "fee_text": null,
+          "processing_time_text": null,
+          "official_url": null,
+          "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+          "sources": [
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            }
+          ],
+          "verification_status": "verified",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Relevant to your need: The hospital issues a birth notification. Government hospitals then issue the birth certificate; after a private hospital birth, parents apply to MOHAP or the emirate's health authority with the birth notification.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "ready",
+        "authority_notice": "Only the issuing health authority can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "births-all",
+            "headline": "1,334 births were registered in Umm Al Quwain in 2024",
+            "label": "births registered in Umm Al Quwain in 2024",
+            "detail": "+6.7% on 2023. 1.2% of the UAE's 106,915 births.",
+            "value": 1334,
+            "change": 6.7,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 1228
+              },
+              {
+                "label": "2016",
+                "value": 1488
+              },
+              {
+                "label": "2017",
+                "value": 1454
+              },
+              {
+                "label": "2018",
+                "value": 1343
+              },
+              {
+                "label": "2019",
+                "value": 1363
+              },
+              {
+                "label": "2020",
+                "value": 1271
+              },
+              {
+                "label": "2021",
+                "value": 1195
+              },
+              {
+                "label": "2022",
+                "value": 1281
+              },
+              {
+                "label": "2023",
+                "value": 1250
+              },
+              {
+                "label": "2024",
+                "value": 1334
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Live Births by Emirate",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+            "last_updated": "2022-06-22"
+          },
+          {
+            "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+            "last_updated": "2021-09-12"
+          }
+        ]
+      },
+      "order_group": 0,
+      "prerequisite_step_ids": [],
+      "document_progress": [
+        {
+          "document_id": "birth-registration.c1",
+          "status": "unknown"
+        },
+        {
+          "document_id": "birth-registration.c2",
+          "status": "unknown"
+        },
+        {
+          "document_id": "birth-registration.c3",
+          "status": "unknown"
+        },
+        {
+          "document_id": "birth-registration.c4",
+          "status": "unknown"
+        }
+      ],
+      "progress": "not_started",
+      "availability": "ready",
+      "blocker_step_ids": [],
+      "notes": [],
+      "tailored_by": [],
+      "tailored_note": null
+    },
+    {
+      "id": "stp_LgIhZd_lgaecj7Pl",
+      "title": "Attest the baby's birth certificate",
+      "instructions": "Prepare and apply: Expatriates must have the birth certificate attested by MOHAP and the Ministry of Foreign Affairs. Certificates stamped by DoH Abu Dhabi or DHA are treated as equivalent to the MOHAP seal.",
+      "checklist": [
+        {
+          "id": "birth-certificate-attestation.c1",
+          "text": "The baby's birth certificate.",
+          "source_ids": [
+            "src-uae-having-a-baby"
+          ],
+          "ai_generated": true
+        }
+      ],
+      "service_card": {
+        "service": {
+          "id": "birth-certificate-attestation",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Attest the baby's birth certificate",
+          "summary": "Expatriates must have the birth certificate attested by MOHAP and the Ministry of Foreign Affairs. Certificates stamped by DoH Abu Dhabi or DHA are treated as equivalent to the MOHAP seal.",
+          "entity": "MOHAP (or DoH / DHA) and the Ministry of Foreign Affairs",
+          "jurisdiction": "Federal (all emirates)",
+          "eligibility_criteria": [
+            {
+              "id": "birth-certificate-attestation.c1",
+              "text": "Applies to expatriates: birth certificates must be attested by MOHAP and the Ministry of Foreign Affairs.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "birth-certificate-attestation.c2",
+              "text": "A DoH (Abu Dhabi) or DHA (Dubai) stamp is treated as equivalent to the MOHAP seal.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "documents": [
+            {
+              "id": "birth-certificate-attestation.d1",
+              "text": "The baby's birth certificate.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "fee_text": null,
+          "processing_time_text": null,
+          "official_url": "https://www.mofa.gov.ae/en/services/attestation",
+          "support_url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+          "sources": [
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-mofa-attestation",
+              "title": "Attestation of documents and certificates",
+              "url": "https://www.mofa.gov.ae/en/services/attestation",
+              "publisher": "UAE Ministry of Foreign Affairs",
+              "checked_at": "2026-10-28T19:41:00Z",
+              "source_updated_at": null,
+              "verification_status": "verified"
+            }
+          ],
+          "verification_status": "verified",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Your profile matches: Applies to expatriates: birth certificates must be attested by MOHAP and the Ministry of Foreign Affairs.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "prerequisites_needed",
+        "authority_notice": "Only MOHAP and the Ministry of Foreign Affairs can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "mofa-personal-documents",
+            "headline": "657,768 personal documents attested by MoFA in 2025",
+            "label": "personal documents attested by MoFA in 2025",
+            "detail": "Most attested: educational certificates, birth certificates, marriage contracts. +13% on 2024.",
+            "value": 657768,
+            "change": 13.4,
+            "compared_to": "2024",
+            "unit": "count",
+            "period": "2025",
+            "scope": "UAE",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "Jan",
+                "value": 48744
+              },
+              {
+                "label": "Feb",
+                "value": 46024
+              },
+              {
+                "label": "Mar",
+                "value": 44348
+              },
+              {
+                "label": "Apr",
+                "value": 47092
+              },
+              {
+                "label": "May",
+                "value": 50115
+              },
+              {
+                "label": "Jun",
+                "value": 44578
+              },
+              {
+                "label": "Jul",
+                "value": 68900
+              },
+              {
+                "label": "Aug",
+                "value": 61720
+              },
+              {
+                "label": "Sep",
+                "value": 61381
+              },
+              {
+                "label": "Oct",
+                "value": 62509
+              },
+              {
+                "label": "Nov",
+                "value": 56970
+              },
+              {
+                "label": "Dec",
+                "value": 65387
+              }
+            ],
+            "highlight": null,
+            "source": {
+              "key": "mofa-documents-attestation",
+              "title": "Annual Documents Attestation",
+              "publisher": "Ministry of Foreign Affairs and International Cooperation",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=X6j0y6NPcCRSyRTkgQozKbGPQxo6dc_s5U7PiZ5RcHs",
+              "source_updated": "2026-02-08",
+              "fetched_at": "2026-10-29T05:35:45Z",
+              "origin": "bundled"
+            }
+          },
+          {
+            "id": "births-all",
+            "headline": "1,334 births were registered in Umm Al Quwain in 2024",
+            "label": "births registered in Umm Al Quwain in 2024",
+            "detail": "+6.7% on 2023. 1.2% of the UAE's 106,915 births.",
+            "value": 1334,
+            "change": 6.7,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 1228
+              },
+              {
+                "label": "2016",
+                "value": 1488
+              },
+              {
+                "label": "2017",
+                "value": 1454
+              },
+              {
+                "label": "2018",
+                "value": 1343
+              },
+              {
+                "label": "2019",
+                "value": 1363
+              },
+              {
+                "label": "2020",
+                "value": 1271
+              },
+              {
+                "label": "2021",
+                "value": 1195
+              },
+              {
+                "label": "2022",
+                "value": 1281
+              },
+              {
+                "label": "2023",
+                "value": 1250
+              },
+              {
+                "label": "2024",
+                "value": 1334
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births in Abu Dhabi Emirate by Citizenship, Region, Gender, and Year",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=i0biOTv_UpqikwXSEqglXvYXUozC_Furec9NXu2CaFo",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Live Births by Emirate",
+            "publisher": "Ministry of Health and Prevention",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=HFiDk5ZhMHNve0S8Y4Am98OD-F1Dx3Rai9lxulIGRU8",
+            "last_updated": "2022-06-22"
+          },
+          {
+            "title": "Annual Crude Birth Rate by Citizenship and Year in Abu Dhabi Emirate",
+            "publisher": "Statistics Centre − Abu Dhabi",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=GWDNYGgzhN4HP83GQ2N5rxyOQYmc6p1KBClLqZRGe18",
+            "last_updated": "2021-09-12"
+          }
+        ]
+      },
+      "order_group": 1,
+      "prerequisite_step_ids": [
+        "stp_CD7Br2JI3vzQwETy"
+      ],
+      "document_progress": [
+        {
+          "document_id": "birth-certificate-attestation.c1",
+          "status": "unknown"
+        }
+      ],
+      "progress": "not_started",
+      "availability": "blocked",
+      "blocker_step_ids": [
+        "stp_CD7Br2JI3vzQwETy"
+      ],
+      "notes": [
+        "Waiting for: Register the birth and get the birth certificate. Complete those steps first.",
+        "Requires \"Register the birth and get the birth certificate\" first: The attestation is done on the birth certificate, so the birth must be registered and the certificate issued first."
+      ],
+      "tailored_by": [
+        "residency_status"
+      ],
+      "tailored_note": null
+    },
+    {
+      "id": "stp_M0jnXvmWkeTMp3Y7",
+      "title": "Get the baby's passport from your embassy or consulate",
+      "instructions": "Prepare and apply: u.ae lists the passport among the documents residents must arrange within 120 days of birth. A news report says expatriate residents apply to their own embassy or consulate in the UAE; we have not confirmed that on an o…",
+      "checklist": [],
+      "service_card": {
+        "service": {
+          "id": "newborn-passport-embassy",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Get the baby's passport from your embassy or consulate",
+          "summary": "u.ae lists the passport among the documents residents must arrange within 120 days of birth. A news report says expatriate residents apply to their own embassy or consulate in the UAE; we have not confirmed that on an official page.",
+          "entity": "The embassy or consulate of the baby's nationality",
+          "jurisdiction": "Foreign government (not a UAE entity)",
+          "eligibility_criteria": [
+            {
+              "id": "newborn-passport-embassy.c1",
+              "text": "Residents must arrange the baby's passport, Emirates ID and visa within 120 days of birth.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            },
+            {
+              "id": "newborn-passport-embassy.c2",
+              "text": "Reported: expatriate residents apply to their own embassy or consulate in the UAE.",
+              "source_ids": [
+                "src-gulfnews-newborn"
+              ]
+            }
+          ],
+          "documents": [],
+          "fee_text": null,
+          "processing_time_text": null,
+          "official_url": null,
+          "support_url": null,
+          "sources": [
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-gulfnews-newborn",
+              "title": "UAE: How to apply for your baby's birth certificate, passport and visa (news report)",
+              "url": "https://gulfnews.com/living-in-uae/visa-immigration/uae-how-to-apply-for-your-babys-birth-certificate-passport-and-visa-1.1608131310159",
+              "publisher": "Gulf News (not an official source)",
+              "checked_at": null,
+              "source_updated_at": null,
+              "verification_status": "needs_review"
+            }
+          ],
+          "verification_status": "needs_review",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Your profile matches: Residents must arrange the baby's passport, Emirates ID and visa within 120 days of birth.",
+            "source_ids": [
+              "src-uae-having-a-baby"
+            ]
+          },
+          {
+            "text": "This record is not confirmed on an official page yet. Check with the entity before relying on it.",
+            "source_ids": [
+              "src-gulfnews-newborn",
+              "src-uae-having-a-baby"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "ready",
+        "authority_notice": "Only the embassy or consulate of the baby's nationality can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "births-expat",
+            "headline": "585 babies were born to expatriate families in Umm Al Quwain in 2024",
+            "label": "babies born to expatriate families in Umm Al Quwain in 2024",
+            "detail": "+46% on 2023. That is 44% of all births there.",
+            "value": 585,
+            "change": 45.5,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 411
+              },
+              {
+                "label": "2016",
+                "value": 470
+              },
+              {
+                "label": "2017",
+                "value": 469
+              },
+              {
+                "label": "2018",
+                "value": 412
+              },
+              {
+                "label": "2019",
+                "value": 372
+              },
+              {
+                "label": "2020",
+                "value": 398
+              },
+              {
+                "label": "2021",
+                "value": 377
+              },
+              {
+                "label": "2022",
+                "value": 338
+              },
+              {
+                "label": "2023",
+                "value": 402
+              },
+              {
+                "label": "2024",
+                "value": 585
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births by Emirate, Nationality and Gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1fGdxnUOHJivLD_fzokzyyrT9fOJynBnZdksAxPgLys",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Registered Still Births by Nationality and Gender -Emirate of Fujairah (2015-2017)",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=6c2-7EOh_6RSg9d_HnTTVueWtbzybx77Q0BKpUWnPMA",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Births, Deaths and Natural Population Increase by Nationality and Gender, Emirate of Fujairah",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=FSiruaSjdcwRugs3_FFGf3nMI0I20rZKSkzJlfpHI0U",
+            "last_updated": "2026-05-20"
+          }
+        ]
+      },
+      "order_group": 1,
+      "prerequisite_step_ids": [
+        "stp_CD7Br2JI3vzQwETy"
+      ],
+      "document_progress": [],
+      "progress": "not_started",
+      "availability": "review_needed",
+      "blocker_step_ids": [],
+      "notes": [
+        "Suggested after \"Register the birth and get the birth certificate\" (advice only): Do the earlier step first.",
+        "This step is not confirmed on an official page. Check it with an adviser or the entity."
+      ],
+      "tailored_by": [
+        "residency_status"
+      ],
+      "tailored_note": null
+    },
+    {
+      "id": "stp_Abc2lDLHXFmTBjig",
+      "title": "Issue the baby's residence permit and Emirates ID",
+      "instructions": "Prepare and apply: ICP's Issuing Residency Permit service issues a new residence permit linked to an Emirates ID application. For family members, the sponsor must hold a valid UAE residence and meet the income condition.",
+      "checklist": [
+        {
+          "id": "newborn-residence-permit.c1",
+          "text": "The baby's passport, valid for at least 6 months.",
+          "source_ids": [
+            "src-icp-residency-permit"
+          ],
+          "ai_generated": true
+        },
+        {
+          "id": "newborn-residence-permit.c2",
+          "text": "A personal photo.",
+          "source_ids": [
+            "src-icp-residency-permit"
+          ],
+          "ai_generated": true
+        },
+        {
+          "id": "newborn-residence-permit.c3",
+          "text": "Valid health insurance.",
+          "source_ids": [
+            "src-icp-residency-permit"
+          ],
+          "ai_generated": true
+        },
+        {
+          "id": "newborn-residence-permit.c4",
+          "text": "The birth certificate (to prove the child's age).",
+          "source_ids": [
+            "src-icp-residency-permit"
+          ],
+          "ai_generated": true
+        }
+      ],
+      "service_card": {
+        "service": {
+          "id": "newborn-residence-permit",
+          "life_event_ids": [
+            "new_baby"
+          ],
+          "title": "Issue the baby's residence permit and Emirates ID",
+          "summary": "ICP's Issuing Residency Permit service issues a new residence permit linked to an Emirates ID application. For family members, the sponsor must hold a valid UAE residence and meet the income condition.",
+          "entity": "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP); GDRFA in Dubai",
+          "jurisdiction": "Federal (ICP), with GDRFA Dubai for Dubai",
+          "eligibility_criteria": [
+            {
+              "id": "newborn-residence-permit.c1",
+              "text": "The sponsoring parent holds a valid UAE residence.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.c2",
+              "text": "Sponsor's minimum monthly income: AED 4,000, or AED 3,000 with housing provided.",
+              "source_ids": [
+                "src-icp-residency-permit",
+                "src-uae-family-residence"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.c3",
+              "text": "Residents must complete the baby's documents, including the visa, within 120 days of birth. After that AED 100 per day applies, and the baby cannot leave the country until the residence visa is finalised.",
+              "source_ids": [
+                "src-uae-having-a-baby"
+              ]
+            }
+          ],
+          "documents": [
+            {
+              "id": "newborn-residence-permit.d1",
+              "text": "The baby's passport, valid for at least 6 months.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.d2",
+              "text": "A personal photo.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.d3",
+              "text": "Valid health insurance.",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            },
+            {
+              "id": "newborn-residence-permit.d4",
+              "text": "The birth certificate (to prove the child's age).",
+              "source_ids": [
+                "src-icp-residency-permit"
+              ]
+            }
+          ],
+          "fee_text": "ICP lists AED 100 application, AED 100 issuance per year, AED 100 smart service and AED 20 financial security deposit fees. Your total may differ.",
+          "processing_time_text": "ICP lists a service completion duration of 2 days.",
+          "official_url": "https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+          "support_url": "https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members",
+          "sources": [
+            {
+              "id": "src-icp-residency-permit",
+              "title": "Issuing Residency Permit",
+              "url": "https://icp.gov.ae/en/services-details/?serviceid=64afe3c1035448005bd52e64",
+              "publisher": "Federal Authority for Identity, Citizenship, Customs and Port Security (ICP)",
+              "checked_at": "2026-10-28T19:46:00Z",
+              "source_updated_at": null,
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-uae-having-a-baby",
+              "title": "Having a baby",
+              "url": "https://u.ae/en/information-and-services/social-affairs/Life-events/having-a-baby",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:43:00Z",
+              "source_updated_at": "2026-09-30",
+              "verification_status": "verified"
+            },
+            {
+              "id": "src-uae-family-residence",
+              "title": "Residence visa for families of employees",
+              "url": "https://u.ae/en/information-and-services/visa-and-emirates-id/Types-of-visas/Residence-visa/residence-visa-for-family-members",
+              "publisher": "The UAE Government portal (u.ae)",
+              "checked_at": "2026-10-28T19:45:00Z",
+              "source_updated_at": "2026-09-28",
+              "verification_status": "verified"
+            }
+          ],
+          "verification_status": "verified",
+          "origin": "catalog"
+        },
+        "relevance": "potentially_relevant",
+        "reasons": [
+          {
+            "text": "Your profile matches: The sponsoring parent holds a valid UAE residence.",
+            "source_ids": [
+              "src-icp-residency-permit"
+            ]
+          }
+        ],
+        "missing_profile_fields": [],
+        "readiness": "prerequisites_needed",
+        "authority_notice": "Only ICP (or GDRFA Dubai) can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null,
+        "insights": [
+          {
+            "id": "births-expat",
+            "headline": "585 babies were born to expatriate families in Umm Al Quwain in 2024",
+            "label": "babies born to expatriate families in Umm Al Quwain in 2024",
+            "detail": "+46% on 2023. That is 44% of all births there.",
+            "value": 585,
+            "change": 45.5,
+            "compared_to": "2023",
+            "unit": "count",
+            "period": "2024",
+            "scope": "Umm Al Quwain",
+            "freshness": "current",
+            "series": [
+              {
+                "label": "2015",
+                "value": 411
+              },
+              {
+                "label": "2016",
+                "value": 470
+              },
+              {
+                "label": "2017",
+                "value": 469
+              },
+              {
+                "label": "2018",
+                "value": 412
+              },
+              {
+                "label": "2019",
+                "value": 372
+              },
+              {
+                "label": "2020",
+                "value": 398
+              },
+              {
+                "label": "2021",
+                "value": 377
+              },
+              {
+                "label": "2022",
+                "value": 338
+              },
+              {
+                "label": "2023",
+                "value": 402
+              },
+              {
+                "label": "2024",
+                "value": 585
+              }
+            ],
+            "highlight": 9,
+            "source": {
+              "key": "mohap-live-births",
+              "title": "Birth 2005 - 2024",
+              "publisher": "Ministry of Health and Prevention",
+              "portal": "bayanat",
+              "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=7Rs4FHlv2fJ_10RADFPSJj_j6esAGG35CRfmUcjBY8U",
+              "source_updated": "2026-03-12",
+              "fetched_at": "2026-10-29T05:35:46Z",
+              "origin": "bundled"
+            }
+          }
+        ],
+        "related_data": [
+          {
+            "title": "Births by Emirate, Nationality and Gender",
+            "publisher": "Federal Competitiveness and Statistics Center",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=1fGdxnUOHJivLD_fzokzyyrT9fOJynBnZdksAxPgLys",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Registered Still Births by Nationality and Gender -Emirate of Fujairah (2015-2017)",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=6c2-7EOh_6RSg9d_HnTTVueWtbzybx77Q0BKpUWnPMA",
+            "last_updated": "2026-05-20"
+          },
+          {
+            "title": "Births, Deaths and Natural Population Increase by Nationality and Gender, Emirate of Fujairah",
+            "publisher": "Government of Fujairah",
+            "portal": "bayanat",
+            "theme": "health",
+            "url": "https://bayanat.ae/en/Datasets/Dataset-info?id=FSiruaSjdcwRugs3_FFGf3nMI0I20rZKSkzJlfpHI0U",
+            "last_updated": "2026-05-20"
+          }
+        ]
+      },
+      "order_group": 2,
+      "prerequisite_step_ids": [
+        "stp_M0jnXvmWkeTMp3Y7",
+        "stp_LgIhZd_lgaecj7Pl"
+      ],
+      "document_progress": [
+        {
+          "document_id": "newborn-residence-permit.c1",
+          "status": "unknown"
+        },
+        {
+          "document_id": "newborn-residence-permit.c2",
+          "status": "unknown"
+        },
+        {
+          "document_id": "newborn-residence-permit.c3",
+          "status": "unknown"
+        },
+        {
+          "document_id": "newborn-residence-permit.c4",
+          "status": "unknown"
+        }
+      ],
+      "progress": "not_started",
+      "availability": "blocked",
+      "blocker_step_ids": [
+        "stp_M0jnXvmWkeTMp3Y7"
+      ],
+      "notes": [
+        "Waiting for: Get the baby's passport from your embassy or consulate. Complete those steps first.",
+        "Requires \"Get the baby's passport from your embassy or consulate\" first: ICP lists a passport valid for at least 6 months as a condition for issuing a residence permit, so the baby needs a passport first.",
+        "Suggested after \"Attest the baby's birth certificate\" (advice only): Do the earlier step first."
+      ],
+      "tailored_by": [
+        "residency_status"
+      ],
+      "tailored_note": null
+    }
+  ],
+  "dependencies": [
+    {
+      "from_step_id": "stp_CD7Br2JI3vzQwETy",
+      "to_step_id": "stp_LgIhZd_lgaecj7Pl",
+      "kind": "required",
+      "explanation": "The attestation is done on the birth certificate, so the birth must be registered and the certificate issued first.",
+      "source_ids": [
+        "src-uae-having-a-baby"
+      ]
+    },
+    {
+      "from_step_id": "stp_M0jnXvmWkeTMp3Y7",
+      "to_step_id": "stp_Abc2lDLHXFmTBjig",
+      "kind": "required",
+      "explanation": "ICP lists a passport valid for at least 6 months as a condition for issuing a residence permit, so the baby needs a passport first.",
+      "source_ids": [
+        "src-icp-residency-permit"
+      ]
+    },
+    {
+      "from_step_id": "stp_CD7Br2JI3vzQwETy",
+      "to_step_id": "stp_M0jnXvmWkeTMp3Y7",
+      "kind": "recommended",
+      "explanation": "Do the earlier step first.",
+      "source_ids": []
+    },
+    {
+      "from_step_id": "stp_LgIhZd_lgaecj7Pl",
+      "to_step_id": "stp_Abc2lDLHXFmTBjig",
+      "kind": "recommended",
+      "explanation": "Do the earlier step first.",
+      "source_ids": []
+    }
+  ],
+  "personalization": [
+    {
+      "field": "emirate",
+      "value": "umm_al_quwain",
+      "step_ids": []
+    },
+    {
+      "field": "residency_status",
+      "value": "resident",
+      "step_ids": [
+        "stp_LgIhZd_lgaecj7Pl",
+        "stp_M0jnXvmWkeTMp3Y7",
+        "stp_Abc2lDLHXFmTBjig"
+      ]
+    },
+    {
+      "field": "life_stage",
+      "value": "parent",
+      "step_ids": []
+    }
+  ],
+  "skipped": [
+    {
+      "service_id": "mabrouk-ma-yak",
+      "title": "Mabrouk Ma Yak newborn bundle (UAE nationals)",
+      "reason": "For babies of UAE nationals.",
+      "field": "residency_status"
+    }
+  ],
+  "notices": [
+    "Progress and document checklists are reported by you. They are not proof that an application was submitted or approved."
+  ],
+  "agent_steps": [],
+  "created_at": "2026-10-29T06:49:00.653000Z",
+  "updated_at": "2026-10-29T06:49:00.653000Z"
+} satisfies S["Journey"];
+
+export const navigationGaps = {
+  "generated_at": "2026-10-29T06:49:00Z",
+  "days": 90,
+  "licence": "UAE Open Data: free to reuse with attribution to NaviNation",
+  "rows": [
+    {
+      "week": "2026-10-26",
+      "topic": "unassigned",
+      "searches": 2,
+      "ready": 0,
+      "needs_clarification": 1,
+      "no_match": 1,
+      "plans": 0,
+      "median_seconds_to_plan": null
+    },
+    {
+      "week": "2026-10-26",
+      "topic": "new_baby",
+      "searches": 1,
+      "ready": 1,
+      "needs_clarification": 0,
+      "no_match": 0,
+      "plans": 1,
+      "median_seconds_to_plan": 0
+    },
+    {
+      "week": "2026-10-26",
+      "topic": "education_qualification",
+      "searches": 2,
+      "ready": 2,
+      "needs_clarification": 0,
+      "no_match": 0,
+      "plans": 1,
+      "median_seconds_to_plan": 0
+    }
+  ]
+} satisfies S["NavigationGaps"];
 
