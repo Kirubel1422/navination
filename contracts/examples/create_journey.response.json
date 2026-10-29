@@ -1,7 +1,7 @@
 {
   "status": 201,
   "body": {
-    "id": "jrn_TkXIinbMQZq7Qdmt",
+    "id": "jrn_y5Rx0mdBqv31Ljvy",
     "title": "Plan: Get an overseas university degree recognised",
     "life_event_id": "education_qualification",
     "context_revision": 1,
@@ -25,7 +25,7 @@
     ],
     "steps": [
       {
-        "id": "stp_mYp7d0rPKY1kNLng",
+        "id": "stp_6iDy2Dh1Qd27fRvt",
         "title": "Verify your degree through an authorised verification partner",
         "instructions": "Prepare and apply: News reporting says MoHESR appointed authorised partners to verify foreign degrees before you apply for recognition. We have not confirmed this on an official MoHESR page, so treat it as something to check.",
         "checklist": [],
@@ -84,7 +84,8 @@
           ],
           "missing_profile_fields": [],
           "readiness": "ready",
-          "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+          "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+          "reach": null
         },
         "order_group": 0,
         "prerequisite_step_ids": [],
@@ -97,7 +98,7 @@
         ]
       },
       {
-        "id": "stp_vAuj5t3gAL-u7bW0",
+        "id": "stp_wO2OD_FLBothZyBC",
         "title": "Set up UAE PASS to sign in to online services",
         "instructions": "UAE PASS is the sign-in used by federal online services. MoFA's online attestation application and ICP's smart services both state that you sign in with UAE PASS.",
         "checklist": [],
@@ -159,7 +160,8 @@
           ],
           "missing_profile_fields": [],
           "readiness": "ready",
-          "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision."
+          "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
+          "reach": null
         },
         "order_group": 0,
         "prerequisite_step_ids": [],
@@ -170,7 +172,7 @@
         "notes": []
       },
       {
-        "id": "stp_pR29TZ-IH_E4Lh-S",
+        "id": "stp_1NX6TFo_8yVXXyYi",
         "title": "Attest a document issued outside the UAE",
         "instructions": "Prepare and apply: The Ministry of Foreign Affairs attests documents issued abroad through UAE missions in the country of issue. You apply online with UAE PASS where the mission offers it, or visit the mission in person.",
         "checklist": [
@@ -278,11 +280,12 @@
           ],
           "missing_profile_fields": [],
           "readiness": "prerequisites_needed",
-          "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision."
+          "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
+          "reach": null
         },
         "order_group": 1,
         "prerequisite_step_ids": [
-          "stp_vAuj5t3gAL-u7bW0"
+          "stp_wO2OD_FLBothZyBC"
         ],
         "document_progress": [
           {
@@ -297,7 +300,7 @@
         "progress": "not_started",
         "availability": "blocked",
         "blocker_step_ids": [
-          "stp_vAuj5t3gAL-u7bW0"
+          "stp_wO2OD_FLBothZyBC"
         ],
         "notes": [
           "Waiting for: Set up UAE PASS to sign in to online services. Complete those steps first.",
@@ -305,9 +308,9 @@
         ]
       },
       {
-        "id": "stp_fUF1BEHOpFPMV348",
+        "id": "stp_TbC5GRbRSAkBuxow",
         "title": "Get a university qualification from abroad recognised",
-        "instructions": "Prepare and apply: MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government services.",
+        "instructions": "Prepare and apply: MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government serv…",
         "checklist": [],
         "service_card": {
           "service": {
@@ -374,12 +377,13 @@
           ],
           "missing_profile_fields": [],
           "readiness": "ready",
-          "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+          "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+          "reach": null
         },
         "order_group": 2,
         "prerequisite_step_ids": [
-          "stp_mYp7d0rPKY1kNLng",
-          "stp_pR29TZ-IH_E4Lh-S"
+          "stp_6iDy2Dh1Qd27fRvt",
+          "stp_1NX6TFo_8yVXXyYi"
         ],
         "document_progress": [],
         "progress": "not_started",
@@ -393,8 +397,8 @@
     ],
     "dependencies": [
       {
-        "from_step_id": "stp_vAuj5t3gAL-u7bW0",
-        "to_step_id": "stp_pR29TZ-IH_E4Lh-S",
+        "from_step_id": "stp_wO2OD_FLBothZyBC",
+        "to_step_id": "stp_1NX6TFo_8yVXXyYi",
         "kind": "required",
         "explanation": "MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies.",
         "source_ids": [
@@ -402,15 +406,15 @@
         ]
       },
       {
-        "from_step_id": "stp_mYp7d0rPKY1kNLng",
-        "to_step_id": "stp_fUF1BEHOpFPMV348",
+        "from_step_id": "stp_6iDy2Dh1Qd27fRvt",
+        "to_step_id": "stp_TbC5GRbRSAkBuxow",
         "kind": "recommended",
         "explanation": "Do the earlier step first.",
         "source_ids": []
       },
       {
-        "from_step_id": "stp_pR29TZ-IH_E4Lh-S",
-        "to_step_id": "stp_fUF1BEHOpFPMV348",
+        "from_step_id": "stp_1NX6TFo_8yVXXyYi",
+        "to_step_id": "stp_TbC5GRbRSAkBuxow",
         "kind": "recommended",
         "explanation": "Do the earlier step first.",
         "source_ids": []
@@ -421,21 +425,8 @@
       "This plan was generated by NaviNation's AI agent for your request and profile. Only officially verified rules can block a step.",
       "Added \"Set up UAE PASS to sign in to online services\" before \"Attest a document issued outside the UAE\" because a verified rule requires it: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
     ],
-    "agent_steps": [
-      {
-        "tool": "get_catalog_service",
-        "detail": "mohesr-degree-recognition"
-      },
-      {
-        "tool": "get_catalog_service",
-        "detail": "mofa-attestation-abroad"
-      },
-      {
-        "tool": "get_catalog_service",
-        "detail": "degree-verification-partner"
-      }
-    ],
-    "created_at": "2026-10-28T21:51:18.602000Z",
-    "updated_at": "2026-10-28T21:51:18.602000Z"
+    "agent_steps": [],
+    "created_at": "2026-10-29T00:54:46.144000Z",
+    "updated_at": "2026-10-29T00:54:46.144000Z"
   }
 }

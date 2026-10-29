@@ -496,6 +496,114 @@
         }
       }
     },
+    "/api/v1/services/{service_id}/nearby": {
+      "post": {
+        "tags": [
+          "services"
+        ],
+        "summary": "Nearby centres and published phone numbers for a service",
+        "operationId": "get_nearby_api_v1_services__service_id__nearby_post",
+        "security": [
+          {
+            "GuestSessionToken": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "service_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 80,
+              "title": "Service Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NearbyRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Nearby"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, invalid or expired session",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found (or owned by another session)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Temporarily unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/journeys": {
       "post": {
         "tags": [
@@ -1223,6 +1331,65 @@
         "title": "AgentStep",
         "description": "One tool the AI agent used, for transparency (e.g. a catalog lookup or an official page)."
       },
+      "Center": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "address": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address"
+          },
+          "lat": {
+            "type": "number",
+            "title": "Lat"
+          },
+          "lng": {
+            "type": "number",
+            "title": "Lng"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "source": {
+            "type": "string",
+            "const": "openstreetmap",
+            "title": "Source",
+            "default": "openstreetmap"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "address",
+          "lat",
+          "lng",
+          "note"
+        ],
+        "title": "Center"
+      },
       "ChecklistItem": {
         "properties": {
           "id": {
@@ -1368,6 +1535,17 @@
             "type": "array",
             "title": "Citations"
           },
+          "reach": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Reach"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Phone contacts / nearby centres"
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
@@ -1413,6 +1591,17 @@
               }
             ],
             "title": "Step Id"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Shared by the person for nearby centres; used, never stored"
           }
         },
         "additionalProperties": false,
@@ -1479,6 +1668,68 @@
           "agent_steps"
         ],
         "title": "CoachTurn"
+      },
+      "Contact": {
+        "properties": {
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "phone": {
+            "type": "string",
+            "title": "Phone",
+            "description": "As published by the entity"
+          },
+          "tel": {
+            "type": "string",
+            "title": "Tel",
+            "description": "tel: link that dials from a UAE phone"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "hours": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hours"
+          },
+          "source_url": {
+            "type": "string",
+            "pattern": "^https://",
+            "format": "uri",
+            "title": "Source Url"
+          },
+          "source_title": {
+            "type": "string",
+            "title": "Source Title"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "label",
+          "phone",
+          "tel",
+          "email",
+          "hours",
+          "source_url",
+          "source_title"
+        ],
+        "title": "Contact"
       },
       "CreateJourneyRequest": {
         "properties": {
@@ -1602,6 +1853,17 @@
                 "type": "null"
               }
             ]
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Shared by the person for nearby centres; used, never stored"
           }
         },
         "additionalProperties": false,
@@ -1629,6 +1891,25 @@
           "interpreted_need": {
             "type": "string",
             "title": "Interpreted Need"
+          },
+          "answer": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Answer",
+            "description": "The guide's direct reply to the request"
+          },
+          "answer_sources": {
+            "items": {
+              "$ref": "#/components/schemas/Source"
+            },
+            "type": "array",
+            "title": "Answer Sources"
           },
           "life_event_id": {
             "anyOf": [
@@ -1694,6 +1975,8 @@
           "context_revision",
           "query",
           "interpreted_need",
+          "answer",
+          "answer_sources",
           "life_event_id",
           "status",
           "clarification",
@@ -2120,6 +2403,30 @@
         ],
         "title": "JourneyStep"
       },
+      "Location": {
+        "properties": {
+          "lat": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Lat"
+          },
+          "lng": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Lng"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "lat",
+          "lng"
+        ],
+        "title": "Location",
+        "description": "The person's position, shared from the browser for this request only (never stored)."
+      },
       "MessageList": {
         "properties": {
           "items": {
@@ -2136,6 +2443,59 @@
           "items"
         ],
         "title": "MessageList"
+      },
+      "Nearby": {
+        "properties": {
+          "service_id": {
+            "type": "string",
+            "title": "Service Id"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "reach": {
+            "$ref": "#/components/schemas/Reach"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "service_id",
+          "message",
+          "reach"
+        ],
+        "title": "Nearby"
+      },
+      "NearbyRequest": {
+        "properties": {
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "request": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 500
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Request",
+            "description": "Anything specific, e.g. 'open on Saturday'"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "NearbyRequest"
       },
       "Profile": {
         "properties": {
@@ -2291,6 +2651,45 @@
         ],
         "title": "ProfileRequest",
         "description": "All four fields are required; null means unknown (distinct from false)."
+      },
+      "Reach": {
+        "properties": {
+          "contacts": {
+            "items": {
+              "$ref": "#/components/schemas/Contact"
+            },
+            "type": "array",
+            "title": "Contacts"
+          },
+          "centers": {
+            "items": {
+              "$ref": "#/components/schemas/Center"
+            },
+            "type": "array",
+            "title": "Centers"
+          },
+          "map_query": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Map Query",
+            "description": "Google Maps search for this kind of centre"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "contacts",
+          "centers",
+          "map_query"
+        ],
+        "title": "Reach",
+        "description": "How to reach a person for this service: published phone numbers and nearby centres."
       },
       "Reason": {
         "properties": {
@@ -2533,6 +2932,16 @@
           "authority_notice": {
             "type": "string",
             "title": "Authority Notice"
+          },
+          "reach": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Reach"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,

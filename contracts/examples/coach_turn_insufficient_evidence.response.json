@@ -2,20 +2,22 @@
   "status": 200,
   "body": {
     "user_message": {
-      "id": "msg_YpetjCOtI33mZ1GF",
+      "id": "msg_BbRVjV1yXoGvcKSb",
       "role": "user",
       "content": "Can you recommend a good typing centre near me?",
-      "step_id": "stp_fUF1BEHOpFPMV348",
+      "step_id": "stp_TbC5GRbRSAkBuxow",
       "citations": [],
-      "created_at": "2026-10-28T21:51:18.651000Z"
+      "reach": null,
+      "created_at": "2026-10-29T00:54:46.198000Z"
     },
     "assistant_message": {
-      "id": "msg_fBX2rGGdYgInDgzA",
+      "id": "msg_YeN0quA7tfYBx9DR",
       "role": "assistant",
       "content": "I couldn't find that in the available sources, so I won't guess. Please contact the responsible entity.",
-      "step_id": "stp_fUF1BEHOpFPMV348",
+      "step_id": "stp_TbC5GRbRSAkBuxow",
       "citations": [],
-      "created_at": "2026-10-28T21:51:18.651000Z"
+      "reach": null,
+      "created_at": "2026-10-29T00:54:46.198000Z"
     },
     "mode": "ai",
     "grounding_status": "insufficient_evidence",
@@ -24,7 +26,7 @@
     "agent_steps": [
       {
         "tool": "get_step",
-        "detail": "stp_fUF1BEHOpFPMV348"
+        "detail": "stp_TbC5GRbRSAkBuxow"
       }
     ]
   }

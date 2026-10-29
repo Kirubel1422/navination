@@ -108,6 +108,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/services/{service_id}/nearby": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Nearby centres and published phone numbers for a service */
+        post: operations["get_nearby_api_v1_services__service_id__nearby_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/journeys": {
         parameters: {
             query?: never;
@@ -241,6 +258,27 @@ export interface components {
             /** Detail */
             detail: string;
         };
+        /** Center */
+        Center: {
+            /** Id */
+            id: string;
+            /** Name */
+            name: string;
+            /** Address */
+            address: string | null;
+            /** Lat */
+            lat: number;
+            /** Lng */
+            lng: number;
+            /** Note */
+            note: string | null;
+            /**
+             * Source
+             * @default openstreetmap
+             * @constant
+             */
+            source: "openstreetmap";
+        };
         /**
          * ChecklistItem
          * @description A preparation item written by the AI planner (or copied from a reviewed record).
@@ -295,6 +333,8 @@ export interface components {
             step_id: string | null;
             /** Citations */
             citations: components["schemas"]["Source"][];
+            /** @description Phone contacts / nearby centres */
+            reach?: components["schemas"]["Reach"] | null;
             /**
              * Created At
              * Format: date-time
@@ -312,6 +352,8 @@ export interface components {
             message: string;
             /** Step Id */
             step_id: string | null;
+            /** @description Shared by the person for nearby centres; used, never stored */
+            location?: components["schemas"]["Location"] | null;
         };
         /** CoachTurn */
         CoachTurn: {
@@ -333,6 +375,32 @@ export interface components {
             notices: string[];
             /** Agent Steps */
             agent_steps: components["schemas"]["AgentStep"][];
+        };
+        /** Contact */
+        Contact: {
+            /** Label */
+            label: string;
+            /**
+             * Phone
+             * @description As published by the entity
+             */
+            phone: string;
+            /**
+             * Tel
+             * @description tel: link that dials from a UAE phone
+             */
+            tel: string;
+            /** Email */
+            email: string | null;
+            /** Hours */
+            hours: string | null;
+            /**
+             * Source Url
+             * Format: uri
+             */
+            source_url: string;
+            /** Source Title */
+            source_title: string;
         };
         /** CreateJourneyRequest */
         CreateJourneyRequest: {
@@ -376,6 +444,8 @@ export interface components {
             /** Query */
             query: string;
             clarification_answer: components["schemas"]["ClarificationAnswer"] | null;
+            /** @description Shared by the person for nearby centres; used, never stored */
+            location?: components["schemas"]["Location"] | null;
         };
         /** Discovery */
         Discovery: {
@@ -387,6 +457,13 @@ export interface components {
             query: string;
             /** Interpreted Need */
             interpreted_need: string;
+            /**
+             * Answer
+             * @description The guide's direct reply to the request
+             */
+            answer: string | null;
+            /** Answer Sources */
+            answer_sources: components["schemas"]["Source"][];
             /** Life Event Id */
             life_event_id: string | null;
             /**
@@ -567,10 +644,37 @@ export interface components {
             /** Notes */
             notes: string[];
         };
+        /**
+         * Location
+         * @description The person's position, shared from the browser for this request only (never stored).
+         */
+        Location: {
+            /** Lat */
+            lat: number;
+            /** Lng */
+            lng: number;
+        };
         /** MessageList */
         MessageList: {
             /** Items */
             items: components["schemas"]["CoachMessage"][];
+        };
+        /** Nearby */
+        Nearby: {
+            /** Service Id */
+            service_id: string;
+            /** Message */
+            message: string;
+            reach: components["schemas"]["Reach"];
+        };
+        /** NearbyRequest */
+        NearbyRequest: {
+            location?: components["schemas"]["Location"] | null;
+            /**
+             * Request
+             * @description Anything specific, e.g. 'open on Saturday'
+             */
+            request?: string | null;
         };
         /** Profile */
         Profile: {
@@ -596,6 +700,21 @@ export interface components {
             life_stage: ("student" | "worker" | "parent" | "other") | null;
             /** Degree Issued Outside Uae */
             degree_issued_outside_uae: boolean | null;
+        };
+        /**
+         * Reach
+         * @description How to reach a person for this service: published phone numbers and nearby centres.
+         */
+        Reach: {
+            /** Contacts */
+            contacts: components["schemas"]["Contact"][];
+            /** Centers */
+            centers: components["schemas"]["Center"][];
+            /**
+             * Map Query
+             * @description Google Maps search for this kind of centre
+             */
+            map_query: string | null;
         };
         /** Reason */
         Reason: {
@@ -677,6 +796,7 @@ export interface components {
             readiness: "ready" | "prerequisites_needed" | "unknown";
             /** Authority Notice */
             authority_notice: string;
+            reach?: components["schemas"]["Reach"] | null;
         };
         /** Session */
         Session: {
@@ -1135,6 +1255,86 @@ export interface operations {
             };
             /** @description Validation error */
             422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Unexpected error */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Temporarily unavailable */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+        };
+    };
+    get_nearby_api_v1_services__service_id__nearby_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                service_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["NearbyRequest"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Nearby"];
+                };
+            };
+            /** @description Missing, invalid or expired session */
+            401: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Not found (or owned by another session) */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Validation error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorEnvelope"];
+                };
+            };
+            /** @description Rate limited */
+            429: {
                 headers: {
                     [name: string]: unknown;
                 };

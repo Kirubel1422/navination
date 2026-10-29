@@ -65,6 +65,7 @@
     ],
     "missing_profile_fields": [],
     "readiness": "ready",
-    "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+    "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+    "reach": null
   }
 }

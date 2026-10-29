@@ -1,10 +1,12 @@
 {
   "status": 200,
   "body": {
-    "id": "dis_sD9Fe7CISO37Snvh",
+    "id": "dis_5ZfV57JUZ7XuLxAh",
     "context_revision": 0,
     "query": "I want to renew my driving licence",
     "interpreted_need": "A request NaviNation cannot match to evidence yet",
+    "answer": null,
+    "answer_sources": [],
     "life_event_id": null,
     "status": "no_match",
     "clarification": null,
@@ -16,7 +18,7 @@
     ],
     "agent_steps": [
       {
-        "tool": "list_catalog_services",
+        "tool": "read_catalog",
         "detail": "10 reviewed services"
       }
     ]

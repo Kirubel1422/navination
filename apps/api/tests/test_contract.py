@@ -96,7 +96,10 @@ def test_examples_cover_key_states():
     assert body("coach_turn_insufficient_evidence")["grounding_status"] == "insufficient_evidence"
     assert body("error_ai_unavailable")["error"]["code"] == "SERVICE_UNAVAILABLE"
     assert body("discover_ready")["mode"] == "ai" and body("discover_ready")["agent_steps"]
-    assert body("create_journey")["stages"] and body("create_journey")["agent_steps"]
+    # The planner gets each selected service's reviewed details up front, so it may need no tools.
+    assert body("create_journey")["stages"] and isinstance(
+        body("create_journey")["agent_steps"], list
+    )
     journey = body("create_journey")
     sources = {s["id"] for st in journey["steps"] for s in st["service_card"]["service"]["sources"]}
     for dep in journey["dependencies"]:

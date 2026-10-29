@@ -6,9 +6,9 @@ type S = components["schemas"];
 
 export const createSession = {
   "session": {
-    "id": "ses_9u0dKaVhqPB_VSfQ",
+    "id": "ses_b1FaYoxxb-zKhbGq",
     "locale": "en",
-    "expires_at": "2026-10-29T21:51:18.532000Z",
+    "expires_at": "2026-10-30T00:54:46.043000Z",
     "context_revision": 0,
     "profile": {
       "emirate": null,
@@ -21,10 +21,12 @@ export const createSession = {
 } satisfies S["CreateSessionResponse"];
 
 export const discoverReady = {
-  "id": "dis_yNjLKNNF4XykRSjz",
+  "id": "dis_jWIsF3IAQxCbMkrf",
   "context_revision": 1,
   "query": "I recently arrived and need my overseas degree recognized",
   "interpreted_need": "Get an overseas university degree recognised",
+  "answer": null,
+  "answer_sources": [],
   "life_event_id": "education_qualification",
   "status": "ready",
   "clarification": null,
@@ -94,7 +96,8 @@ export const discoverReady = {
       ],
       "missing_profile_fields": [],
       "readiness": "ready",
-      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     },
     {
       "service": {
@@ -183,7 +186,8 @@ export const discoverReady = {
       ],
       "missing_profile_fields": [],
       "readiness": "prerequisites_needed",
-      "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     },
     {
       "service": {
@@ -243,7 +247,8 @@ export const discoverReady = {
       ],
       "missing_profile_fields": [],
       "readiness": "ready",
-      "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     },
     {
       "service": {
@@ -300,46 +305,31 @@ export const discoverReady = {
       ],
       "missing_profile_fields": [],
       "readiness": "ready",
-      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     }
   ],
   "mode": "ai",
-  "notices": [
-    "These results were chosen and ordered by NaviNation's AI agent using your description and any optional profile details. They are guidance, not a decision."
-  ],
+  "notices": [],
   "agent_steps": [
     {
-      "tool": "list_catalog_services",
+      "tool": "read_catalog",
       "detail": "10 reviewed services"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "mohesr-degree-recognition"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "mofa-attestation-abroad"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "uae-pass-account"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "degree-verification-partner"
     }
   ]
 } satisfies S["Discovery"];
 
 export const discoverClarification = {
-  "id": "dis_s_-M2jQTJw6ulxFU",
+  "id": "dis_4RgHfnU61raaBT0X",
   "context_revision": 0,
   "query": "My certificate from abroad needs to be accepted",
   "interpreted_need": "Your request could mean more than one thing",
+  "answer": null,
+  "answer_sources": [],
   "life_event_id": null,
   "status": "needs_clarification",
   "clarification": {
-    "id": "q_3f79158b",
+    "id": "q_042699b2",
     "prompt": "Which qualification do you want to use in the UAE?",
     "options": [
       {
@@ -357,17 +347,19 @@ export const discoverClarification = {
   "notices": [],
   "agent_steps": [
     {
-      "tool": "list_catalog_services",
+      "tool": "read_catalog",
       "detail": "10 reviewed services"
     }
   ]
 } satisfies S["Discovery"];
 
 export const discoverClarificationAnswer = {
-  "id": "dis_8e7qj2e_i2KN-kPQ",
+  "id": "dis_3imr3OMCdro2hyF-",
   "context_revision": 0,
   "query": "My certificate from abroad needs to be accepted",
   "interpreted_need": "Get an overseas university degree recognised",
+  "answer": null,
+  "answer_sources": [],
   "life_event_id": "education_qualification",
   "status": "ready",
   "clarification": null,
@@ -430,7 +422,8 @@ export const discoverClarificationAnswer = {
       ],
       "missing_profile_fields": [],
       "readiness": "ready",
-      "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     },
     {
       "service": {
@@ -499,7 +492,8 @@ export const discoverClarificationAnswer = {
         "degree_issued_outside_uae"
       ],
       "readiness": "ready",
-      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     },
     {
       "service": {
@@ -590,7 +584,8 @@ export const discoverClarificationAnswer = {
         "degree_issued_outside_uae"
       ],
       "readiness": "prerequisites_needed",
-      "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     },
     {
       "service": {
@@ -649,42 +644,27 @@ export const discoverClarificationAnswer = {
         "degree_issued_outside_uae"
       ],
       "readiness": "ready",
-      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+      "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+      "reach": null
     }
   ],
   "mode": "ai",
-  "notices": [
-    "These results were chosen and ordered by NaviNation's AI agent using your description and any optional profile details. They are guidance, not a decision."
-  ],
+  "notices": [],
   "agent_steps": [
     {
-      "tool": "list_catalog_services",
+      "tool": "read_catalog",
       "detail": "10 reviewed services"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "mohesr-degree-recognition"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "mofa-attestation-abroad"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "uae-pass-account"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "degree-verification-partner"
     }
   ]
 } satisfies S["Discovery"];
 
 export const discoverNoMatch = {
-  "id": "dis_sD9Fe7CISO37Snvh",
+  "id": "dis_5ZfV57JUZ7XuLxAh",
   "context_revision": 0,
   "query": "I want to renew my driving licence",
   "interpreted_need": "A request NaviNation cannot match to evidence yet",
+  "answer": null,
+  "answer_sources": [],
   "life_event_id": null,
   "status": "no_match",
   "clarification": null,
@@ -696,7 +676,7 @@ export const discoverNoMatch = {
   ],
   "agent_steps": [
     {
-      "tool": "list_catalog_services",
+      "tool": "read_catalog",
       "detail": "10 reviewed services"
     }
   ]
@@ -767,11 +747,12 @@ export const serviceCard = {
   ],
   "missing_profile_fields": [],
   "readiness": "ready",
-  "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+  "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+  "reach": null
 } satisfies S["ServiceCard"];
 
 export const journey = {
-  "id": "jrn_TkXIinbMQZq7Qdmt",
+  "id": "jrn_y5Rx0mdBqv31Ljvy",
   "title": "Plan: Get an overseas university degree recognised",
   "life_event_id": "education_qualification",
   "context_revision": 1,
@@ -795,7 +776,7 @@ export const journey = {
   ],
   "steps": [
     {
-      "id": "stp_mYp7d0rPKY1kNLng",
+      "id": "stp_6iDy2Dh1Qd27fRvt",
       "title": "Verify your degree through an authorised verification partner",
       "instructions": "Prepare and apply: News reporting says MoHESR appointed authorised partners to verify foreign degrees before you apply for recognition. We have not confirmed this on an official MoHESR page, so treat it as something to check.",
       "checklist": [],
@@ -854,7 +835,8 @@ export const journey = {
         ],
         "missing_profile_fields": [],
         "readiness": "ready",
-        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       },
       "order_group": 0,
       "prerequisite_step_ids": [],
@@ -867,7 +849,7 @@ export const journey = {
       ]
     },
     {
-      "id": "stp_vAuj5t3gAL-u7bW0",
+      "id": "stp_wO2OD_FLBothZyBC",
       "title": "Set up UAE PASS to sign in to online services",
       "instructions": "UAE PASS is the sign-in used by federal online services. MoFA's online attestation application and ICP's smart services both state that you sign in with UAE PASS.",
       "checklist": [],
@@ -929,7 +911,8 @@ export const journey = {
         ],
         "missing_profile_fields": [],
         "readiness": "ready",
-        "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       },
       "order_group": 0,
       "prerequisite_step_ids": [],
@@ -940,7 +923,7 @@ export const journey = {
       "notes": []
     },
     {
-      "id": "stp_pR29TZ-IH_E4Lh-S",
+      "id": "stp_1NX6TFo_8yVXXyYi",
       "title": "Attest a document issued outside the UAE",
       "instructions": "Prepare and apply: The Ministry of Foreign Affairs attests documents issued abroad through UAE missions in the country of issue. You apply online with UAE PASS where the mission offers it, or visit the mission in person.",
       "checklist": [
@@ -1048,11 +1031,12 @@ export const journey = {
         ],
         "missing_profile_fields": [],
         "readiness": "prerequisites_needed",
-        "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       },
       "order_group": 1,
       "prerequisite_step_ids": [
-        "stp_vAuj5t3gAL-u7bW0"
+        "stp_wO2OD_FLBothZyBC"
       ],
       "document_progress": [
         {
@@ -1067,7 +1051,7 @@ export const journey = {
       "progress": "not_started",
       "availability": "blocked",
       "blocker_step_ids": [
-        "stp_vAuj5t3gAL-u7bW0"
+        "stp_wO2OD_FLBothZyBC"
       ],
       "notes": [
         "Waiting for: Set up UAE PASS to sign in to online services. Complete those steps first.",
@@ -1075,9 +1059,9 @@ export const journey = {
       ]
     },
     {
-      "id": "stp_fUF1BEHOpFPMV348",
+      "id": "stp_TbC5GRbRSAkBuxow",
       "title": "Get a university qualification from abroad recognised",
-      "instructions": "Prepare and apply: MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government services.",
+      "instructions": "Prepare and apply: MoHESR's University Qualifications Recognition service reviews qualifications from accredited institutions outside the UAE. The recognition report can be used for employment, further study, visas and UAE government serv…",
       "checklist": [],
       "service_card": {
         "service": {
@@ -1144,12 +1128,13 @@ export const journey = {
         ],
         "missing_profile_fields": [],
         "readiness": "ready",
-        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       },
       "order_group": 2,
       "prerequisite_step_ids": [
-        "stp_mYp7d0rPKY1kNLng",
-        "stp_pR29TZ-IH_E4Lh-S"
+        "stp_6iDy2Dh1Qd27fRvt",
+        "stp_1NX6TFo_8yVXXyYi"
       ],
       "document_progress": [],
       "progress": "not_started",
@@ -1163,8 +1148,8 @@ export const journey = {
   ],
   "dependencies": [
     {
-      "from_step_id": "stp_vAuj5t3gAL-u7bW0",
-      "to_step_id": "stp_pR29TZ-IH_E4Lh-S",
+      "from_step_id": "stp_wO2OD_FLBothZyBC",
+      "to_step_id": "stp_1NX6TFo_8yVXXyYi",
       "kind": "required",
       "explanation": "MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies.",
       "source_ids": [
@@ -1172,15 +1157,15 @@ export const journey = {
       ]
     },
     {
-      "from_step_id": "stp_mYp7d0rPKY1kNLng",
-      "to_step_id": "stp_fUF1BEHOpFPMV348",
+      "from_step_id": "stp_6iDy2Dh1Qd27fRvt",
+      "to_step_id": "stp_TbC5GRbRSAkBuxow",
       "kind": "recommended",
       "explanation": "Do the earlier step first.",
       "source_ids": []
     },
     {
-      "from_step_id": "stp_pR29TZ-IH_E4Lh-S",
-      "to_step_id": "stp_fUF1BEHOpFPMV348",
+      "from_step_id": "stp_1NX6TFo_8yVXXyYi",
+      "to_step_id": "stp_TbC5GRbRSAkBuxow",
       "kind": "recommended",
       "explanation": "Do the earlier step first.",
       "source_ids": []
@@ -1191,38 +1176,26 @@ export const journey = {
     "This plan was generated by NaviNation's AI agent for your request and profile. Only officially verified rules can block a step.",
     "Added \"Set up UAE PASS to sign in to online services\" before \"Attest a document issued outside the UAE\" because a verified rule requires it: MoFA's online attestation application requires signing in with UAE PASS. If your UAE mission only takes in-person applications, ask the mission whether this step applies."
   ],
-  "agent_steps": [
-    {
-      "tool": "get_catalog_service",
-      "detail": "mohesr-degree-recognition"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "mofa-attestation-abroad"
-    },
-    {
-      "tool": "get_catalog_service",
-      "detail": "degree-verification-partner"
-    }
-  ],
-  "created_at": "2026-10-28T21:51:18.602000Z",
-  "updated_at": "2026-10-28T21:51:18.602000Z"
+  "agent_steps": [],
+  "created_at": "2026-10-29T00:54:46.144000Z",
+  "updated_at": "2026-10-29T00:54:46.144000Z"
 } satisfies S["Journey"];
 
 export const coachTurn = {
   "user_message": {
-    "id": "msg_Tx8Kd4Szax6e11SY",
+    "id": "msg_YBcDaKfsYZPcG_zz",
     "role": "user",
     "content": "What documents do I need for this step?",
-    "step_id": "stp_pR29TZ-IH_E4Lh-S",
+    "step_id": "stp_1NX6TFo_8yVXXyYi",
     "citations": [],
-    "created_at": "2026-10-28T21:51:18.640000Z"
+    "reach": null,
+    "created_at": "2026-10-29T00:54:46.188000Z"
   },
   "assistant_message": {
-    "id": "msg_AH5Tv5ZAZ8Cd3cnV",
+    "id": "msg_sYy-FdDhfhlqhMyc",
     "role": "assistant",
     "content": "Preparation checklist:\n- The original document (for example, your degree certificate). Mission courier services collect the original. (have)\n- Proof that the issuing country's foreign office attested the document, where your mission requires it. (missing)",
-    "step_id": "stp_pR29TZ-IH_E4Lh-S",
+    "step_id": "stp_1NX6TFo_8yVXXyYi",
     "citations": [
       {
         "id": "src-mofa-attestation",
@@ -1243,7 +1216,8 @@ export const coachTurn = {
         "verification_status": "verified"
       }
     ],
-    "created_at": "2026-10-28T21:51:18.640000Z"
+    "reach": null,
+    "created_at": "2026-10-29T00:54:46.188000Z"
   },
   "mode": "ai",
   "grounding_status": "grounded",
@@ -1252,27 +1226,29 @@ export const coachTurn = {
   "agent_steps": [
     {
       "tool": "get_step",
-      "detail": "stp_pR29TZ-IH_E4Lh-S"
+      "detail": "stp_1NX6TFo_8yVXXyYi"
     }
   ]
 } satisfies S["CoachTurn"];
 
 export const coachInsufficient = {
   "user_message": {
-    "id": "msg_YpetjCOtI33mZ1GF",
+    "id": "msg_BbRVjV1yXoGvcKSb",
     "role": "user",
     "content": "Can you recommend a good typing centre near me?",
-    "step_id": "stp_fUF1BEHOpFPMV348",
+    "step_id": "stp_TbC5GRbRSAkBuxow",
     "citations": [],
-    "created_at": "2026-10-28T21:51:18.651000Z"
+    "reach": null,
+    "created_at": "2026-10-29T00:54:46.198000Z"
   },
   "assistant_message": {
-    "id": "msg_fBX2rGGdYgInDgzA",
+    "id": "msg_YeN0quA7tfYBx9DR",
     "role": "assistant",
     "content": "I couldn't find that in the available sources, so I won't guess. Please contact the responsible entity.",
-    "step_id": "stp_fUF1BEHOpFPMV348",
+    "step_id": "stp_TbC5GRbRSAkBuxow",
     "citations": [],
-    "created_at": "2026-10-28T21:51:18.651000Z"
+    "reach": null,
+    "created_at": "2026-10-29T00:54:46.198000Z"
   },
   "mode": "ai",
   "grounding_status": "insufficient_evidence",
@@ -1281,18 +1257,18 @@ export const coachInsufficient = {
   "agent_steps": [
     {
       "tool": "get_step",
-      "detail": "stp_fUF1BEHOpFPMV348"
+      "detail": "stp_TbC5GRbRSAkBuxow"
     }
   ]
 } satisfies S["CoachTurn"];
 
 export const handoff = {
-  "id": "hnd_eitZQlZuDOTlqhvY",
+  "id": "hnd_lYIyuXt0KLU3X6si",
   "kind": "official",
   "service_id": "mohesr-degree-recognition",
   "url": "https://www.mohesr.gov.ae/en/eservices/servicecard/pages/universiycertificateequilization.aspx",
   "label": "Continue to Ministry of Higher Education and Scientific Research (MoHESR)",
-  "created_at": "2026-10-28T21:51:18.669000Z"
+  "created_at": "2026-10-29T00:54:46.211000Z"
 } satisfies S["Handoff"];
 
 export const errorPrerequisites = {
@@ -1302,10 +1278,10 @@ export const errorPrerequisites = {
     "details": [
       {
         "field": "progress",
-        "message": "Blocked by step stp_vAuj5t3gAL-u7bW0"
+        "message": "Blocked by step stp_wO2OD_FLBothZyBC"
       }
     ],
-    "request_id": "req_4176427998f8c843"
+    "request_id": "req_0a59c5bdbff7f9bb"
   }
 } satisfies S["ErrorEnvelope"];
 
@@ -1314,7 +1290,7 @@ export const errorHandoffUnavailable = {
     "code": "HANDOFF_UNAVAILABLE",
     "message": "We don't have a verified destination for this step. Contact the responsible entity directly.",
     "details": [],
-    "request_id": "req_25a1028b895374e0"
+    "request_id": "req_a2593a2902e80bb5"
   }
 } satisfies S["ErrorEnvelope"];
 
@@ -1323,7 +1299,7 @@ export const errorContextStale = {
     "code": "CONTEXT_STALE",
     "message": "Your profile changed after this plan was made. Update the plan before continuing.",
     "details": [],
-    "request_id": "req_dfb083ded2defc34"
+    "request_id": "req_330b19c496ada053"
   }
 } satisfies S["ErrorEnvelope"];
 

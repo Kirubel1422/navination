@@ -1,10 +1,12 @@
 {
   "status": 200,
   "body": {
-    "id": "dis_8e7qj2e_i2KN-kPQ",
+    "id": "dis_3imr3OMCdro2hyF-",
     "context_revision": 0,
     "query": "My certificate from abroad needs to be accepted",
     "interpreted_need": "Get an overseas university degree recognised",
+    "answer": null,
+    "answer_sources": [],
     "life_event_id": "education_qualification",
     "status": "ready",
     "clarification": null,
@@ -67,7 +69,8 @@
         ],
         "missing_profile_fields": [],
         "readiness": "ready",
-        "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only UAE PASS can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       },
       {
         "service": {
@@ -136,7 +139,8 @@
           "degree_issued_outside_uae"
         ],
         "readiness": "ready",
-        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       },
       {
         "service": {
@@ -227,7 +231,8 @@
           "degree_issued_outside_uae"
         ],
         "readiness": "prerequisites_needed",
-        "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only the Ministry of Foreign Affairs and the UAE mission in the issuing country can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       },
       {
         "service": {
@@ -286,33 +291,16 @@
           "degree_issued_outside_uae"
         ],
         "readiness": "ready",
-        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision."
+        "authority_notice": "Only the Ministry of Higher Education and Scientific Research can decide whether this service applies to you. This guidance is not an eligibility decision.",
+        "reach": null
       }
     ],
     "mode": "ai",
-    "notices": [
-      "These results were chosen and ordered by NaviNation's AI agent using your description and any optional profile details. They are guidance, not a decision."
-    ],
+    "notices": [],
     "agent_steps": [
       {
-        "tool": "list_catalog_services",
+        "tool": "read_catalog",
         "detail": "10 reviewed services"
-      },
-      {
-        "tool": "get_catalog_service",
-        "detail": "mohesr-degree-recognition"
-      },
-      {
-        "tool": "get_catalog_service",
-        "detail": "mofa-attestation-abroad"
-      },
-      {
-        "tool": "get_catalog_service",
-        "detail": "uae-pass-account"
-      },
-      {
-        "tool": "get_catalog_service",
-        "detail": "degree-verification-partner"
       }
     ]
   }
