@@ -1,6 +1,9 @@
 import { expect, test } from "@playwright/test";
 
-import { API, BABY_QUERY, DEGREE_QUERY, expectNoHorizontalOverflow, saveProfile, search } from "./helpers";
+import { classicFlow, API, BABY_QUERY, DEGREE_QUERY, expectNoHorizontalOverflow, saveProfile, search } from "./helpers";
+
+
+test.beforeEach(({ page }) => classicFlow(page));
 
 test("home page shows commonly requested services", async ({ page }) => {
   await page.goto("/");

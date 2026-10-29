@@ -1,6 +1,9 @@
 import { expect, test } from "@playwright/test";
 
-import { DEGREE_QUERY } from "./helpers";
+import { classicFlow, DEGREE_QUERY } from "./helpers";
+
+
+test.beforeEach(({ page }) => classicFlow(page));
 
 test("mock mode is clearly labelled and covers the main flow", async ({ page }) => {
   await page.goto("/");
@@ -75,4 +78,25 @@ test("the session can be cleared from the header at any time", async ({ page }) 
   await page.getByTestId("clear-session-open").click();
   await page.getByTestId("clear-session-confirm").click();
   await expect(page.getByTestId("session-cleared")).toBeVisible();
+});
+
+test("open data: figures on services and a public page with sources, freshness and gaps", async ({ page }) => {
+  await page.goto("/");
+  await page.getByLabel("Describe your need").fill(DEGREE_QUERY);
+  await page.getByTestId("search-submit").click();
+  const card = page.getByTestId("service-card-mohesr-degree-recognition");
+  await expect(card.getByTestId("insight")).toContainText("applications to recognise a qualification from abroad");
+  await expect(card.getByTestId("insight-source")).toHaveAttribute("href", /^https:\/\/bayanat\.ae\//);
+
+  await card.getByRole("link", { name: /Details and sources/ }).click();
+  const numbers = page.getByTestId("in-numbers");
+  await expect(numbers.getByTestId("insight").first()).toBeVisible();
+  await expect(numbers.getByTestId("related-dataset").first()).toBeVisible();
+
+  await page.getByTestId("footer-open-data").click();
+  const data = page.getByTestId("open-data-page");
+  await expect(data.getByTestId("portal-bayanat")).toBeVisible();
+  await expect(data.getByTestId("curated-dataset")).toHaveCount(4);
+  await expect(data.getByTestId("navigation-gaps")).toBeVisible();
+  await expect(data.getByTestId("gaps-download")).toHaveAttribute("href", /navigation-gaps\.csv$/);
 });

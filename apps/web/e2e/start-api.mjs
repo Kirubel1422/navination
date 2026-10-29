@@ -24,6 +24,7 @@ const env = {
   BAYANAT_ENABLED: "false",
   AJMAN_DATA_ENABLED: "false",
   PLACES_ENABLED: "false",
+  OPEN_DATA_SYNC: "false",
   APP_ENV: "test",
   SESSION_CREATE_LIMIT_PER_MINUTE: "1000",
   COACH_LIMIT_PER_MINUTE: "1000",

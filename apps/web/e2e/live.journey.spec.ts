@@ -1,6 +1,9 @@
 import { expect, test } from "@playwright/test";
 
-import { API, DEGREE_QUERY, expectNoHorizontalOverflow, saveProfile, search, setProgress, token } from "./helpers";
+import { classicFlow, API, DEGREE_QUERY, expectNoHorizontalOverflow, saveProfile, search, setProgress, token } from "./helpers";
+
+
+test.beforeEach(({ page }) => classicFlow(page));
 
 test("full demonstration journey against the real API", async ({ page, request }) => {
   // Discover and personalise.
